@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.header-links {
+    background-color: rgb(4, 0, 17);
+    color: rgb(245, 245, 245) !important;
+}
+.dropdown-item {
+    background-color: rgb(4, 0, 17);
+    color: rgb(245, 245, 245);
+}
+.dropdown-item:hover {
+    background-color: rgb(4, 0, 17);
+    color: rgb(190, 190, 190);
+}
+.menu-icon {
+    background-image: url("/assets/icons/menu.png");
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+}

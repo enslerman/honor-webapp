@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MainComponent } from './components/main/main.component';
 import { HeaderComponent } from './components/header/header.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserModule,
     AppRoutingModule,
     MatSliderModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
