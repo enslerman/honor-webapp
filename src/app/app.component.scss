@@ -43,3 +43,11 @@ button.menu-icon {
         font-size: large;
     }
 }
+.links:hover {
+    color: rgb(0, 225, 255);
+    cursor: pointer;
+}
+
+.vk {
+    background-image: url("/assets/icons/vk.svg");
+}
