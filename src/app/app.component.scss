@@ -1,0 +1,45 @@
+.header {  
+    flex-direction: column;
+    position: fixed;
+    background-color: transparent;
+    overflow: hidden;
+    height: 100vh;
+}
+.header-links {
+    background-color: rgb(4, 0, 17);
+    color: rgb(245, 245, 245) !important;
+    overflow-x:hidden;
+    font-size: large;
+}
+.dropdown-item {
+    background-color: rgb(4, 0, 17);
+    color: rgb(255, 255, 255);
+}
+.dropdown-item:hover {
+    background-color: rgb(4, 0, 17);
+    color: rgb(190, 190, 190);
+}
+.menu-icon {
+    background-image: url("/assets/icons/menu.png");
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    outline:none;
+}
+button.menu-icon {
+    position: fixed;
+}
+
+@media screen and (orientation: portrait) { 
+    .header-links {
+        background-color: rgb(4, 0, 17);
+        color: rgb(245, 245, 245) !important;
+        overflow-x:hidden;
+        width: 100vw;
+        text-align: center;
+        vertical-align: middle;
+        font-size: large;
+    }
+}
