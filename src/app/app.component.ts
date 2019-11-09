@@ -14,7 +14,7 @@ export class AppComponent implements OnInit, AfterViewInit{
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
-    }, 2000)
+    }, 1)
   }
 
 }
