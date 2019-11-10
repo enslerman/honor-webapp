@@ -38,7 +38,7 @@ div.main{
 html,
 body,
 .view {
-  height: 100vh;
+    height: 100vh;
 }
 
 /* Full Page Carousel itself*/
@@ -59,4 +59,24 @@ img {
   &.d-block {
     height: 100vh;
   }
+}
+
+.slider-img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+.logo {
+  position: absolute;
+  top: 5%;
+  right: 0;
+  left: 0;
+  margin: auto;
+  z-index: 10;
+  width: 10rem;
+  height: 7rem;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Intel-logo.svg/1280px-Intel-logo.svg.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
