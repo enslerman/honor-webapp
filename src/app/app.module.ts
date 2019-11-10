@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     MatIconModule,
     MatToolbarModule,
     MatListModule,
+    MDBBootstrapModule.forRoot(),
     NgxSpinnerModule
   ],
   providers: [],

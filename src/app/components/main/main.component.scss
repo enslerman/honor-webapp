@@ -14,9 +14,22 @@ img.hovered,
   a:hover>img.hovered { display: inline }
 
 div.main{
-    background-image: url("https://cs8.pikabu.ru/post_img/big/2017/12/01/8/1512135817197237547.jpg");
-    height: 100vh;
-    width: 100vw;
-    background-position: center center;
     color: white;
+}
+@media screen and (orientation: portrait) { 
+    .icons-links {
+        display: none;
+    }
+}
+
+.main-text {
+    font-family: 'Noto Sans';
+    font-style: italic;
+    font-weight: 400;
+    text-transform: lowercase;
+    width: 1050px;
+    font-size: 100px;
+    letter-spacing: 3.25px;
+    line-height: 146px;
+    margin-bottom: 40px;
 }

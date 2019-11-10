@@ -6,17 +6,17 @@
     height: 100vh;
 }
 .header-links {
-    background-color: rgb(4, 0, 17);
+    background-color: rgba(10, 10, 10, 0.849) !important;
     color: rgb(245, 245, 245) !important;
     overflow-x:hidden;
     font-size: large;
 }
 .dropdown-item {
-    background-color: rgb(4, 0, 17);
+    background-color: transparent;
     color: rgb(255, 255, 255);
 }
 .dropdown-item:hover {
-    background-color: rgb(4, 0, 17);
+    background-color: rgba(10, 10, 10, 0.849) !important;
     color: rgb(190, 190, 190);
 }
 .menu-icon {
@@ -27,6 +27,8 @@
     background-repeat: no-repeat;
     background-position: center center;
     outline:none;
+    position: fixed;
+    z-index: 99999;
 }
 button.menu-icon {
     position: fixed;
@@ -34,7 +36,7 @@ button.menu-icon {
 
 @media screen and (orientation: portrait) { 
     .header-links {
-        background-color: rgb(4, 0, 17);
+        background-color: rgba(10, 10, 10, 0.849);
         color: rgb(245, 245, 245) !important;
         overflow-x:hidden;
         width: 100vw;
