@@ -1,16 +1,9 @@
-div.main{
-    background-image: url("https://cs8.pikabu.ru/post_img/big/2017/12/01/8/1512135817197237547.jpg");
-    height: 100vh;
-    width: 100vw;
-    background-position: center center;
-    color: white;
-}
-
 .icons-links {
     background-color: transparent;
     position: absolute;
     top: 0;
     right: 0;
+    z-index: 9999;
 }
 .icons {
     width: 30px;
@@ -19,3 +12,11 @@ div.main{
 img.hovered,
   a:hover>img { display: none }
   a:hover>img.hovered { display: inline }
+
+div.main{
+    background-image: url("https://cs8.pikabu.ru/post_img/big/2017/12/01/8/1512135817197237547.jpg");
+    height: 100vh;
+    width: 100vw;
+    background-position: center center;
+    color: white;
+}
