@@ -20,6 +20,17 @@ div.main{
     .icons-links {
         display: none;
     }
+    .main-text {
+      font-family: 'Uni Sans Heavy Italic';
+      font-style: italic;
+      font-weight: 400;
+      text-transform: uppercase;
+      text-align: right;
+      font-size: 50px !important;
+      letter-spacing: 3.25px;
+      margin-bottom: 40px;
+      line-height: 60px !important;
+  }
 }
 
 .main-text {
@@ -27,7 +38,7 @@ div.main{
     font-style: italic;
     font-weight: 400;
     text-transform: uppercase;
-    width: 1050px;
+    text-align: right;
     font-size: 100px;
     letter-spacing: 3.25px;
     line-height: 146px;

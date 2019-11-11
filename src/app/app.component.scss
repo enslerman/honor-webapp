@@ -49,3 +49,13 @@ button.menu-icon {
     color: rgb(190, 190, 190);
     cursor: pointer;
 }
+
+.logo {
+    margin: auto;
+    z-index: 10;
+    height: 10rem;
+    background-image: url("/assets/images/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
