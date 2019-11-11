@@ -2,3 +2,13 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Noto Sans',Roboto, "Helvetica Neue", sans-serif; }
+
+@font-face {
+    font-family: 'Uni Sans Heavy Italic';
+    src: url('/assets/fonts/UniSansHeavyItalic.eot');
+    src: url('/assets/fonts/UniSansHeavyItalic.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/UniSansHeavyItalic.woff') format('woff'),
+    url('/assets/fonts/UniSansHeavyItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

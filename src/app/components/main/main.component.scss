@@ -23,10 +23,10 @@ div.main{
 }
 
 .main-text {
-    font-family: 'Noto Sans';
+    font-family: 'Uni Sans Heavy Italic';
     font-style: italic;
     font-weight: 400;
-    text-transform: lowercase;
+    text-transform: uppercase;
     width: 1050px;
     font-size: 100px;
     letter-spacing: 3.25px;
@@ -75,8 +75,9 @@ img {
   margin: auto;
   z-index: 10;
   width: 10rem;
-  height: 7rem;
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Intel-logo.svg/1280px-Intel-logo.svg.png");
+  height: 10rem;
+  background-image: url("/assets/images/logo.png");
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
 }
