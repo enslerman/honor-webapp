@@ -45,7 +45,19 @@
       <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
     </div>
     <div class="carousel-caption">
-      <p class="main-text">кек)0))</p>
+      <p class="main-text">МОО ВОС "ЧЕСТЬ"</p>
     </div>
   </mdb-carousel-item>
 </mdb-carousel>
+
+<section class="p-5 elegant-color-dark">
+  <div *ngFor="let item of slides; let i = index">
+    <div class="card bg-dark text-white w-25" [ngClass]="{'d-none d-md-block': cardIndex !== 0} "*ngFor="let card of item; let cardIndex = index">
+      <img [src]="card.img" class="card-img" alt="...">
+      <div class="card-img-overlay">
+        <h5 class="card-title">{{card.title}}</h5>
+        <p class="card-text text-muted">воспоминания</p>
+      </div>
+    </div>
+  </div>
+</section>
