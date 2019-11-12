@@ -14,7 +14,29 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 
+declare var Hammer: any;
+
+export class MyHammerConfig extends HammerGestureConfig {
+  overrides = <any> {
+    'pan': { direction: Hammer.DIRECTION_All },
+    'swipe': { direction: Hammer.DIRECTION_VERTICAL },
+  };
+
+  buildHammer(element: HTMLElement) {
+    const mc = new Hammer(element, {
+      touchAction: 'auto',
+          inputClass: Hammer.SUPPORT_POINTER_EVENTS ? Hammer.PointerEventInput : Hammer.TouchInput,
+          recognizers: [
+            [Hammer.Swipe, {
+              direction: Hammer.DIRECTION_HORIZONTAL
+            }]
+          ]
+    });
+    return mc;
+  }
+}
 
 @NgModule({
   declarations: [
@@ -34,7 +56,12 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule
   ],
-  providers: [],
+  providers: [
+    {
+    provide: HAMMER_GESTURE_CONFIG,
+    useClass: MyHammerConfig
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
