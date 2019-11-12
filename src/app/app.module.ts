@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 import { MatSliderModule } from '@angular/material/slider';
 import { MainComponent } from './components/main/main.component';
@@ -41,10 +43,11 @@ export class MyHammerConfig extends HammerGestureConfig {
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     MatSliderModule,
     BrowserAnimationsModule,
@@ -54,7 +57,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     MatToolbarModule,
     MatListModule,
     MDBBootstrapModule.forRoot(),
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    CarouselModule
   ],
   providers: [
     {
