@@ -50,9 +50,21 @@
   </mdb-carousel-item>
 </mdb-carousel>
 
+<div class="jumbotron jumbotron-fluid mb-0 cloudy-knoxville-gradient">
+  <div class="container d-sm-flex align-items-center justify-content-center">
+    <div class="mx-auto text-center mb-3">
+      <img src="/assets/images/logo.png" alt="logo" class="img-fluid logo-jum mx-auto">
+    </div>
+    <div class="ml-5 mr-3">
+      <h1 class="display-4">ЧЕСТЬ</h1>
+      <p class="lead">МЕЖРЕГИОНАЛЬНАЯ ОБЩЕСТВЕННАЯ ОРГАНИЗАЦИЯ ВЕТЕРАНОВ ОПЕРАТИВНЫХ СЛУЖБ</p>
+    </div>
+  </div>
+</div>
+
 <section class="p-5 elegant-color-dark">
   <div *ngFor="let item of slides; let i = index">
-    <div class="card bg-dark text-white w-25" [ngClass]="{'d-none d-md-block': cardIndex !== 0} "*ngFor="let card of item; let cardIndex = index">
+    <div class="card bg-dark text-white w-25" [ngClass]="{'d-none d-md-block': cardIndex !== 0}" *ngFor="let card of item; let cardIndex = index">
       <img [src]="card.img" class="card-img" alt="...">
       <div class="card-img-overlay">
         <h5 class="card-title">{{card.title}}</h5>
