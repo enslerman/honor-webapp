@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { HttpService } from 'src/app/services/http.service';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-main',
@@ -7,34 +10,64 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  cards = [
-    {
-      title: 'Записки о прошедшем времени. Ломов С.В.',
-      img: 'http://veteran-chest.ru/images/memory/Lomov.jpg'
-    },
-    {
-      title: 'Записки о прошедшем времени. Ломов С.В.',
-      img: 'http://veteran-chest.ru/images/memory/Lomov.jpg'
-    },
-    {
-      title: 'Записки о прошедшем времени. Ломов С.В.',
-      img: 'http://veteran-chest.ru/images/memory/Lomov.jpg'
-    },
-    {
-      title: 'Записки о прошедшем времени. Ломов С.В.',
-      img: 'http://veteran-chest.ru/images/memory/Lomov.jpg'
-    }
-  ];
-  slides: any = [[]];
-  chunk(arr, chunkSize) {
-    let R = [];
-    for (let i = 0, len = arr.length; i < len; i += chunkSize) {
-      R.push(arr.slice(i, i + chunkSize));
-    }
-    return R;
+  constructor(private http: HttpClient, private API: HttpService) {
+
   }
+
+  cards:any = [];
+
+  jopa:any = {
+    "id": "",
+    "title":"",
+    "description":"",
+    "image":""
+  };
+
+  async getPost(id){
+    this.jopa = await this.API.getPostById(id);
+  }
+
+  async getPosts(){
+    this.cards = await this.API.getMain();
+  }
+
   ngOnInit() {
-    this.slides = this.chunk(this.cards, 1);
+    
+    this.getPost(1)
+    this.getPosts().then(()=>{
+      console.log(this.cards);     
+    })
+   
+  }
+
+
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: false,
+    dots: false,
+    autoplay:true,
+    // autoplayTimeout:2000,
+    smartSpeed:3000,
+    rewind: true,
+    autoplayHoverPause:false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
   }
 
 }
