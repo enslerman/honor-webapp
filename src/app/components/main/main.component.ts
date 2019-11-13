@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpService } from 'src/app/services/http.service';
-import { OwlOptions } from 'ngx-owl-carousel-o';
+import { OwlOptions,SlidesOutputData } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-main',
@@ -35,24 +35,56 @@ export class MainComponent implements OnInit {
     
     this.getPost(1)
     this.getPosts().then(()=>{
-      console.log(this.cards);     
+      console.log(this.cards);
     })
    
   }
 
-
   customOptions: OwlOptions = {
     loop: true,
-    mouseDrag: true,
-    touchDrag: true,
+    mouseDrag: false,
+    touchDrag: false,
     pullDrag: false,
     dots: false,
     autoplay:true,
-    // autoplayTimeout:2000,
-    smartSpeed:3000,
+    autoplaySpeed:2500,
+    autoplayTimeout: 3000,
     rewind: true,
     autoplayHoverPause:false,
     navSpeed: 700,
+    animateOut: 'linear',
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+  }
+
+  customOptionsReverse: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    autoplay:true,
+    autoplaySpeed:2500,
+    autoplayTimeout: 3000,
+    rewind: true,
+    rtl:true,
+    autoplayHoverPause:false,
+    navSpeed: 700,
+    animateOut: 'linear',
+    animateIn: 'linear',
     navText: ['', ''],
     responsive: {
       0: {

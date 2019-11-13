@@ -65,30 +65,28 @@
 
 <div class="py-5 elegant-color-dark">
   <owl-carousel-o [options]="customOptions">
-      <ng-container *ngFor="let card of cards; let i = index">
-        <ng-template carouselSlide class="col-md-4 p-3">
-          <img [src]="card.image" class="card-img" alt="...">
-          <div class="card-img-overlay">
-            <h5 class="card-title">{{card.title}}</h5>
-            <p class="card-text text-muted">{{card.description}}</p>
+    <ng-container *ngFor="let card of cards">
+        <ng-template carouselSlide [id]="card.id" class ="parent">
+            <img [src]="card.image" class="card-text">
+            <div class="text-card">
+                <p class="text-desk-ch">Воспоминания</p>
+                <h4 class="text-desk">{{card.title}}</h4>
+            </div>
+          </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+</div>
+
+<div class="pb-5 elegant-color-dark overlay">
+    <owl-carousel-o [options]="customOptionsReverse">
+      <ng-container *ngFor="let card of cards">
+        <ng-template carouselSlide [id]="card.id" class ="parent mask rgba-red-strong">
+          <img [src]="card.image" class="card-text">
+          <div class="text-card">
+              <p class="text-desk-ch">Новости</p>
+              <h4 class="text-desk">{{card.title}}</h4>
           </div>
         </ng-template>
       </ng-container>
-  </owl-carousel-o>
+    </owl-carousel-o>
 </div>
-</div>
-<!-- <div class="slider">
-    <div class="slide-track">
-      <div class="slide" *ngFor="let card of cards; let i = index">
-        <img [src]="card.image" height="100" width="250">
-      </div>
-    </div>
-  </div> -->
-
-<!-- <div class="marquee">
-  <div class="marquee--inner">
-    <span>
-      <div class="orb"></div><div class="orb red"></div><div class="orb yellow"></div><div class="orb blue"></div><div class="orb orange"></div><div class="orb purple"></div><div class="orb green"></div><div class="orb"></div>
-    </span>
-  </div>
-</div> -->
