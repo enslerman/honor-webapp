@@ -28,9 +28,31 @@ div.main{
       text-align: right;
       font-size: 50px !important;
       letter-spacing: 3.25px;
-      margin-bottom: 40px;
+      margin-bottom: 5vh !important;
       line-height: 60px !important;
-  }
+    }
+    .slider-img {
+      position: absolute;
+      top: 0;
+      right: -20vh;
+      bottom: 0;
+      height: auto;
+      -ms-touch-action: auto !important;
+      touch-action: auto !important;
+      background-position: right;
+    }
+}
+
+@media screen and (orientation: landscape) {
+  .slider-img {
+    object-fit: cover;
+    width: 100vw;
+    height: auto;
+    -ms-touch-action: auto !important;
+    touch-action: auto !important;
+    background-position: right;
+    float: right;
+}
 }
 
 .main-text {
@@ -78,14 +100,6 @@ img {
   &.d-block {
     height: 100vh;
   }
-}
-
-.slider-img {
-    object-fit: cover;
-    width: 100vw;
-    height: auto;
-    -ms-touch-action: auto !important;
-    touch-action: auto !important;
 }
 
 .logo {
@@ -141,10 +155,10 @@ img {
   right: 0;
   left: 0;
   bottom: 0;
+  z-index: 9999;
   padding: 1.25rem;
 }
 
 .text-desk-ch {
   @include text-desk(16px,0)
 }
-

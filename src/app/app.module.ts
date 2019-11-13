@@ -17,6 +17,8 @@ import { MatListModule } from '@angular/material/list';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { MemoriesComponent } from './components/memories/memories.component';
+import { NewsComponent } from './components/news/news.component';
 
 declare var Hammer: any;
 
@@ -44,6 +46,8 @@ export class MyHammerConfig extends HammerGestureConfig {
   declarations: [
     AppComponent,
     MainComponent,
+    MemoriesComponent,
+    NewsComponent,
   ],
   imports: [
     BrowserModule,
