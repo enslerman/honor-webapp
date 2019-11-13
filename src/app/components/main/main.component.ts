@@ -47,10 +47,44 @@ export class MainComponent implements OnInit {
     pullDrag: false,
     dots: false,
     autoplay:true,
-    smartSpeed:2000,
+    autoplaySpeed:2500,
+    autoplayTimeout: 3000,
     rewind: true,
     autoplayHoverPause:false,
     navSpeed: 700,
+    animateOut: 'linear',
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+  }
+
+  customOptionsReverse: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    autoplay:true,
+    autoplaySpeed:2500,
+    autoplayTimeout: 3000,
+    rewind: true,
+    rtl:true,
+    autoplayHoverPause:false,
+    navSpeed: 700,
+    animateOut: 'linear',
+    animateIn: 'linear',
     navText: ['', ''],
     responsive: {
       0: {
