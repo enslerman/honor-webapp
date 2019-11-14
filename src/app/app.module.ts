@@ -19,6 +19,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { MemoriesComponent } from './components/memories/memories.component';
 import { NewsComponent } from './components/news/news.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 declare var Hammer: any;
 
@@ -48,6 +49,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     MainComponent,
     MemoriesComponent,
     NewsComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
