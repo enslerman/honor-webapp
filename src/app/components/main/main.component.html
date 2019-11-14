@@ -65,9 +65,28 @@
 <div class="bg-dark py-5">
   <div class="row" style="margin: 0 !important">
     <div class="col" *ngFor="let slide of visibleSlides; let i=index">
-      <div>
+      <div [routerLink]="['/memories', visibleSlides[i].id]">
         <img [src]="visibleSlides[i].image" class="w-100">
       </div>
     </div>
   </div>
 </div>
+
+
+<mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'"
+  [animation]="'slide'">
+  <mdb-carousel-item *ngFor="let item of slides; let i = index">
+    <div class="col-md-4" [ngClass]="{'d-none d-md-block': cardIndex !== 0}" *ngFor="let card of item; let cardIndex = index">
+      <mdb-card class="my-1">
+        <mdb-card-img [src]="card.image" alt="Card image cap"></mdb-card-img>
+        <mdb-card-body>
+          <mdb-card-title>
+            <h4>{{card.title}}</h4>
+          </mdb-card-title>
+          <p>{{card.description}}</p>
+          <a href="#" mdbBtn color="primary" class="waves-light" mdbWavesEffect>card.buttonText</a>
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+  </mdb-carousel-item>
+</mdb-carousel>
