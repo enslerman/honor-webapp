@@ -1,3 +1,4 @@
+<div style="width: 100vw;">
 <div class="main">
     <div class="icons-links text-right m-4">  
             <a class="text-right mx-2" href="#">
@@ -62,14 +63,38 @@
   </div>
 </div>
 
-<section class="p-5 elegant-color-dark">
-  <div *ngFor="let item of slides; let i = index">
-    <div class="card bg-dark text-white w-25" [ngClass]="{'d-none d-md-block': cardIndex !== 0}" *ngFor="let card of item; let cardIndex = index">
-      <img [src]="card.img" class="card-img" alt="...">
-      <div class="card-img-overlay">
-        <h5 class="card-title">{{card.title}}</h5>
-        <p class="card-text text-muted">воспоминания</p>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="py-5 elegant-color-dark">
+  <owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let card of cards">
+        <ng-template carouselSlide [id]="card.id" class ="parent">
+            <div class="view overlay" style="height: 100% !important;"  [routerLink]="['/memories', card.id]">
+                <a href="#" class ="card-text" [ngStyle]="{'background-image': 'url(' + card.image + ')'}">
+                  <div class="text-card">
+                      <p class="text-desk-ch">Воспоминания</p>
+                      <h4 class="text-desk">{{card.title}}</h4>
+                  </div>
+                </a>
+                <div class="mask rgba-red-strong"></div>
+              </div>
+          </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+</div>
+
+<div class="pb-5 elegant-color-dark">
+    <owl-carousel-o [options]="customOptionsReverse">
+      <ng-container *ngFor="let card of cards">
+        <ng-template carouselSlide [id]="card.id">
+          <div class="view overlay" style="height: 100% !important;" [routerLink]="['/news', card.id]">
+            <a class ="card-text" [ngStyle]="{'background-image': 'url(' + card.image + ')'}">
+              <div class="text-card">
+                  <p class="text-desk-ch">Новости</p>
+                  <h4 class="text-desk">{{card.title}}</h4>
+              </div>
+            </a>
+            <div class="mask rgba-blue-strong"></div>
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+</div>
