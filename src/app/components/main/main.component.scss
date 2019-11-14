@@ -121,12 +121,3 @@ img {
   width: 10rem; 
   height: auto;
 }
-
-.jopa {
-  ::before{
-    animation: 3s linear 1s slidein;
-  }
-  ::after{
-    animation: 3s linear 1s slidein;
-  }
-}

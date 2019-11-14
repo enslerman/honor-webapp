@@ -3,17 +3,43 @@
         <i (click)="sidenav.toggle()" class="btn-block text-right material-icons links" 
             style="outline:none;">arrow_back_ios</i>
         <div class="logo m-3"></div>
-        <a class="dropdown-item nav-link" href="#">я крокодил</a>
-        <a class="dropdown-item nav-link" href="#">крокожу</a>
-        <a class="dropdown-item nav-link" href="#">и буду крокодить</a>
-        <a class="dropdown-item nav-link" href="#">я крокодил</a>
-        <a class="dropdown-item nav-link" href="#">крокожу</a>
-        <a class="dropdown-item nav-link" href="#">и буду крокодить</a>
+        <a 
+            class="dropdown-item nav-link text-uppercase" 
+            routerLink="" 
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}"
+        >Главная</a>
+        <a 
+            class="dropdown-item nav-link text-uppercase" 
+            routerLink="news" 
+            routerLinkActive="active"
+        >Новости</a>
+        <a 
+            class="dropdown-item nav-link text-uppercase" 
+            routerLink="memories" 
+            routerLinkActive="active">Воспоминания</a>
+        <a 
+            class="dropdown-item nav-link text-uppercase" 
+            routerLink="rally" 
+            routerLinkActive="active"
+        >Автопробеги</a>
+        <a 
+            class="dropdown-item nav-link text-uppercase" 
+            routerLink="events" 
+            routerLinkActive="active"
+        >Мероприятия</a>
+        <a 
+            class="dropdown-item nav-link text-uppercase" 
+            routerLink="about" 
+            routerLinkActive="active"
+        >Об организации</a>
     </mat-sidenav>
-    <mat-sidenav-content>
+    <mat-sidenav-content style="width: 100vw;">
         <button mat-button (click)="sidenav.toggle()" class="menu-icon m-3" type="button"></button>
         <router-outlet></router-outlet>
+        <app-footer></app-footer>
     </mat-sidenav-content>
+
 </mat-sidenav-container>
 <ngx-spinner
 bdOpacity = 0.9
