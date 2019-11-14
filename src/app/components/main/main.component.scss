@@ -123,10 +123,16 @@ img {
 }
 
 .jopa {
-  ::before{
-    animation: 3s linear 1s slidein;
-  }
-  ::after{
-    animation: 3s linear 1s slidein;
-  }
+ position: relative;
+ display: inline;
+//  left: 10%;
+//  right:10%;
+}
+.hdnM{
+  position: relative;
+  width: 250px;
+  height: 250px;
+  //left: 10%;
+  // right:10%;
+ // visibility: hidden;
 }
