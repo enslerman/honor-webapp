@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpService } from 'src/app/services/http.service';
-import { OwlOptions,SlidesOutputData } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-main',
@@ -14,7 +13,11 @@ export class MainComponent implements OnInit {
 
   }
 
-  cards:any = [];
+
+  itemsPerSlide = 4;
+  singleSlideOffset = true;
+  slides:any = [];
+  visibleSlides:any=[];
 
   jopa:any = {
     "id": "",
@@ -23,83 +26,46 @@ export class MainComponent implements OnInit {
     "image":""
   };
 
+  
+    
+    
+
   async getPost(id){
     this.jopa = await this.API.getPostById(id);
   }
 
   async getPosts(){
-    this.cards = await this.API.getMain();
+    this.slides = await this.API.getMain();
   }
 
   ngOnInit() {
-    
+    let index=this.itemsPerSlide-1;
     this.getPost(1)
     this.getPosts().then(()=>{
-      console.log(this.cards);
-    })
+      console.log(this.slides);
+      for(let i=0;i<this.itemsPerSlide;i++){
+        this.visibleSlides.push(this.slides[i]);
+      }
+    });
+    
+    let a=()=>{
+      setTimeout(a, 1000);
+      console.log(index);
+      if(index<6)
+        index++;
+      else
+        index=0;
+      this.visibleSlides.push(this.slides[index]);
+      setTimeout(()=>{},1000)
+      this.visibleSlides=this.visibleSlides.slice(1);
+      
+      //  this.slides=this.slides.slice(1);
+        console.log(this.visibleSlides);
+        console.log(12);
+    }
+    setTimeout(a,1000);
+    
    
-  }
-
-  customOptions: OwlOptions = {
-    loop: true,
-    mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
-    dots: false,
-    autoplay:true,
-    autoplaySpeed:2500,
-    autoplayTimeout: 3000,
-    rewind: true,
-    autoplayHoverPause:false,
-    navSpeed: 700,
-    animateOut: 'linear',
-    navText: ['', ''],
-    responsive: {
-      0: {
-        items: 1
-      },
-      400: {
-        items: 2
-      },
-      740: {
-        items: 3
-      },
-      940: {
-        items: 4
-      }
-    },
-  }
-
-  customOptionsReverse: OwlOptions = {
-    loop: true,
-    mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
-    dots: false,
-    autoplay:true,
-    autoplaySpeed:2500,
-    autoplayTimeout: 3000,
-    rewind: true,
-    rtl:true,
-    autoplayHoverPause:false,
-    navSpeed: 700,
-    animateOut: 'linear',
-    animateIn: 'linear',
-    navText: ['', ''],
-    responsive: {
-      0: {
-        items: 1
-      },
-      400: {
-        items: 2
-      },
-      740: {
-        items: 3
-      },
-      940: {
-        items: 4
-      }
-    },
   }
 
 }
