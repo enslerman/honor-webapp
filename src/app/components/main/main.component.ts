@@ -42,7 +42,7 @@ export class MainComponent implements OnInit {
     let index=this.itemsPerSlide-1;
     this.getPost(1)
     this.getPosts().then(()=>{
-      console.log(this.slides);
+      // console.log(this.slides);
       for(let i=0;i<this.itemsPerSlide;i++){
         this.visibleSlides.push(this.slides[i]);
       }
@@ -50,7 +50,7 @@ export class MainComponent implements OnInit {
     
     let a=()=>{
       setTimeout(a, 1000);
-      console.log(index);
+      // console.log(index);
       if(index<6)
         index++;
       else
@@ -60,8 +60,8 @@ export class MainComponent implements OnInit {
       this.visibleSlides=this.visibleSlides.slice(1);
       
       //  this.slides=this.slides.slice(1);
-        console.log(this.visibleSlides);
-        console.log(12);
+        // console.log(this.visibleSlides);
+        // console.log(12);
     }
     setTimeout(a,1000);
     
