@@ -122,43 +122,11 @@ img {
   height: auto;
 }
 
-.card-text {
-  width: 20rem; 
-  height: 14rem; 
-  object-fit: cover;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-clip: border-box;
-  border: none;
-  border-radius: none;
-}
-@mixin text-desk($fontSize,$margin_bot) {
-  text-align: left;
-  color: white;
-  font-size: $fontSize;
-  letter-spacing: .55px;
-  line-height: 27px;
-  margin-bottom: $margin_bot;
-}
-.text-desk {
-  font-family: Uni Sans Heavy;
-  font-style: italic;
-  font-weight: 400;
-  text-transform: uppercase;
-  @include text-desk(24px,10px)
-}
-.text-card {
-  position: absolute;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 9999;
-  padding: 1.25rem;
-}
-
-.text-desk-ch {
-  @include text-desk(16px,0)
+.jopa {
+  ::before{
+    animation: 3s linear 1s slidein;
+  }
+  ::after{
+    animation: 3s linear 1s slidein;
+  }
 }

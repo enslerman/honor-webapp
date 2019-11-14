@@ -1,4 +1,3 @@
-<div style="width: 100vw;">
 <div class="main">
     <div class="icons-links text-right m-4">  
             <a class="text-right mx-2" href="#">
@@ -63,38 +62,12 @@
   </div>
 </div>
 
-<div class="py-5 elegant-color-dark">
-  <owl-carousel-o [options]="customOptions">
-    <ng-container *ngFor="let card of cards">
-        <ng-template carouselSlide [id]="card.id" class ="parent">
-            <div class="view overlay" style="height: 100% !important;"  [routerLink]="['/memories', card.id]">
-                <a href="#" class ="card-text" [ngStyle]="{'background-image': 'url(' + card.image + ')'}">
-                  <div class="text-card">
-                      <p class="text-desk-ch">Воспоминания</p>
-                      <h4 class="text-desk">{{card.title}}</h4>
-                  </div>
-                </a>
-                <div class="mask rgba-red-strong"></div>
-              </div>
-          </ng-template>
-    </ng-container>
-  </owl-carousel-o>
-</div>
-
-<div class="pb-5 elegant-color-dark">
-    <owl-carousel-o [options]="customOptionsReverse">
-      <ng-container *ngFor="let card of cards">
-        <ng-template carouselSlide [id]="card.id">
-          <div class="view overlay" style="height: 100% !important;" [routerLink]="['/news', card.id]">
-            <a class ="card-text" [ngStyle]="{'background-image': 'url(' + card.image + ')'}">
-              <div class="text-card">
-                  <p class="text-desk-ch">Новости</p>
-                  <h4 class="text-desk">{{card.title}}</h4>
-              </div>
-            </a>
-            <div class="mask rgba-blue-strong"></div>
-          </div>
-        </ng-template>
-      </ng-container>
-    </owl-carousel-o>
+<div class="bg-dark py-5">
+  <div class="row" style="margin: 0 !important;">
+    <div class="col" *ngFor="let slide of visibleSlides; let i=index">
+      <div>
+        <img [src]="visibleSlides[i].image" class="w-100 jopa">
+      </div>
+    </div>
+  </div>
 </div>
