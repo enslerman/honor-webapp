@@ -56,7 +56,6 @@ export class MainComponent implements OnInit {
     let index=this.itemsPerSlide-1;
     this.getPost(1)
     this.getPosts().then(()=>{
-      console.log(this.slides);
       for(let i=0;i<this.itemsPerSlide;i++){
         this.visibleSlides.push(this.slides[i]);
       }
