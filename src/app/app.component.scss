@@ -58,4 +58,9 @@ button.menu-icon {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-  }
+}
+
+.active {
+    background-color: white;
+    color: black;
+}
