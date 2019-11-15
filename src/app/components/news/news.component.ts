@@ -17,12 +17,12 @@ export class NewsComponent implements OnInit {
   id: number;
   news: any = [];
 
-  async getPosts(id){
+  async getPosts(){
     this.news = await this.API.getMain()
   }
 
   ngOnInit() {
-    this.getPosts(this.id).then(()=>{
+    this.getPosts().then(()=>{
       console.log(this.news);
     })
   }

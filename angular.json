@@ -47,6 +47,7 @@
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/slick-carousel/slick/slick.min.js",
               "node_modules/chart.js/dist/Chart.js",
+              "node_modules/screenfull/dist/screenfull.js",
               "node_modules/hammerjs/hammer.min.js"
             ]
           },

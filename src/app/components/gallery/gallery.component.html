@@ -1,1 +1,13 @@
-<p>gallery works!</p>
+<section class="container-fluid">
+    <div class="row" *ngFor="let item of albums">
+        <div class="col">
+            <div class="card bg-dark text-white">
+                <!-- <img [src]="item.image" class="card-img" alt="..."> -->
+                <div class="card-img-overlay">
+                    <h5 class="card-title">{{item.name}}</h5>
+                    <p class="card-text">{{item.creation_date}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
