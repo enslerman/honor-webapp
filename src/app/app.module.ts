@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { MatSliderModule } from '@angular/material/slider';
 import { MainComponent } from './components/main/main.component';
@@ -75,7 +74,6 @@ export class MyHammerConfig extends HammerGestureConfig {
     MatListModule,
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
-    CarouselModule.forRoot(),
     SlickCarouselModule
   ],
   providers: [
