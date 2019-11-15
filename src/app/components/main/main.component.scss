@@ -121,3 +121,9 @@ img {
   width: 10rem; 
   height: auto;
 }
+
+.slick-img {
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+}
