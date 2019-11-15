@@ -25,6 +25,7 @@ import { FullMemoComponent } from './components/full-memo/full-memo.component';
 import { FullRallyComponent } from './components/full-rally/full-rally.component';
 import { FullEventsComponent } from './components/full-events/full-events.component';
 import { AboutComponent } from './components/about/about.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 declare var Hammer: any;
 
@@ -74,7 +75,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     MatListModule,
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    SlickCarouselModule
   ],
   providers: [
     {

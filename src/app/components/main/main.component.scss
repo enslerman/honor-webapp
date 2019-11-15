@@ -122,17 +122,8 @@ img {
   height: auto;
 }
 
-.jopa {
- position: relative;
- display: inline;
-//  left: 10%;
-//  right:10%;
-}
-.hdnM{
-  position: relative;
-  width: 250px;
-  height: 250px;
-  //left: 10%;
-  // right:10%;
- // visibility: hidden;
+.slick-img {
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
 }
