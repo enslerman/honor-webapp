@@ -10,26 +10,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class NewsComponent implements OnInit {
 
-  constructor( 
-    private http: HttpClient, 
+  constructor(  
     private API: HttpService,
-    private activatedRouter: ActivatedRoute,
-    private router: Router,
-  ) {
-    this.activatedRouter.params.subscribe(param => {
-      this.id = param.id;
-    });
-  }
+  ) { }
 
   id: number;
-  news: any;
+  news: any = [];
 
-  async getPost(id){
-    this.news = await this.API.getPostById(id);
+  async getPosts(id){
+    this.news = await this.API.getMain()
   }
 
   ngOnInit() {
-    this.getPost(this.id).then(()=>{
+    this.getPosts(this.id).then(()=>{
       console.log(this.news);
     })
   }
