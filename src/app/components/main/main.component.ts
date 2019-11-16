@@ -18,11 +18,8 @@ export class MainComponent implements OnInit {
 
   constructor(private http: HttpClient, private API: HttpService) {}
 
-  // play1 = false;
-  // itemsPerSlide = 4;
-  // singleSlideOffset = true;
   slides:any = [];
-  // visibleSlides:any = [];
+  vh = window.innerHeight * 0.01;
 
   jopa:any = {
     "id": "",
@@ -32,50 +29,19 @@ export class MainComponent implements OnInit {
     hdn:false
   };
 
-  
-
-  // play(){
-  //   this.play1 =!this.play1;
-  //   setTimeout(() => this.play1 = false, 1000)
-
-  //   try {
-    
-  //   } catch (error) {
-      
-  //   }
-  // }
-    
-  // async getPost(id){
-  //   this.jopa = await this.API.getPostById(id);
-  // }
-
   async getPosts(){
     this.slides = await this.API.getMain();
   }
 
   ngOnInit() {
-    // let index=this.itemsPerSlide-1;
-    // this.getPost(1)
-    this.getPosts().then(()=> {
-      // for ( let i=0; i<this.itemsPerSlide; i++ ) {
-        // this.visibleSlides.push(this.slides[i]);
-      // }
+    window.addEventListener('resize', () => {
+      // We execute the same script as before
+      document.documentElement.style.setProperty('--vh', `${this.vh}px`);
     });
-    
-    // let a = () => {
-    //   setTimeout(() => this.play1 = false, 1000);
-    //   this.play1 = true;
-    //   this.visibleSlides[this.visibleSlides.length - 1].hdn = false;
-    //   if ( index < 6 ) index++;
-    //   else index=0;    
-    //   this.visibleSlides.push(this.slides[index]);
-    //   this.visibleSlides[this.visibleSlides.length-1].hdn = true;
-    //   setTimeout(() => {}, 1000)
-    //   this.visibleSlides=this.visibleSlides.slice(1);
-    //   setTimeout(a, 2000);
-    // }
+    this.getPosts().then(()=> {
 
-    // setTimeout(a, 2000);
+    });
+
   }
   
 
@@ -154,24 +120,4 @@ export class MainComponent implements OnInit {
       }
     ]
   }
-
-  // removeSlide() {
-  //   this.slides.length = this.slides.length - 1;
-  // }
-  
-  // slickInit(e) {
-  //   console.log('slick initialized');
-  // }
-  
-  // breakpoint(e) {
-  //   console.log('breakpoint');
-  // }
-  
-  // afterChange(e) {
-  //   console.log('afterChange');
-  // }
-  
-  // beforeChange(e) {
-  //   console.log('beforeChange');
-  // }
 }
