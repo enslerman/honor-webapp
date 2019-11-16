@@ -63,15 +63,6 @@
 </div>
 
 <div class="bg-dark">
-  <!-- <div class="row justify-content-center" style="margin: 0 !important;overflow: hidden;">
-    <ng-container *ngFor="let slide of visibleSlides; let i=index">
-        <div [@play]="play1" [@in] class="col hdnM" >
-          <div>
-            <img [src]="visibleSlides[i].image" class="w-100">
-          </div>
-        </div>
-    </ng-container>
-  </div> -->
 
   <ngx-slick-carousel class="slick-car" 
                       #slickModal="slick-carousel" 
@@ -91,13 +82,13 @@
   <ngx-slick-carousel class="slick-car" 
                       #slickModal="slick-carousel" 
                       [config]="slideConfig">
-    <div ngxSlickItem *ngFor="let slide of slides" class="slick-item view overlay" style="height: 100%;">
+    <div ngxSlickItem *ngFor="let slide of news" class="slick-item view overlay" style="height: 100%;">
       <div [routerLink]="['/news', slide.id]">
         <div class="slick-text">
           <p>Новости</p>
-          <h4>{{ slide.title }}</h4>
+          <h4 class="text-uppercase">{{ slide.title }}</h4>
         </div>
-        <img src="{{ slide.image }}" alt="" class="slick-img">
+        <img src="{{ slide.title_image }}" alt="" class="slick-img">
         <div class="mask rgba-black-strong"></div>
       </div>
     </div>

@@ -19,6 +19,7 @@ export class MainComponent implements OnInit {
   constructor(private http: HttpClient, private API: HttpService) {}
 
   slides:any = [];
+  news: any = [];
   vh = window.innerHeight * 0.01;
 
   jopa:any = {
@@ -33,13 +34,20 @@ export class MainComponent implements OnInit {
     this.slides = await this.API.getMain();
   }
 
+  async getNews(){
+    this.news = await this.API.getNews();
+  }
+
   ngOnInit() {
     window.addEventListener('resize', () => {
       // We execute the same script as before
       document.documentElement.style.setProperty('--vh', `${this.vh}px`);
     });
     this.getPosts().then(()=> {
-
+      console.log(this.slides)
+    });
+    this.getNews().then(()=> {
+      console.log(this.news)
     });
 
   }
