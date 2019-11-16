@@ -16,6 +16,7 @@ export class GalleryComponent implements OnInit {
 
   id: number;
   albums: any = [];
+  preview: any;
 
   async getAlbums(){
     this.albums = await this.API.getAlbums();
@@ -25,6 +26,9 @@ export class GalleryComponent implements OnInit {
   ngOnInit() {
     this.getAlbums().then(()=>{
       console.log(this.albums);
+      for (let i = 0; i < this.albums.length; i++) {
+        console.log(this.albums[i].images[0].url)
+      }
     })
   }
 

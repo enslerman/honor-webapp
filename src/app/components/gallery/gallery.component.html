@@ -1,12 +1,15 @@
-<section class="container-fluid">
-    <div class="row" *ngFor="let item of albums">
-        <div class="col">
-            <div class="card bg-dark text-white">
-                <!-- <img [src]="item.image" class="card-img" alt="..."> -->
-                <div class="card-img-overlay">
-                    <h5 class="card-title">{{item.name}}</h5>
-                    <p class="card-text">{{item.creation_date}}</p>
-                </div>
+<section class="cloudy-knoxville-gradient">
+    <h2 class="font-weight-bold py-5 text-center">Галерея</h2>
+    <div class="row no-gutters">
+        <div class="col-md-12">
+            <div id="mdb-lightbox-ui"></div>
+            <div class="mdb-lightbox" data-pswp-uid="4">
+                <figure class="col-md-4" *ngFor="let item of albums">
+                    <a [routerLink]="['/gallery', item.id]" data-size="1600x1067">
+                        <img [src]="item.images[0].url" class="img-fluid z-depth-1">
+                        <p class="text-center">{{item.name}}</p>
+                    </a>
+                </figure>
             </div>
         </div>
     </div>
