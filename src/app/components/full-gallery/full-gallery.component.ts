@@ -19,16 +19,18 @@ export class FullGalleryComponent implements OnInit {
   }
 
   id: number;
-  photos: any = [];
-  preview: any;
+  album: any = [];
+  images: any;
 
-  async getPhotos(){
-    this.photos = await this.API.getAlbumById(this.id);
+  async getAlbum(){
+    this.album = await this.API.getAlbumById(this.id);
+    this.images = this.album.images;
   }
 
   ngOnInit() {
-    this.getPhotos().then(()=>{
-      console.log(this.photos);
+    this.getAlbum().then(()=>{
+      console.log(this.album);
+      console.log(this.images);
     })
   }
 

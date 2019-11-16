@@ -27,6 +27,7 @@ import { AboutComponent } from './components/about/about.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { FullGalleryComponent } from './components/full-gallery/full-gallery.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { RallyComponent } from './components/rally/rally.component';
 
 declare var Hammer: any;
 
@@ -64,6 +65,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     AboutComponent,
     FullGalleryComponent,
     GalleryComponent,
+    RallyComponent,
   ],
   imports: [
     BrowserModule,
