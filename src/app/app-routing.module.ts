@@ -8,17 +8,23 @@ import { FullMemoComponent } from './components/full-memo/full-memo.component';
 import { AboutComponent } from './components/about/about.component';
 import { FullRallyComponent } from './components/full-rally/full-rally.component';
 import { FullEventsComponent } from './components/full-events/full-events.component';
+import { FullGalleryComponent } from './components/full-gallery/full-gallery.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { RallyComponent } from './components/rally/rally.component';
 
 
 const routes: Routes = [
   { path: "", component: MainComponent },
-  { path:"memories/:id", component: MemoriesComponent },
-  { path:"news/:id", component: NewsComponent },
-  { path:"news", component: FullNewsComponent },
-  { path:"memories", component: FullMemoComponent },
+  { path:"memories", component: MemoriesComponent },
+  { path:"news", component: NewsComponent },
+  { path:"news/:id", component: FullNewsComponent },
+  { path:"memories/:id", component: FullMemoComponent },
+  { path:"gallery/:id", component: FullGalleryComponent },
+  { path:"gallery", component: GalleryComponent },
   { path:"about", component: AboutComponent },
-  { path:"rally", component: FullRallyComponent },
-  { path:"events", component: FullEventsComponent },
+  { path:"rally/:id", component: FullRallyComponent },
+  { path:"rally", component: RallyComponent },
+  { path:"events/:id", component: FullEventsComponent },
   { path: "**", redirectTo: ""}
 ];
 
