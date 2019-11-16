@@ -21,7 +21,7 @@ export class HttpService {
     }
 
     getAlbumById(id) {
-        return this.http.get(`http://honor-webapp-server.std-763.ist.mospolytech.ru/getAlbums?id=${id}`).toPromise();
+        return this.http.get(`http://honor-webapp-server.std-763.ist.mospolytech.ru/getAlbum?id=${id}`).toPromise();
     }
 
     // postData(param:Object){
