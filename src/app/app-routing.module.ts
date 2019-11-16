@@ -11,6 +11,7 @@ import { FullEventsComponent } from './components/full-events/full-events.compon
 import { FullGalleryComponent } from './components/full-gallery/full-gallery.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { RallyComponent } from './components/rally/rally.component';
+import { EventsComponent } from './components/events/events.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path:"about", component: AboutComponent },
   { path:"rally/:id", component: FullRallyComponent },
   { path:"rally", component: RallyComponent },
+  { path:"events", component: EventsComponent },
   { path:"events/:id", component: FullEventsComponent },
   { path: "**", redirectTo: ""}
 ];

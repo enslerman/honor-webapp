@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { HttpService } from 'src/app/services/http.service';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-news',
@@ -15,10 +13,18 @@ export class NewsComponent implements OnInit {
   ) { }
 
   id: number;
-  news: any = [];
+  // news: any = [];
+  news:any = {
+    "author": "",
+    "description": "",
+    "id": "",
+    "time": "",
+    "title": "",
+    "title_image": ""
+  };
 
   async getPosts(){
-    this.news = await this.API.getMain()
+    this.news = await this.API.getNews()
   }
 
   ngOnInit() {
