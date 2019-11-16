@@ -28,6 +28,10 @@ export class HttpService {
         return this.http.get('http://honor-webapp-server.std-763.ist.mospolytech.ru/getAllNews').toPromise();
     }
 
+    getNewsById(id) {
+        return this.http.get(`http://honor-webapp-server.std-763.ist.mospolytech.ru/getNews?id=${id}`).toPromise();
+    }
+
     // postData(param:Object){
     //     //const body={message:param.message,from:param.from};
     //     return this.http.post('http://server.std-763.ist.mospolytech.ru/GuestBook.php',param,{responseType:"text"}).toPromise();

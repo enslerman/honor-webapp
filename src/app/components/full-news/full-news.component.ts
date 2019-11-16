@@ -19,10 +19,17 @@ export class FullNewsComponent implements OnInit {
   }
 
   id: number;
-  news: any = [];
+  news:any = {
+    "author": "",
+    "description": "",
+    "id": "",
+    "time": "",
+    "title": "",
+    "title_image": ""
+  };
 
   async getNews(){
-    this.news = await this.API.getPostById(this.id);
+    this.news = await this.API.getNewsById(this.id);
   }
 
   ngOnInit() {
