@@ -79,6 +79,7 @@ body,
 /* Full Page Carousel itself*/
 .carousel {
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   -ms-touch-action: auto !important;
   touch-action: auto !important;
 }
