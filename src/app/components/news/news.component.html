@@ -15,7 +15,7 @@
                 <h3 class="font-weight-bold mb-3"><strong>{{item.title}}</strong></h3>
                 <p class="dark-grey-text">{{item.description}}</p>
                 <p>от <a class="font-weight-bold">Admin</a>, 15.11.2019</p>
-                <a mdbBtn color="success" mdbWavesEffect>Читать далее</a>
+                <a mdbBtn color="success" mdbWavesEffect [routerLink]="['/news', item.id]">Читать далее</a>
             </div>
             </div>
             <hr class="py-5">

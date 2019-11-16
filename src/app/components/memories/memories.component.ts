@@ -24,12 +24,12 @@ export class MemoriesComponent implements OnInit {
   id: number;
   memo: any;
 
-  async getPost(id){
-    this.memo = await this.API.getPostById(id);
+  async getPosts(){
+    this.memo = await this.API.getMain();
   }
 
   ngOnInit() {
-    this.getPost(this.id).then(()=>{
+    this.getPosts().then(()=>{
       console.log(this.memo);
     })
   }

@@ -1,5 +1,24 @@
-<div class="bg-dark text-white p-5 container-fluid" style="width: 100vw">
-    <div class="bg-dark text-white" *ngFor="let item of memo | keyvalue">
-        <p>{{ item.key }} - {{ item.value }}</p>
-    </div>
-</div>
+<section>
+        <section class="px-5 cloudy-knoxville-gradient">
+            <h2 class="h1-responsive font-weight-bold text-center py-5">Воспоминания</h2>
+            <div *ngFor="let item of memo">
+                <div class="row">
+                <div class="col-lg-5 col-xl-4">
+                    <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4 waves-light" mdbWavesEffect>
+                    <img class="img-fluid" [src]="item.image">
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-xl-8">
+                    <h3 class="font-weight-bold mb-3"><strong>{{item.title}}</strong></h3>
+                    <p class="dark-grey-text">{{item.description}}</p>
+                    <p>от <a class="font-weight-bold">Admin</a>, 15.11.2019</p>
+                    <a mdbBtn color="success" mdbWavesEffect [routerLink]="['/memories', item.id]">Читать далее</a>
+                </div>
+                </div>
+                <hr class="py-5">
+            </div>
+        </section>
+    </section>
