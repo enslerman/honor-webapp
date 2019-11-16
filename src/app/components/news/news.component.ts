@@ -13,15 +13,7 @@ export class NewsComponent implements OnInit {
   ) { }
 
   id: number;
-  // news: any = [];
-  news:any = {
-    "author": "",
-    "description": "",
-    "id": "",
-    "time": "",
-    "title": "",
-    "title_image": ""
-  };
+  news:any=[{id:"0"}];
 
   async getPosts(){
     this.news = await this.API.getNews()
