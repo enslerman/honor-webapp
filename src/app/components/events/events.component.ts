@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { HttpService } from 'src/app/services/http.service';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-events',
@@ -15,7 +13,7 @@ export class EventsComponent implements OnInit {
   ) { }
 
   id: number;
-  news: any = [];
+  news:any=[{id:"0"}];
 
   async getPosts(){
     this.news = await this.API.getNews()

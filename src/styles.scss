@@ -12,3 +12,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-weight: normal;
     font-style: normal;
 }
+
+.btn-back {
+    display: inline;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.mdb-lightbox figure{
+    float: left;
+}
