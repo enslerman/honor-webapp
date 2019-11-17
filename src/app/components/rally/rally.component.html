@@ -1,5 +1,5 @@
-<section>
-    <section class="px-5 cloudy-knoxville-gradient">
+<section class="cloudy-knoxville-gradient">
+    <section class="px-3 cloudy-knoxville-gradient">
         <h2 class="h1-responsive font-weight-bold text-center py-5">Автопробеги</h2>
         <div *ngFor="let item of rally">
             <div class="row">
@@ -15,7 +15,7 @@
                 <h3 class="font-weight-bold mb-3"><strong>{{item.title}}</strong></h3>
                 <p class="dark-grey-text">{{item.description}}</p>
                 <p>от <a class="font-weight-bold">{{item.author}}</a>, {{item.time}}</p>
-                <a mdbBtn color="success" mdbWavesEffect [routerLink]="['/events', item.id]">Читать далее</a>
+                <a mdbBtn color="success" mdbWavesEffect [routerLink]="['/rally', item.id]">Читать далее</a>
             </div>
             </div>
             <hr class="py-5">

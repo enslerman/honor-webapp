@@ -16,16 +16,21 @@ export class EventsComponent implements OnInit {
   events:any=[{
     id:"0",
     album: {
-      images: []
+      images: [{
+        id: 0,
+        name: "",
+        server_path: "",
+        url: ""
+      }]
     }
   }];
 
-  async getPosts(){
+  async getEvents(){
     this.events = await this.API.getEvents()
   }
 
   ngOnInit() {
-    this.getPosts().then(()=>{
+    this.getEvents().then(()=>{
       console.log(this.events);
     })
   }

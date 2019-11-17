@@ -1,25 +1,26 @@
 <section class="cloudy-knoxville-gradient pt-5">
-        <button routerLink="/events" type="button" class="btn-back" mdbBtn color="danger" outline="true" mdbWavesEffect>Вернуться назад</button>
+    <button routerLink="/events" type="button" class="btn-back" mdbBtn color="danger" outline="true" mdbWavesEffect>Вернуться назад</button>
         <section class="p-3">
             <div class="row">
                 <div class="col-md-12">
                 <mdb-card cascade="true" wider="true" reverse="true">
                     <div class="view view-cascade overlay waves-light" mdbWavesEffect>
-                        <mdb-card-img [src]="memo.image" alt="Wide sample post image"></mdb-card-img>
+                        <mdb-card-img [src]="event.album.images[0].url" alt="Wide sample post image"></mdb-card-img>
                         <a>
                             <div class="mask rgba-white-slight"></div>
                         </a>
                     </div>
                     <mdb-card-body cascade="true" class="text-center">
                         <h2>
-                            <a class="font-weight-bold">{{memo.title}}</a>
+                            <a class="font-weight-bold">{{event.title}}</a>
                         </h2>
+                        <p>Написано <a>{{event.author}}</a>, {{event.time}}</p>
                     </mdb-card-body>
                 </mdb-card>
                 <div class="excerpt mt-5">
-                    <p>{{memo.description}}</p>
+                    <p>{{event.description}}</p>
                 </div>
                 </div>
             </div>
         </section>
-    </section>
+</section>
