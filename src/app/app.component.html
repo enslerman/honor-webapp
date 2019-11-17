@@ -2,43 +2,50 @@
     <mat-sidenav #sidenav over class="header-links p-3">
         <i (click)="sidenav.toggle()" class="btn-block text-right material-icons links" 
             style="outline:none;">arrow_back_ios</i>
-        <div class="logo m-3"></div>
+        <div class="logo m-3" routerLink=""></div>
         <a 
             class="dropdown-item nav-link text-uppercase" 
             routerLink="" 
             routerLinkActive="active"
             style="outline: none;"
             [routerLinkActiveOptions]="{exact:true}"
+            (click)="sidenav.toggle()"
         >Главная</a>
         <a 
             class="dropdown-item nav-link text-uppercase" 
             routerLink="news" 
             routerLinkActive="active"
+            (click)="sidenav.toggle()"
         >Новости</a>
         <a 
             class="dropdown-item nav-link text-uppercase" 
             routerLink="gallery" 
             routerLinkActive="active"
+            (click)="sidenav.toggle()"
         >Галерея</a>
         <a 
             class="dropdown-item nav-link text-uppercase" 
             routerLink="memories" 
             routerLinkActive="active"
+            (click)="sidenav.toggle()"
         >Воспоминания</a>
         <a 
             class="dropdown-item nav-link text-uppercase" 
             routerLink="rally" 
             routerLinkActive="active"
+            (click)="sidenav.toggle()"
         >Автопробеги</a>
         <a 
             class="dropdown-item nav-link text-uppercase" 
             routerLink="events" 
             routerLinkActive="active"
+            (click)="sidenav.toggle()"
         >Мероприятия</a>
         <a 
             class="dropdown-item nav-link text-uppercase" 
             routerLink="about" 
             routerLinkActive="active"
+            (click)="sidenav.toggle()"
         >Об организации</a>
     </mat-sidenav>
     <mat-sidenav-content style="width: 100vw;">

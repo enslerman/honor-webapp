@@ -12,6 +12,7 @@ import { FullGalleryComponent } from './components/full-gallery/full-gallery.com
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { RallyComponent } from './components/rally/rally.component';
 import { EventsComponent } from './components/events/events.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 
 const routes: Routes = [
@@ -27,7 +28,7 @@ const routes: Routes = [
   { path:"rally", component: RallyComponent },
   { path:"events", component: EventsComponent },
   { path:"events/:id", component: FullEventsComponent },
-  { path: "**", redirectTo: ""}
+  { path: "**", component: NotfoundComponent }
 ];
 
 @NgModule({
