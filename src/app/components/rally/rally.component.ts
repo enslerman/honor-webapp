@@ -19,15 +19,15 @@ export class RallyComponent implements OnInit {
   }
 
   id: number;
-  memo: any;
+  rally: any;
 
   async getPosts(){
-    this.memo = await this.API.getMain();
+    this.rally = await this.API.getRally();
   }
 
   ngOnInit() {
     this.getPosts().then(()=>{
-      console.log(this.memo);
+      console.log(this.rally);
     })
   }
 
