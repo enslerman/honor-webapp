@@ -13,15 +13,20 @@ export class EventsComponent implements OnInit {
   ) { }
 
   id: number;
-  news:any=[{id:"0"}];
+  events:any=[{
+    id:"0",
+    album: {
+      images: []
+    }
+  }];
 
   async getPosts(){
-    this.news = await this.API.getNews()
+    this.events = await this.API.getEvents()
   }
 
   ngOnInit() {
     this.getPosts().then(()=>{
-      console.log(this.news);
+      console.log(this.events);
     })
   }
 
