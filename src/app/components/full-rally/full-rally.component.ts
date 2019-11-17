@@ -19,20 +19,36 @@ export class FullRallyComponent implements OnInit {
   }
 
   id: number;
-  memo:any = {
-    id: "",
-    "title": "",
-    "description": "",
-    "image": ""
+  rally:any = {
+    album: {
+      id: 0, 
+      name: "", 
+      images: [{
+        id: 0,
+        name: "",
+        server_path: "",
+        url: ""
+      }]
+    },
+    author: "",
+    comments: [],
+    description: "",
+    id: 0,
+    time: "",
+    title: "",
+    type: {
+      id: 0, 
+      name: ""
+    }
   };
 
-  async getMemo(){
-    this.memo = await this.API.getPostById(this.id);
+  async getEvent(){
+    this.rally = await this.API.getEventById(this.id);
   }
 
   ngOnInit() {
-    this.getMemo().then(()=>{
-      console.log(this.memo);
+    this.getEvent().then(()=>{
+      console.log(this.rally);
     })
   }
 
