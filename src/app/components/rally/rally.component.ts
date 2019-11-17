@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from 'src/app/services/http.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-rally',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RallyComponent implements OnInit {
 
-  constructor() { }
+  constructor(  
+    private API: HttpService,
+    private activatedRouter: ActivatedRoute,
+  ) {
+    this.activatedRouter.params.subscribe(param => {
+      this.id = param.id;
+    });
+  }
+
+  id: number;
+  memo: any;
+
+  async getPosts(){
+    this.memo = await this.API.getMain();
+  }
 
   ngOnInit() {
+    this.getPosts().then(()=>{
+      console.log(this.memo);
+    })
   }
 
 }

@@ -13,6 +13,7 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { RallyComponent } from './components/rally/rally.component';
 import { EventsComponent } from './components/events/events.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { AwardsComponent } from './components/awards/awards.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path:"rally/:id", component: FullRallyComponent },
   { path:"rally", component: RallyComponent },
   { path:"events", component: EventsComponent },
+  { path:"awards", component: AwardsComponent },
   { path:"events/:id", component: FullEventsComponent },
   { path: "**", component: NotfoundComponent }
 ];
