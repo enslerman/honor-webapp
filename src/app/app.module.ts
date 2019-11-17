@@ -31,6 +31,7 @@ import { RallyComponent } from './components/rally/rally.component';
 import { EventsComponent } from './components/events/events.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { AwardsComponent } from './components/awards/awards.component';
+import { FullAwardsComponent } from './components/full-awards/full-awards.component';
 
 declare var Hammer: any;
 
@@ -72,6 +73,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     EventsComponent,
     NotfoundComponent,
     AwardsComponent,
+    FullAwardsComponent,
   ],
   imports: [
     BrowserModule,

@@ -14,23 +14,25 @@ import { RallyComponent } from './components/rally/rally.component';
 import { EventsComponent } from './components/events/events.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { AwardsComponent } from './components/awards/awards.component';
+import { FullAwardsComponent } from './components/full-awards/full-awards.component';
 
 
 const routes: Routes = [
-  { path: "", component: MainComponent },
-  { path:"memories", component: MemoriesComponent },
-  { path:"news", component: NewsComponent },
-  { path:"news/:id", component: FullNewsComponent },
+  { path: "",            component: MainComponent },
+  { path:"memories",     component: MemoriesComponent },
   { path:"memories/:id", component: FullMemoComponent },
-  { path:"gallery/:id", component: FullGalleryComponent },
-  { path:"gallery", component: GalleryComponent },
-  { path:"about", component: AboutComponent },
-  { path:"rally/:id", component: FullRallyComponent },
-  { path:"rally", component: RallyComponent },
-  { path:"events", component: EventsComponent },
-  { path:"awards", component: AwardsComponent },
-  { path:"events/:id", component: FullEventsComponent },
-  { path: "**", component: NotfoundComponent }
+  { path:"news",         component: NewsComponent },
+  { path:"news/:id",     component: FullNewsComponent },
+  { path:"gallery",      component: GalleryComponent },
+  { path:"gallery/:id",  component: FullGalleryComponent },
+  { path:"rally",        component: RallyComponent },
+  { path:"rally/:id",    component: FullRallyComponent },
+  { path:"events",       component: EventsComponent },
+  { path:"events/:id",   component: FullEventsComponent },
+  { path:"awards",       component: AwardsComponent },
+  { path:"awards/:id",   component: FullAwardsComponent },
+  { path:"about",        component: AboutComponent },
+  { path:"**",           component: NotfoundComponent }
 ];
 
 @NgModule({

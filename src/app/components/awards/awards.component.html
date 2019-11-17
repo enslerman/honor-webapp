@@ -2,51 +2,18 @@
     <h1 class="h1-responsive font-weight-bold my-3">Награды</h1>
     <div class="row">
 
-        <div class="col-lg-4 col-md-12 mb-lg-0 mb-4">
+        <div class="col-lg-4 col-md-12 mb-lg-0 mb-4" *ngFor="let item of awards">
             <div class="view overlay rounded z-depth-2 mb-4 waves-light" mdbWavesEffect>
                 <img class="img-fluid" src="/assets/images/awards/img_0556.jpg" alt="Sample image" style="height: 17rem; object-fit: cover; width: 100%;">
                 <a>
                     <div class="mask rgba-white-slight"></div>
                 </a>
             </div>
-            <h4 class="font-weight-bold mb-3"><strong>Медаль "Ветеран Милиции"</strong></h4>
+            <h4 class="font-weight-bold mb-3"><strong>{{item.name}}</strong></h4>
             <p>by <a class="font-weight-bold">Admin</a>, 17/11/2019</p>
-            <p class="dark-grey-text">Медаль «Ветеран милиции» является общественной наградой, учрежденной 
-                Межрегиональной общественной организацией ветеранов оперативных служб «Честь» в воздаяние заслуг 
-                сотрудников органов внутренних дел по охране правопорядка и защите прав и законных интересов граждан.</p>
-            <a mdbBtn color="pink" rounded="true" mdbWavesEffect>ЧИТАТЬ ДАЛЕЕ</a>
+            <p class="dark-grey-text">{{item.description}}</p>
+            <a mdbBtn color="pink" rounded="true" mdbWavesEffect [routerLink]="['/awards', item.id]">ЧИТАТЬ ДАЛЕЕ</a>
         </div>
 
-        <div class="col-lg-4 col-md-6 mb-md-0 mb-4">
-            <div class="view overlay rounded z-depth-2 mb-4 waves-light" mdbWavesEffect>
-                <img class="img-fluid" src="/assets/images/awards/mch3.jpg" alt="Sample image" style="height: 17rem; object-fit: cover; width: 100%;">
-                <a>
-                    <div class="mask rgba-white-slight"></div>
-                </a>
-            </div>
-            <h4 class="font-weight-bold mb-3"><strong>Медаль имени «Николая Анисимовича Щелокова»</strong></h4>
-            <p>by <a class="font-weight-bold">Admin</a>, 17/11/2019</p>
-            <p class="dark-grey-text">Медаль имени Министра внутренних дел СССР генерала армии 
-                Николая Анисимовича Щёлокова является общественной наградой, учреждённой МОО ВОС «ЧЕСТЬ», 
-                в воздаяние заслуг сотрудникам и ветеранам органов внутренних дел по охране  общественного 
-                порядка и защите прав и законных интересов граждан, а также деятелям искусств, культуры и 
-                средств массовой информации.</p>
-            <a mdbBtn color="deep-orange" rounded="true" mdbWavesEffect>ЧИТАТЬ ДАЛЕЕ</a>
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-0">
-            <div class="view overlay rounded z-depth-2 mb-4 waves-light" mdbWavesEffect>
-                <img class="img-fluid" src="/assets/images/awards/nag.JPG" alt="Sample image" style="height: 17rem; object-fit: cover; width: 100%;">
-                <a>
-                    <div class="mask rgba-white-slight"></div>
-                </a>
-            </div>
-            <h4 class="font-weight-bold mb-3"><strong>Общественная награда - орден имени Аркадия Францевича Кошко</strong></h4>
-            <p>by <a class="font-weight-bold">Admin</a>, 17/11/2019</p>
-            <p class="dark-grey-text">Орден имени Аркадия Францевича Кошко Общественная награда 
-                отображает признание общества, его благодарность, отдельно взятому человеку за 
-                конкретный и неоценимый вклад в порядок, добродетель и благополучие граждан своей великой страны.</p>
-            <a mdbBtn color="info" rounded="true" mdbWavesEffect>ЧИТАТЬ ДАЛЕЕ</a>
-        </div>
     </div>
 </section>
