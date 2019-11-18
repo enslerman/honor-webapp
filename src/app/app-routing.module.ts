@@ -15,6 +15,7 @@ import { EventsComponent } from './components/events/events.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { AwardsComponent } from './components/awards/awards.component';
 import { FullAwardsComponent } from './components/full-awards/full-awards.component';
+import { PreloadAllModules } from '@angular/router'
 
 
 const routes: Routes = [
@@ -36,7 +37,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
