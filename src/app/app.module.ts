@@ -59,11 +59,11 @@ export class MyHammerConfig extends HammerGestureConfig {
   declarations: [
     AppComponent,
     MainComponent,
-    MemoriesComponent,
+    
     NewsComponent,
     FooterComponent,
     FullNewsComponent,
-    FullMemoComponent,
+
     FullRallyComponent,
     FullEventsComponent,
     AboutComponent,

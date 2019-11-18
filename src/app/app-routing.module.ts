@@ -15,28 +15,58 @@ import { EventsComponent } from './components/events/events.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { AwardsComponent } from './components/awards/awards.component';
 import { FullAwardsComponent } from './components/full-awards/full-awards.component';
+import { PreloadAllModules } from '@angular/router'
+import { MemoriesModule } from './modules/memories/memories.module';
 
 
 const routes: Routes = [
-  { path: "",            component: MainComponent },
-  { path:"memories",     component: MemoriesComponent },
-  { path:"memories/:id", component: FullMemoComponent },
-  { path:"news",         component: NewsComponent },
-  { path:"news/:id",     component: FullNewsComponent },
-  { path:"gallery",      component: GalleryComponent },
-  { path:"gallery/:id",  component: FullGalleryComponent },
-  { path:"rally",        component: RallyComponent },
-  { path:"rally/:id",    component: FullRallyComponent },
-  { path:"events",       component: EventsComponent },
-  { path:"events/:id",   component: FullEventsComponent },
-  { path:"awards",       component: AwardsComponent },
-  { path:"awards/:id",   component: FullAwardsComponent },
-  { path:"about",        component: AboutComponent },
-  { path:"**",           component: NotfoundComponent }
+  { path: "", pathMatch: 'full',            
+    component: MainComponent 
+  },
+  { path:"memories",     
+    loadChildren: () => import('./modules/memories/memories.module').then(m => m.MemoriesModule)
+  },
+  
+  { path:"news",         
+    component: NewsComponent 
+  },
+  { path:"news/:id",     
+    component: FullNewsComponent 
+  },
+  { path:"gallery",      
+    component: GalleryComponent 
+  },
+  { path:"gallery/:id",  
+    component: FullGalleryComponent 
+  },
+  { path:"rally",        
+    component: RallyComponent 
+  },
+  { path:"rally/:id",    
+    component: FullRallyComponent 
+  },
+  { path:"events",       
+    component: EventsComponent 
+  },
+  { path:"events/:id",   
+    component: FullEventsComponent 
+  },
+  { path:"awards",       
+    component: AwardsComponent 
+  },
+  { path:"awards/:id",   
+    component: FullAwardsComponent 
+  },
+  { path:"about",        
+    component: AboutComponent 
+  },
+  { path:"**",           
+    component: NotfoundComponent 
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
