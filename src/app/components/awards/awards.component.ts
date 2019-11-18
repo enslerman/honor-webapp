@@ -13,7 +13,22 @@ export class AwardsComponent implements OnInit {
   ) { }
 
   id: number;
-  awards:any=[{
+  awards: any = [{
+    album: {
+      id: 0, 
+      name: "", 
+      images: [{
+        id: 0,
+        name: "",
+        server_path: "",
+        url: ""
+      }]
+    },
+    description: "",
+    id: 0,
+    name: "",
+    small_description: "",
+    veterans: []
   }];
 
   async getAwards(){

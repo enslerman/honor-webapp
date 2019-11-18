@@ -19,8 +19,23 @@ export class FullAwardsComponent implements OnInit {
   }
 
   id: number;
-  award:any = {
-  };
+  award: any = [{
+    album: {
+      id: 0, 
+      name: "", 
+      images: [{
+        id: 0,
+        name: "",
+        server_path: "",
+        url: ""
+      }]
+    },
+    description: "",
+    id: 0,
+    name: "",
+    small_description: "",
+    veterans: []
+  }];
   veterans: any;
 
   async getAward(){
