@@ -16,18 +16,17 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { AwardsComponent } from './components/awards/awards.component';
 import { FullAwardsComponent } from './components/full-awards/full-awards.component';
 import { PreloadAllModules } from '@angular/router'
+import { MemoriesModule } from './modules/memories/memories.module';
 
 
 const routes: Routes = [
-  { path: "",            
+  { path: "", pathMatch: 'full',            
     component: MainComponent 
   },
   { path:"memories",     
-    component: MemoriesComponent 
+    loadChildren: () => import('./modules/memories/memories.module').then(m => m.MemoriesModule)
   },
-  { path:"memories/:id", 
-    component: FullMemoComponent 
-  },
+  
   { path:"news",         
     component: NewsComponent 
   },
