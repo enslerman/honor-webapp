@@ -20,6 +20,7 @@ export class FullAwardsComponent implements OnInit {
     });
   }
 
+  title_image: any;
   id: number;
   award: any = [{
     album: {
@@ -43,6 +44,7 @@ export class FullAwardsComponent implements OnInit {
   async getAward(){
     this.award = await this.API.getAwardById(this.id);
     this.veterans = this.award.veterans;
+    this.title_image = this.award.album.images[0].url;
   }
 
   ngOnInit() {
