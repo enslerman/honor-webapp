@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-full-gallery',
@@ -12,6 +13,7 @@ export class FullGalleryComponent implements OnInit {
   constructor(  
     private API: HttpService, 
     private activatedRouter: ActivatedRoute,
+    private location:Location
   ) { 
     this.activatedRouter.params.subscribe(param => {
       this.id = param.id;
@@ -32,6 +34,10 @@ export class FullGalleryComponent implements OnInit {
       console.log(this.album);
       console.log(this.images);
     })
+  }
+
+  goBack(){
+    this.location.back();
   }
 
 }
