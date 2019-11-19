@@ -57,7 +57,7 @@
     <mat-sidenav-content style="width: 100vw;">
         <!-- <button mat-button (click)="sidenav.toggle()" class="menu-icon m-3" type="button"></button> -->
         <i (click)="sidenav.toggle()" class="material-icons md-light menu-icon p-3">menu</i>
-        <router-outlet></router-outlet>
+        <router-outlet (activate)="onActivate($event)"></router-outlet>
         <app-footer></app-footer>
     </mat-sidenav-content>
 

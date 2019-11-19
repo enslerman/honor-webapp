@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSliderModule } from '@angular/material/slider';
-import { MainComponent } from './components/main/main.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,10 +15,14 @@ import { MatListModule } from '@angular/material/list';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { MatCardModule, MatCardTitle, MatCardHeader } from '@angular/material/card';
+
+import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutComponent } from './components/about/about.component';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+
 
 declare var Hammer: any;
 
@@ -60,6 +63,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
+    MatCardModule,
     MatToolbarModule,
     MatListModule,
     MDBBootstrapModule.forRoot(),

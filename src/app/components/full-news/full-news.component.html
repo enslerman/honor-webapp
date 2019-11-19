@@ -1,11 +1,11 @@
 <section class="cloudy-knoxville-gradient pt-5">
     <button (click)="goBack()" type="button" class="btn-back" mdbBtn color="danger" outline="true" mdbWavesEffect>Вернуться назад</button>
     <section class="p-3">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-12">
             <mdb-card cascade="true" wider="true" reverse="true">
                 <div class="view view-cascade overlay waves-light" mdbWavesEffect>
-                    <mdb-card-img [src]="news.title_image" alt="Wide sample post image"></mdb-card-img>
+                    <mdb-card-img [src]="news.title_image" class="view-img"></mdb-card-img>
                     <a>
                         <div class="mask rgba-white-slight"></div>
                     </a>
@@ -21,6 +21,24 @@
                 <p>{{news.description}}</p>
             </div>
             </div>
-        </div>
+        </div> -->
+
+
+
+
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>{{news.title}}</mat-card-title>
+                <mat-card-subtitle>Опубликовано {{news.author}} в {{news.time}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="news.title_image">
+            <mat-card-content>
+                <p>{{news.description}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions>
+        </mat-card>
     </section>
 </section>
