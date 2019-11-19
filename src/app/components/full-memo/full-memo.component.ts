@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-full-memo',
@@ -12,6 +13,7 @@ export class FullMemoComponent implements OnInit {
   constructor(  
     private API: HttpService, 
     private activatedRouter: ActivatedRoute,
+    private location:Location
   ) { 
     this.activatedRouter.params.subscribe(param => {
       this.id = param.id;
@@ -34,6 +36,10 @@ export class FullMemoComponent implements OnInit {
     this.getMemo().then(()=>{
       console.log(this.memo);
     })
+  }
+
+  goBack(){
+    this.location.back();
   }
 
 }

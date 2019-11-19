@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-full-rally',
@@ -12,6 +13,7 @@ export class FullRallyComponent implements OnInit {
   constructor(  
     private API: HttpService, 
     private activatedRouter: ActivatedRoute,
+    private location:Location
   ) { 
     this.activatedRouter.params.subscribe(param => {
       this.id = param.id;
@@ -50,6 +52,10 @@ export class FullRallyComponent implements OnInit {
     this.getEvent().then(()=>{
       console.log(this.rally);
     })
+  }
+
+  goBack(){
+    this.location.back();
   }
 
 }

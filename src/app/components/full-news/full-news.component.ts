@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-full-news',
@@ -12,8 +13,10 @@ export class FullNewsComponent implements OnInit {
   constructor(  
     private API: HttpService, 
     private activatedRouter: ActivatedRoute,
+    private location:Location
   ) { 
     this.activatedRouter.params.subscribe(param => {
+      console.log(param);
       this.id = param.id;
     });
   }
@@ -36,6 +39,10 @@ export class FullNewsComponent implements OnInit {
     this.getNews().then(()=>{
       console.log(this.news);
     })
+  }
+
+  goBack(){
+    this.location.back();
   }
 
 }

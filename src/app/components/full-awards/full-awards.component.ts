@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-full-awards',
@@ -12,6 +13,7 @@ export class FullAwardsComponent implements OnInit {
   constructor(  
     private API: HttpService, 
     private activatedRouter: ActivatedRoute,
+    private location:Location
   ) { 
     this.activatedRouter.params.subscribe(param => {
       this.id = param.id;
@@ -48,6 +50,10 @@ export class FullAwardsComponent implements OnInit {
       console.log(this.award);
       console.log(this.veterans)
     })
+  }
+
+  goBack(){
+    this.location.back();
   }
 
 }
