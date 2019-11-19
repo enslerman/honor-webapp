@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import * as screenfull from 'screenfull';
 
 @Component({
   selector: 'app-full-gallery',
@@ -38,6 +39,12 @@ export class FullGalleryComponent implements OnInit {
 
   goBack(){
     this.location.back();
+  }
+
+  openPic() {
+    if (screenfull.isEnabled) {
+      screenfull.request();
+    }
   }
 
 }
