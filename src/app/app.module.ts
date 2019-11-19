@@ -16,7 +16,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { MatCardModule, MatCardTitle, MatCardHeader } from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -63,12 +63,12 @@ export class MyHammerConfig extends HammerGestureConfig {
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
-    MatCardModule,
     MatToolbarModule,
     MatListModule,
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    MatCardModule
   ],
   providers: [
     {

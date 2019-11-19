@@ -12,6 +12,7 @@ import { MatListModule } from '@angular/material/list';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     MatListModule,
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    MatCardModule
   ],
   declarations: [MemoriesComponent,FullMemoComponent],
 })

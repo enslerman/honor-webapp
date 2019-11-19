@@ -12,6 +12,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NewsComponent } from 'src/app/components/news/news.component';
 import { FullNewsComponent } from 'src/app/components/full-news/full-news.component';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -30,7 +31,8 @@ import { FullNewsComponent } from 'src/app/components/full-news/full-news.compon
     MatListModule,
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    MatCardModule
   ]
 })
 export class NewsModule { }
