@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MemoriesRoutingModule } from './memories-routing.module';
-import { MemoriesComponent } from 'src/app/components/memories/memories.component';
-import { FullMemoComponent } from 'src/app/components/full-memo/full-memo.component';
+
+import { RallyRoutingModule } from './rally-routing.module';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,12 +11,14 @@ import { MatListModule } from '@angular/material/list';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { RallyComponent } from 'src/app/components/rally/rally.component';
+import { FullRallyComponent } from 'src/app/components/full-rally/full-rally.component';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    MemoriesRoutingModule,
+    RallyRoutingModule,
     MatSliderModule,
     MatSidenavModule,
     MatButtonModule,
@@ -28,6 +29,6 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     NgxSpinnerModule,
     SlickCarouselModule
   ],
-  declarations: [MemoriesComponent,FullMemoComponent],
+  declarations: [RallyComponent,FullRallyComponent],
 })
-export class MemoriesModule { }
+export class RallyModule { }
