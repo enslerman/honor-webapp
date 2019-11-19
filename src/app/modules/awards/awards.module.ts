@@ -13,6 +13,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { AwardsComponent } from 'src/app/components/awards/awards.component';
 import { FullAwardsComponent } from 'src/app/components/full-awards/full-awards.component';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { FullAwardsComponent } from 'src/app/components/full-awards/full-awards.
     MatListModule,
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    MatCardModule
   ],
   declarations: [AwardsComponent,FullAwardsComponent],
 })

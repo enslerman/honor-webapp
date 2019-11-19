@@ -13,6 +13,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { EventsComponent } from 'src/app/components/events/events.component';
 import { FullEventsComponent } from 'src/app/components/full-events/full-events.component';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { FullEventsComponent } from 'src/app/components/full-events/full-events.
     MatListModule,
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    MatCardModule
   ],
   declarations: [EventsComponent,FullEventsComponent],
 })
