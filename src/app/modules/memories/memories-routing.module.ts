@@ -6,7 +6,7 @@ import { FullMemoComponent } from 'src/app/components/full-memo/full-memo.compon
 
 const routes: Routes = [
   {
-    path: '/',
+    path: '',
     component: MemoriesComponent
   },
   { path:"/:id", 
