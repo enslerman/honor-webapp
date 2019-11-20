@@ -1,0 +1,24 @@
+.paddingzero{
+    padding:0 !important;
+}
+.comments{
+    background-color: aquamarine;
+}
+
+
+@media screen and (orientation: portrait) { 
+    .comments{
+        display: none;
+        width: 0!important;
+    }
+    .paddingzero{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+  }
+  @media screen and (orientation: landscape) { 
+    .gi{
+        height: 35rem;
+      //  width: 55rem !important;
+    }
+  }
