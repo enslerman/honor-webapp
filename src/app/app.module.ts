@@ -68,7 +68,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
     SlickCarouselModule,
-    MatCardModule
+    MatCardModule,
+    
   ],
   providers: [
     {

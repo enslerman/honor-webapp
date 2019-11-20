@@ -1,6 +1,6 @@
 <section class="cloudy-knoxville-gradient">
     <div>
-        <i (click)="goBack()" class="material-icons btn-back">arrow_back</i>
+        <app-back-button></app-back-button>
         <h2 class="font-weight-bold py-5 text-center">{{album.name}}</h2>
     </div>
     <div class="row no-gutters">
@@ -8,9 +8,9 @@
             <div id="mdb-lightbox-ui"></div>
             <div class="mdb-lightbox" data-pswp-uid="4">
                 <figure class="col-md-4" *ngFor="let item of images; let i = index">
-                    <a data-size="1600x1067">
+                    <a class="wrapper">
                         <img src="{{item.url}}" (click)="openDialog(i)" class="img-fluid z-depth-1">
-                        <p class="text-center">{{item.name}}</p>
+                        <h5 class="text-center text-uppercase text-dark m-2">{{item.name}}</h5>
                     </a>
                 </figure>
             </div>
