@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import * as screenfull from 'screenfull';
+import { ImageModalComponent } from './image-modal/image-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-full-gallery',
@@ -14,7 +15,8 @@ export class FullGalleryComponent implements OnInit {
   constructor(  
     private API: HttpService, 
     private activatedRouter: ActivatedRoute,
-    private location:Location
+    private location:Location,
+    public dialog: MatDialog
   ) { 
     this.activatedRouter.params.subscribe(param => {
       this.id = param.id;
@@ -33,7 +35,7 @@ export class FullGalleryComponent implements OnInit {
   ngOnInit() {
     this.getAlbum().then(()=>{
       console.log(this.album);
-      console.log(this.images);
+      console.log(this.images[0]);
     })
   }
 
@@ -41,10 +43,16 @@ export class FullGalleryComponent implements OnInit {
     this.location.back();
   }
 
-  openPic() {
-    if (screenfull.isEnabled) {
-      screenfull.request();
-    }
+  openDialog(id): void {
+    let dialogRef = this.dialog.open(ImageModalComponent, {
+      width: "95%",
+      maxHeight: "auto",
+      data: {
+        id:id, 
+        images:this.images
+      }
+    });
+    console.log(id)
   }
 
 }

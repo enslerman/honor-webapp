@@ -12,12 +12,16 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
 import { FullGalleryComponent } from 'src/app/components/full-gallery/full-gallery.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ImageModalComponent } from 'src/app/components/full-gallery/image-modal/image-modal.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
 
 
 
 @NgModule({
   declarations: [
-    GalleryComponent, FullGalleryComponent
+    GalleryComponent, FullGalleryComponent, ImageModalComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +34,11 @@ import { FullGalleryComponent } from 'src/app/components/full-gallery/full-galle
     MatListModule,
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
-    SlickCarouselModule
-  ]
+    SlickCarouselModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatCardModule
+  ],
+  entryComponents: [ImageModalComponent]
 })
 export class GalleryModule { }
