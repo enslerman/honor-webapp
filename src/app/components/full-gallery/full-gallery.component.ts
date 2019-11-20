@@ -45,7 +45,7 @@ export class FullGalleryComponent implements OnInit {
 
   openDialog(id): void {
     let dialogRef = this.dialog.open(ImageModalComponent, {
-      width: "700px",
+      width: "900px",
       //maxHeight: "",
       data: {
         id:id, 
