@@ -13,12 +13,14 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NewsComponent } from 'src/app/components/news/news.component';
 import { FullNewsComponent } from 'src/app/components/full-news/full-news.component';
 import { MatCardModule } from '@angular/material/card';
+import { BackButtonComponent } from 'src/app/components/back-button/back-button.component';
+import { GalleryModule } from '../gallery/gallery.module';
 
 
 
 @NgModule({
   declarations: [
-    NewsComponent, FullNewsComponent
+    NewsComponent, FullNewsComponent,
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { MatCardModule } from '@angular/material/card';
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
     SlickCarouselModule,
-    MatCardModule
+    MatCardModule,
+    GalleryModule
   ]
 })
 export class NewsModule { }

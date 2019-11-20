@@ -14,6 +14,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { RallyComponent } from 'src/app/components/rally/rally.component';
 import { FullRallyComponent } from 'src/app/components/full-rally/full-rally.component';
 import { MatCardModule } from '@angular/material/card';
+import { GalleryModule } from '../gallery/gallery.module';
+
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { MatCardModule } from '@angular/material/card';
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
     SlickCarouselModule,
-    MatCardModule
+    MatCardModule,
+    GalleryModule
   ],
   declarations: [RallyComponent,FullRallyComponent],
 })

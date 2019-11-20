@@ -13,6 +13,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { MatCardModule } from '@angular/material/card';
+import { BackButtonComponent } from 'src/app/components/back-button/back-button.component';
+import { GalleryModule } from '../gallery/gallery.module';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { MatCardModule } from '@angular/material/card';
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
     SlickCarouselModule,
-    MatCardModule
+    MatCardModule,
+    GalleryModule
   ],
   declarations: [MemoriesComponent,FullMemoComponent],
 })

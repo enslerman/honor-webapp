@@ -14,6 +14,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { EventsComponent } from 'src/app/components/events/events.component';
 import { FullEventsComponent } from 'src/app/components/full-events/full-events.component';
 import { MatCardModule } from '@angular/material/card';
+import { BackButtonComponent } from 'src/app/components/back-button/back-button.component';
+import { GalleryModule } from '../gallery/gallery.module';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { MatCardModule } from '@angular/material/card';
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
     SlickCarouselModule,
-    MatCardModule
+    MatCardModule,
+    GalleryModule
   ],
   declarations: [EventsComponent,FullEventsComponent],
 })
