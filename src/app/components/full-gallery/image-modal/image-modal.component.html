@@ -1,0 +1,5 @@
+<mdb-carousel [animation]="'slide'" [activeSlideIndex]="data.id">
+  <mdb-carousel-item *ngFor="let item of data.images; let i = index">
+    <img class="d-block w-100" [src]="item.url" alt="First slide">
+  </mdb-carousel-item>
+</mdb-carousel>
