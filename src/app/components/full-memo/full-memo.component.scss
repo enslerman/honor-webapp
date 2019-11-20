@@ -1,8 +1,14 @@
 @media screen and (orientation: landscape) { 
   .mat-card-image {
     width: 50%;
-    height: auto;
-    object-fit: cover;
+    height: auto !important;
+    object-fit: cover !important;
+  }
+}
+@media screen and (orientation: portrait) { 
+  .mat-card-image {
+    height: 15rem !important;
+    object-fit: cover !important;
   }
 }
 .example-card {

@@ -8,3 +8,9 @@
 .example-card {
   max-width: 100%;
 }
+@media screen and (orientation: portrait) { 
+  .mat-card-image {
+    height: 15rem !important;
+    object-fit: cover !important;
+  }
+}
