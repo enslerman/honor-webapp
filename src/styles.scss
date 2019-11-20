@@ -37,7 +37,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         padding: 0 !important;
         width: 95% !important;
         height: auto !important;
-        position: relative !important;
         overflow:  hidden !important;
     }
 }
@@ -46,6 +45,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         padding: 0 !important;
         width: 100% !important;
         height: auto !important;
+        object-fit: cover !important;
     }
 
     .cdk-overlay-pane {
