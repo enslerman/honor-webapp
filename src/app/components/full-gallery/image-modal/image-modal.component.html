@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-8 paddingzero">
-      <mdb-carousel [animation]="'slide'" [activeSlideIndex]="data.id">
+      <mdb-carousel [animation]="'slide'" [activeSlideIndex]="data.id" [interval]="false" (activeSlideChange)="activeSlideChange(data.id)">
         <mdb-carousel-item *ngFor="let item of data.images; let i = index">
           <img class="d-block w-100 gi"  [src]="item.url" alt="First slide">
         </mdb-carousel-item>
@@ -19,15 +19,22 @@
             </mat-list-item>
         </mat-list>
       </div>
-      <div class="container">
-        <div class="row bottom">
-          <div class="col-8">
-            <input type="text" style="width: 18rem;">
-          </div>
-          <div class="col-4">
-              <button>Send</button>
-            </div>
-        </div>
+      <div class="container bottom">
+          <form class="text-center border-light" [formGroup]="commentFb" (ngSubmit)="onSubmit()">
+              <p class="h4">Оставьте комментарий</p>
+              <mat-form-field class="m-0 w-100 p-0">
+                  <input matInput placeholder="Ваше имя" type="text" formControlName="name">
+                </mat-form-field>
+                <mat-form-field class="m-0 w-100 p-0">
+                    <input matInput placeholder="Ваша почта" type="email" formControlName="email">
+                </mat-form-field>
+              <div class="form-group">
+                  <mat-form-field class="m-0 w-100 p-0">
+                      <textarea matInput placeholder="Комментарий" type="text" formControlName="comment"></textarea>
+                    </mat-form-field>
+              </div>  
+              <button mat-raised-button type="submit" class="m-0 p-0 btn-block">Отправить</button>       
+          </form>
       </div>
     </div>
   </div>
