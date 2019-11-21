@@ -1,15 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col-8 paddingzero">
-      <mdb-carousel [animation]="'slide'" [activeSlideIndex]="data.id" [interval]="false" (activeSlideChange)="activeSlideChange(data.id)">
+      <mdb-carousel #carouselRef [isControls]="false" [animation]="none" [noWrap]="false" [(activeSlideIndex)]="activeSlideIndex" [interval]="false">
         <mdb-carousel-item *ngFor="let item of data.images; let i = index">
           <img class="d-block w-100 gi"  [src]="item.url" alt="First slide">
         </mdb-carousel-item>
       </mdb-carousel>
     </div>
-    <div class="col-4 comments">
+    <!-- <i (click)="goBack()" class="material-icons btn-back">arrow_back</i> -->
+    <i (click)="previousSlide(carouselRef)" class="btn-next material-icons">keyboard_arrow_left</i>
+    <i (click)="nextSlide(carouselRef)" class="btn-prev material-icons">keyboard_arrow_right</i>
+    <div class="col-4 comments p-0">
       <div>
-        <mat-list>
+        <mat-list class="p-2">
             <mat-list-item class="item" *ngFor="let comment of currentPhotoComments">
                 <h3 class="nickname" matLine> {{comment.nickname}} </h3>
                 <p matLine>

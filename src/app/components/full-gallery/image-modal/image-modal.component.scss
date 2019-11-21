@@ -21,6 +21,12 @@
         object-fit: contain;
         background-color: rgb(12, 12, 12);
     }
+    .btn-next{
+        display: none;
+    }
+    .btn-prev{
+        display: none;
+    }
   }
   @media screen and (orientation: landscape) { 
     .gi{
@@ -40,6 +46,17 @@
     .bottom{
         position: absolute;
         bottom: 2%;
-        padding-right: 2.8rem;
+    }
+    .btn-next{
+        color: white;
+        position: absolute;
+        left: 3vw;
+        top: 50%;
+    }
+    .btn-prev{
+        color: white;
+        position: absolute;
+        left: 90vw;
+        top: 50%;
     }
   }

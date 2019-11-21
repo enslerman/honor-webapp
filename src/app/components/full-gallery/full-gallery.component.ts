@@ -24,6 +24,7 @@ export class FullGalleryComponent implements OnInit {
   }
 
   id: number;
+  imageIndex;
   album: any = [];
   images: any;
 
@@ -47,6 +48,7 @@ export class FullGalleryComponent implements OnInit {
   }
 
   openDialog(id): void {
+    this.imageIndex=id;
     let dialogRef = this.dialog.open(ImageModalComponent, {
       height:"43rem",
       data: {
@@ -54,7 +56,7 @@ export class FullGalleryComponent implements OnInit {
         images:this.images
       }
     });
-    console.log(id)
+   // console.log(id)
   }
 
 }
