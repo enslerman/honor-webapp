@@ -7,8 +7,16 @@
         </mdb-carousel-item>
       </mdb-carousel>
     </div>
-    <div class="col comments">
-      Comments
+    <div class="col-4 comments">
+        <mat-list>
+            <mat-list-item class="item" *ngFor="let comment of currentPhotoComments">
+                <h3 class="nickname" matLine> {{comment.nickname}} </h3>
+                <p matLine>
+                  <span > {{comment.comment}} </span>
+                  <span class="time">{{comment.time}} </span>
+                </p>
+            </mat-list-item>
+        </mat-list>
     </div>
   </div>
 </div>

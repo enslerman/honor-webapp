@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ImageModalComponent } from './image-modal/image-modal.component';
 import { MatDialog } from '@angular/material/dialog';
-
+import {screenfull} from 'screenfull';
 @Component({
   selector: 'app-full-gallery',
   templateUrl: './full-gallery.component.html',
@@ -39,14 +39,18 @@ export class FullGalleryComponent implements OnInit {
     })
   }
 
+  goScreenFull(){
+    
+  }
   goBack(){
     this.location.back();
   }
 
   openDialog(id): void {
     let dialogRef = this.dialog.open(ImageModalComponent, {
-      width: "900px",
+      //width: "1150px",
       //maxHeight: "",
+      height:"43rem",
       data: {
         id:id, 
         images:this.images
