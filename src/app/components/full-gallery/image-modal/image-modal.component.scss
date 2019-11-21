@@ -15,15 +15,19 @@
         flex: 0 0 100%;
         max-width: 100%;
     }
+    .gi {
+        width: 100% !important;
+        height: 17rem;
+        object-fit: contain;
+        background-color: rgb(12, 12, 12);
+    }
   }
   @media screen and (orientation: landscape) { 
     .gi{
         height:43rem;
         object-fit: contain;
         background: rgb(12, 12, 12);
-      //  width: 55rem !important;
-      object-fit: contain;
-      background-color: rgb(32, 32, 32);
+        object-fit: contain;
     }
     .time{
         display: block;
