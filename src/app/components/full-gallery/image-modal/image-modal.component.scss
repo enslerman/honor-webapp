@@ -2,7 +2,7 @@
     padding:0 !important;
 }
 .comments{
-    background-color: aquamarine;
+    background-color: lightgray;
 }
 
 
@@ -18,9 +18,18 @@
   }
   @media screen and (orientation: landscape) { 
     .gi{
-        height: 35rem;
+        height:43rem;
+        object-fit: contain;
+        background: rgb(12, 12, 12);
       //  width: 55rem !important;
       object-fit: contain;
       background-color: rgb(32, 32, 32);
+    }
+    .time{
+        display: block;
+        text-align: right;
+    }
+    .item{
+        border-bottom: 1px solid;
     }
   }

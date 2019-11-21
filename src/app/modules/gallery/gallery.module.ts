@@ -17,6 +17,8 @@ import { ImageModalComponent } from 'src/app/components/full-gallery/image-modal
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { BackButtonComponent } from 'src/app/components/back-button/back-button.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 
 
@@ -38,7 +40,8 @@ import { BackButtonComponent } from 'src/app/components/back-button/back-button.
     SlickCarouselModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatCardModule
+    MatCardModule,
+    MatGridListModule
   ],
   exports: [BackButtonComponent],
   entryComponents: [ImageModalComponent]
