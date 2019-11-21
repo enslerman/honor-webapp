@@ -8,6 +8,7 @@
       </mdb-carousel>
     </div>
     <div class="col-4 comments">
+      <div>
         <mat-list>
             <mat-list-item class="item" *ngFor="let comment of currentPhotoComments">
                 <h3 class="nickname" matLine> {{comment.nickname}} </h3>
@@ -17,6 +18,17 @@
                 </p>
             </mat-list-item>
         </mat-list>
+      </div>
+      <div class="container">
+        <div class="row bottom">
+          <div class="col-8">
+            <input type="text" style="width: 18rem;">
+          </div>
+          <div class="col-4">
+              <button>Send</button>
+            </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
