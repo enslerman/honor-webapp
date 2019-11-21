@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-8 paddingzero">
-      <mdb-carousel [animation]="'slide'" [activeSlideIndex]="data.id">
+      <mdb-carousel [animation]="'slide'" [activeSlideIndex]="data.id" [interval]="false" (activeSlideChange)="activeSlideChange(data.id)">
         <mdb-carousel-item *ngFor="let item of data.images; let i = index">
           <img class="d-block w-100 gi"  [src]="item.url" alt="First slide">
         </mdb-carousel-item>
@@ -19,15 +19,16 @@
             </mat-list-item>
         </mat-list>
       </div>
-      <div class="container">
-        <div class="row bottom">
-          <div class="col-8">
-            <input type="text" style="width: 18rem;">
-          </div>
-          <div class="col-4">
-              <button>Send</button>
-            </div>
-        </div>
+      <div class="container bottom">
+          <form class="text-center border-light" action="#!">
+              <p class="h4 mb-4">Оставьте комментарий</p>
+              <input type="text" id="defaultContactFormName" class="form-control" placeholder="Name">
+              <input type="email" id="defaultContactFormEmail" class="form-control" placeholder="E-mail">
+              <div class="form-group">
+                  <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="2" placeholder="Message"></textarea>
+              </div>  
+              <button class="btn btn-info btn-block" type="submit">Send</button>       
+          </form>
       </div>
     </div>
   </div>

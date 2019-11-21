@@ -29,4 +29,8 @@ export class ImageModalComponent {
     this.dialogRef.close();
   }
 
+  activeSlideChange(id){
+    console.log(id)
+  }
+
 }
