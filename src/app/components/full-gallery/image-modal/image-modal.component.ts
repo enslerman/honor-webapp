@@ -1,4 +1,4 @@
-import { Component, Input, Inject } from '@angular/core';
+import { Component, Input, Inject, Output, EventEmitter, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormControl } from '@angular/forms';
 
@@ -13,6 +13,7 @@ export class ImageModalComponent {
   @Input() id:number;
   comments:any=[];
   currentPhotoComments;
+  activeSlideIndex;
   commentFb = new FormGroup({
     comment: new FormControl(),
     name: new FormControl(),
@@ -23,14 +24,20 @@ export class ImageModalComponent {
     public dialogRef: MatDialogRef<ImageModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    console.log(this.data)
-    data.images.forEach(image => {
-      this.comments.push(image.comments)
-    });
-    this.currentPhotoComments=this.comments[data.id];
+    console.log(this.data);
+    this.loadComments(data.id);
     console.log(this.currentPhotoComments);
   }
 
+
+  loadComments(id){
+    this.comments=[];
+    this.activeSlideIndex=id;
+    this.data.images.forEach(image => {
+      this.comments.push(image.comments)
+    });
+    this.currentPhotoComments=this.comments[id];
+  }
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -38,8 +45,16 @@ export class ImageModalComponent {
   onSubmit() {
 
   }
-  activeSlideChange(id){
-    console.log(id)
+  previousSlide(carousel){
+    carousel.previousSlide();
+    let id=carousel._currentActiveSlide;
+    this.loadComments(id);
+    
+  }
+  nextSlide(carousel){
+    carousel.nextSlide();
+    let id=carousel._currentActiveSlide;
+    this.loadComments(id);
   }
 
 }
