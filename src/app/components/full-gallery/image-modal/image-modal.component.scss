@@ -35,5 +35,10 @@
     }
     .item{
         border-bottom: 1px solid;
+        background: gray;
+    }
+    .bottom{
+        position: absolute;
+        bottom: 2%;
     }
   }
