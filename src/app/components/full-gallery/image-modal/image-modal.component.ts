@@ -38,4 +38,8 @@ export class ImageModalComponent {
   onSubmit() {
 
   }
+  activeSlideChange(id){
+    console.log(id)
+  }
+
 }
