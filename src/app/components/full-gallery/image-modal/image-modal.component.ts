@@ -1,6 +1,7 @@
 import { Component, Input, Inject, Output, EventEmitter, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormControl } from '@angular/forms';
+import { HttpService } from 'src/app/services/http.service';
 
 
 @Component({
@@ -11,17 +12,19 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class ImageModalComponent {
 
   @Input() id:number;
+  @Output() rerender=new EventEmitter<number>();
   comments:any=[];
   currentPhotoComments;
   activeSlideIndex;
   commentFb = new FormGroup({
     comment: new FormControl(),
-    name: new FormControl(),
+    nickname: new FormControl(),
     email: new FormControl()
   })
 
   constructor(
     public dialogRef: MatDialogRef<ImageModalComponent>,
+    private API: HttpService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     console.log(this.data);
@@ -42,8 +45,22 @@ export class ImageModalComponent {
     this.dialogRef.close();
   }
 
-  onSubmit() {
+  setComments(comments:any,index:number){
+    this.currentPhotoComments=comments;
+    this.data.images[index].comments=comments;
+    console.log(this.currentPhotoComments);
+  }
 
+   onSubmit(carousel) {
+    console.log(this.commentFb.value);
+    console.log(this.data.images[carousel._currentActiveSlide]);
+    this.API.postGalleryComment(this.commentFb.value,this.data.images[carousel._currentActiveSlide].id)
+    .then(resolve=>{
+      console.log(resolve);
+      this.rerender.emit(carousel._currentActiveSlide);
+    },reject=>{
+      console.log(reject);
+    })
   }
   previousSlide(carousel){
     carousel.previousSlide();

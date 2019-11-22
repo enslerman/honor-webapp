@@ -48,15 +48,23 @@ export class FullGalleryComponent implements OnInit {
   }
 
   openDialog(id): void {
+    console.log("open");
     this.imageIndex=id;
     let dialogRef = this.dialog.open(ImageModalComponent, {
       height:"43rem",
+      minWidth:"53rem",
       data: {
         id:id, 
+        albumId:this.id,
         images:this.images
       }
     });
-   // console.log(id)
+    const sub = dialogRef.componentInstance.rerender.subscribe((resolve) => {
+      console.log("rerender");
+      this.getAlbum().then(()=>{
+        dialogRef.componentInstance.setComments(this.images[resolve].comments,resolve);
+      });
+    });
   }
 
 }
