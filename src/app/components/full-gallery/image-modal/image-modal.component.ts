@@ -45,8 +45,10 @@ export class ImageModalComponent {
     this.dialogRef.close();
   }
 
-  setImages(images:any){
-    this.activeSlideIndex=images;
+  setComments(comments:any,index:number){
+    this.currentPhotoComments=comments;
+    this.data.images[index].comments=comments;
+    console.log(this.currentPhotoComments);
   }
 
    onSubmit(carousel) {
@@ -56,11 +58,6 @@ export class ImageModalComponent {
     .then(resolve=>{
       console.log(resolve);
       this.rerender.emit(carousel._currentActiveSlide);
-      // this.API.getAlbumById(this.data.albumId).
-      // then(resolve=>{
-      //   console.log(resolve);
-      //   this.data.images=resolve.images;
-      // })
     },reject=>{
       console.log(reject);
     })

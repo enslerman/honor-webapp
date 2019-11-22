@@ -59,13 +59,11 @@ export class FullGalleryComponent implements OnInit {
       }
     });
     const sub = dialogRef.componentInstance.rerender.subscribe((resolve) => {
-      // do something
-      console.log("rerender"+resolve);
+      console.log("rerender");
       this.getAlbum().then(()=>{
-        dialogRef.componentInstance.setImages(resolve-1);
+        dialogRef.componentInstance.setComments(this.images[resolve].comments,resolve);
       });
     });
-   // console.log(id)
   }
 
 }
