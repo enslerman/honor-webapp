@@ -52,6 +52,7 @@ export class FullGalleryComponent implements OnInit {
     this.imageIndex=id;
     let dialogRef = this.dialog.open(ImageModalComponent, {
       height:"43rem",
+      minWidth:"53rem",
       data: {
         id:id, 
         albumId:this.id,
