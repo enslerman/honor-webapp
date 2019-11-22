@@ -3,6 +3,10 @@
 }
 .comments{
     background-color: lightgray;
+    mat-list{
+        overflow-y: scroll;
+        height: 21rem;
+    }
 }
 
 

@@ -52,4 +52,8 @@ export class HttpService {
         return this.http.get(`http://honor-webapp-server.std-763.ist.mospolytech.ru/getOrdens`).toPromise();
     }
 
+    postGalleryComment(comment:any,commentId:number){
+        return this.http.post(`http://localhost:8082/addComment/${commentId}`,comment,{responseType:"text"}).toPromise();
+    }
+
 }
