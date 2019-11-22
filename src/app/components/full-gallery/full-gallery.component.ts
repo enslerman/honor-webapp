@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ImageModalComponent } from './image-modal/image-modal.component';
 import { MatDialog } from '@angular/material/dialog';
-import {screenfull} from 'screenfull';
 @Component({
   selector: 'app-full-gallery',
   templateUrl: './full-gallery.component.html',
