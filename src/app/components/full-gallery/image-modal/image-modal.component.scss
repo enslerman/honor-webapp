@@ -2,7 +2,7 @@
     padding:0 !important;
 }
 .comments{
-    background-color: lightgray;
+    background-color: rgb(243, 243, 243);
     mat-list{
         overflow-y: scroll;
         height: 21rem;
@@ -45,7 +45,7 @@
     }
     .item{
         border-bottom: 1px solid;
-        background: gray;
+        background: transparent;
     }
     .bottom{
         position: absolute;

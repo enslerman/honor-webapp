@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpService } from 'src/app/services/http.service';
-import {useAnimation, transition,trigger,query,style,animate} from "@angular/animations";
+import { useAnimation, transition,trigger,query,style,animate } from "@angular/animations";
 import { slideInRightOnEnterAnimation, slideOutLeftOnLeaveAnimation,slideInRightAnimation } from 'angular-animations';
 
 @Component({
@@ -39,6 +39,7 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scroll(0,0);
     window.addEventListener('resize', () => {
       // We execute the same script as before
       document.documentElement.style.setProperty('--vh', `${this.vh}px`);
@@ -49,7 +50,6 @@ export class MainComponent implements OnInit {
     this.getNews().then(()=> {
       console.log(this.news)
     });
-
   }
   
 
@@ -58,7 +58,7 @@ export class MainComponent implements OnInit {
     "slidesToShow": 5,
     "slidesToScroll": 1,
     "autoplay": true,
-    "autoplaySpeed": 2000,
+    "autoplaySpeed": 4000,
     "responsive": [
       {
         "breakpoint": 2600,
@@ -67,7 +67,7 @@ export class MainComponent implements OnInit {
           "slidesToScroll": 1,
           "infinite": true,
           "autoplay": true,
-          "autoplaySpeed": 2000,
+          "autoplaySpeed": 4000,
           "mobileFirst": true
         }
       },
@@ -78,7 +78,7 @@ export class MainComponent implements OnInit {
           "slidesToScroll": 1,
           "infinite": true,
           "autoplay": true,
-          "autoplaySpeed": 2000,
+          "autoplaySpeed": 4000,
           "mobileFirst": true
         }
       },
@@ -89,7 +89,7 @@ export class MainComponent implements OnInit {
           "slidesToScroll": 1,
           "infinite": true,
           "autoplay": true,
-          "autoplaySpeed": 2000,
+          "autoplaySpeed": 4000,
           "mobileFirst": true,
         }
       },
@@ -100,7 +100,7 @@ export class MainComponent implements OnInit {
           "slidesToScroll": 1,
           "infinite": true,
           "autoplay": true,
-          "autoplaySpeed": 2000,
+          "autoplaySpeed": 4000,
           "mobileFirst": true,
         }
       },
@@ -111,7 +111,7 @@ export class MainComponent implements OnInit {
           "slidesToScroll": 1,
           "infinite": true,
           "autoplay": true,
-          "autoplaySpeed": 2000,
+          "autoplaySpeed": 4000,
           "mobileFirst": true,
         }
       },
@@ -122,7 +122,7 @@ export class MainComponent implements OnInit {
           "slidesToScroll": 1,
           "infinite": true,
           "autoplay": true,
-          "autoplaySpeed": 2000,
+          "autoplaySpeed": 4000,
           "mobileFirst": true,
         }
       }
