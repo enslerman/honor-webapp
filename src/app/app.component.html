@@ -1,5 +1,5 @@
 <mat-sidenav-container class="header">
-    <mat-sidenav #sidenav over class="header-links p-3" [(opened)]="opened">
+    <mat-sidenav #sidenav over class="header-links p-3"  [(opened)]="opened">
         <i (click)="sidenav.toggle()" class="btn-block text-right material-icons links" 
             style="outline:none;">arrow_back_ios</i>
         <div class="logo m-3" routerLink=""></div>
@@ -53,8 +53,9 @@
             routerLinkActive="active"
             (click)="sidenav.toggle()"
         >Об организации</a>
+        
     </mat-sidenav>
-    <mat-sidenav-content style="width: 100vw;" class="cloudy-knoxville-gradient">
+    <mat-sidenav-content style="width: 100vw;" class="cloudy-knoxville-gradient" >
         <i (click)="sidenav.toggle()" class="material-icons md-light menu-icon p-3">menu</i>
         <router-outlet (activate)="onActivate($event)"></router-outlet>
         <app-footer></app-footer>
