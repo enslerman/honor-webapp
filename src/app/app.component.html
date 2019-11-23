@@ -1,5 +1,5 @@
 <mat-sidenav-container class="header">
-    <mat-sidenav #sidenav over class="header-links p-3">
+    <mat-sidenav #sidenav over class="header-links p-3" [(opened)]="opened">
         <i (click)="sidenav.toggle()" class="btn-block text-right material-icons links" 
             style="outline:none;">arrow_back_ios</i>
         <div class="logo m-3" routerLink=""></div>

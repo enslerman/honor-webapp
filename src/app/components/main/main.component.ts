@@ -39,6 +39,7 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scroll(0,0);
     window.addEventListener('resize', () => {
       // We execute the same script as before
       document.documentElement.style.setProperty('--vh', `${this.vh}px`);
@@ -49,7 +50,6 @@ export class MainComponent implements OnInit {
     this.getNews().then(()=> {
       console.log(this.news)
     });
-
   }
   
 
