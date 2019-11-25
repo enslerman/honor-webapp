@@ -56,4 +56,8 @@ export class HttpService {
         return this.http.post(`http://honor-webapp-server.std-763.ist.mospolytech.ru/addComment/${commentId}`,comment,{responseType:"text"}).toPromise();
     }
 
+    // postRallyComment(comment:any,commentId:number){
+    //     return this.http.post(`http://honor-webapp-server.std-763.ist.mospolytech.ru/addComment/${commentId}`,comment,{responseType:"text"}).toPromise();
+    // }
+
 }

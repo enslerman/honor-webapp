@@ -51,7 +51,7 @@ export class ImageModalComponent {
     console.log(this.currentPhotoComments);
   }
 
-   onSubmit(carousel) {
+  onSubmit(carousel) {
     console.log(this.commentFb.value);
     console.log(this.data.images[carousel._currentActiveSlide]);
     this.API.postGalleryComment(this.commentFb.value,this.data.images[carousel._currentActiveSlide].id)
@@ -62,12 +62,13 @@ export class ImageModalComponent {
       console.log(reject);
     })
   }
+  
   previousSlide(carousel){
     carousel.previousSlide();
     let id=carousel._currentActiveSlide;
     this.loadComments(id);
-    
   }
+  
   nextSlide(carousel){
     carousel.nextSlide();
     let id=carousel._currentActiveSlide;

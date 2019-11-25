@@ -13,9 +13,32 @@
             </div>
             <mat-card-content>
                 <p>{{rally.description}}</p>
+                <hr>
+                <div class="comments">
+                    <mat-list>
+                    <h3 mat-subheader>Комментарии</h3>
+                    <mat-list-item *ngFor="let item of comments">
+                        <h4 mat-line>{{item.nickname}}</h4>
+                        <h5 mat-line>{{item.description}}</h5>
+                        <p mat-line mat-subheader> {{item.time}} </p>
+                    </mat-list-item>
+                    </mat-list>
+                </div>
+                <hr>
             </mat-card-content>
             <mat-card-actions>
-              <button mat-button>Написать комментарий</button>
+                <button mat-raised-button (click)="test.toggle()" class="mx-3">Написать комментарий</button>
+                <div class="" mdbCollapse #test="bs-collapse">
+                    <form class="example-form m-3" [formGroup]="commentFb" (ngSubmit)="onSubmit()">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Ваше имя" formControlName="nickname">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <textarea matInput placeholder="Комментарий" formControlName="description"></textarea>
+                    </mat-form-field>
+                    <button mat-raised-button type="submit">Отправить</button>
+                    </form>
+                </div>
             </mat-card-actions>
         </mat-card>
     </section>

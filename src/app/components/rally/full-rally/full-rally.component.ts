@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-full-rally',
@@ -21,6 +22,13 @@ export class FullRallyComponent implements OnInit {
   }
 
   id: number;
+  comments: any[];
+
+  commentFb = new FormGroup({
+    description: new FormControl(),
+    nickname: new FormControl()
+  });
+
   rally:any = {
     album: {
       id: 0, 
@@ -46,13 +54,19 @@ export class FullRallyComponent implements OnInit {
 
   async getEvent(){
     this.rally = await this.API.getEventById(this.id);
+    this.comments = this.rally.comments;
   }
 
   ngOnInit() {
     this.getEvent().then(()=>{
       console.log(this.rally);
+      console.log(this.comments);
     })
   }
+
+  // onSubmit() {
+  //   this.API.postRallyComment()
+  // }
 
   goBack(){
     this.location.back();
