@@ -16,6 +16,7 @@ import { FullRallyComponent } from 'src/app/components/rally/full-rally/full-ral
 import { MatCardModule } from '@angular/material/card';
 import { GalleryModule } from '../gallery/gallery.module';
 import { MatInputModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -28,6 +29,7 @@ import { MatInputModule } from '@angular/material';
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
+    ReactiveFormsModule,
     MatListModule,
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
