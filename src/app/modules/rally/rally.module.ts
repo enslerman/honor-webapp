@@ -15,6 +15,7 @@ import { RallyComponent } from 'src/app/components/rally/rally.component';
 import { FullRallyComponent } from 'src/app/components/rally/full-rally/full-rally.component';
 import { MatCardModule } from '@angular/material/card';
 import { GalleryModule } from '../gallery/gallery.module';
+import { MatInputModule } from '@angular/material';
 
 
 
@@ -30,6 +31,7 @@ import { GalleryModule } from '../gallery/gallery.module';
     MatListModule,
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
+    MatInputModule,
     SlickCarouselModule,
     MatCardModule,
     GalleryModule
