@@ -12,7 +12,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { RallyComponent } from 'src/app/components/rally/rally.component';
-import { FullRallyComponent } from 'src/app/components/full-rally/full-rally.component';
+import { FullRallyComponent } from 'src/app/components/rally/full-rally/full-rally.component';
 import { MatCardModule } from '@angular/material/card';
 import { GalleryModule } from '../gallery/gallery.module';
 
