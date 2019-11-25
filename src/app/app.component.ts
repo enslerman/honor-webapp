@@ -10,10 +10,12 @@ export class AppComponent implements OnInit {
 
   constructor(private spinner: NgxSpinnerService) { }
 
-  opened: boolean = true;
+  opened: boolean = false; // true
 
   scrHeight:any;
   scrWidth:any;
+
+  visi
 
   @HostListener('window:resize', ['$event'])
   getScreenSize(event?) {
@@ -28,13 +30,13 @@ export class AppComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
     }, 1)
-    if (this.scrWidth <= this.scrHeight) {
-      this.opened = false;
-    } else {
-      setTimeout(()=> {
-        this.opened = false;
-      }, 3000)
-    }
+    // if (this.scrWidth <= this.scrHeight) {
+    //   this.opened = false;
+    // } else {
+    //   setTimeout(()=> {
+    //     this.opened = false;
+    //   }, 3000)
+    // }
     
     window.addEventListener('scroll', function() {
       console.log('scroll')
