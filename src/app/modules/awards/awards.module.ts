@@ -12,7 +12,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { AwardsComponent } from 'src/app/components/awards/awards.component';
-import { FullAwardsComponent } from 'src/app/components/full-awards/full-awards.component';
+import { FullAwardsComponent } from 'src/app/components/awards/full-awards/full-awards.component';
 import { MatCardModule } from '@angular/material/card';
 import { BackButtonComponent } from 'src/app/components/back-button/back-button.component';
 import { GalleryModule } from '../gallery/gallery.module';

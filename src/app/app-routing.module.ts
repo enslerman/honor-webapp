@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './components/main/main.component';
 import { AboutComponent } from './components/about/about.component';
-import { FullRallyComponent } from './components/full-rally/full-rally.component';
-import { FullEventsComponent } from './components/full-events/full-events.component';
+import { FullRallyComponent } from './components/rally/full-rally/full-rally.component';
+import { FullEventsComponent } from './components/events/full-events/full-events.component';
 import { RallyComponent } from './components/rally/rally.component';
 import { EventsComponent } from './components/events/events.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { AwardsComponent } from './components/awards/awards.component';
-import { FullAwardsComponent } from './components/full-awards/full-awards.component';
+import { FullAwardsComponent } from './components/awards/full-awards/full-awards.component';
 import { PreloadAllModules } from '@angular/router'
 
 

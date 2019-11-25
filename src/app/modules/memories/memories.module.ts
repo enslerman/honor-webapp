@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MemoriesRoutingModule } from './memories-routing.module';
 import { MemoriesComponent } from 'src/app/components/memories/memories.component';
-import { FullMemoComponent } from 'src/app/components/full-memo/full-memo.component';
+import { FullMemoComponent } from 'src/app/components/memories/full-memo/full-memo.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';

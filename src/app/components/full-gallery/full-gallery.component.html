@@ -3,16 +3,10 @@
         <app-back-button></app-back-button>
         <h2 class="font-weight-bold py-5 text-center">{{album.name}}</h2>
     </div>
-    <div class="row no-gutters">
+    <div class="row no-gutters animated zoomIn">
         <div class="col-md-12">
             <div id="mdb-lightbox-ui"></div>
             <div class="mdb-lightbox" data-pswp-uid="4">
-                <!-- <figure class="col-md-4" *ngFor="let item of images; let i = index">
-                    <a class="wrapper">
-                        <img src="{{item.url}}" (click)="openDialog(i)" class="img-fluid z-depth-1">
-                        <h5 class="text-center text-uppercase text-dark m-2">{{item.name}}</h5>
-                    </a>
-                </figure> -->
                 <mat-grid-list cols="3" rowHeight="1:1">
                         <mat-grid-tile *ngFor="let item of images; let i = index">
                             <a class="wrapper">
