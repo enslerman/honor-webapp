@@ -5,55 +5,56 @@ import { HttpClient } from '@angular/common/http';
 	providedIn: 'root'
 })
 export class HttpService {
-  
+    private baseURL:string="http://honor-webapp-server.std-763.ist.mospolytech.ru/public";
+    //private baseURL:string="http://localhost:8082/public"
     constructor(private http: HttpClient){ }
       
     getMain() {
-        return this.http.get('http://honor-webapp-server.std-763.ist.mospolytech.ru/getMain').toPromise();
+        return this.http.get(this.baseURL+'/get/all/posts').toPromise();
     }
 
     getPostById(id) {
-        return this.http.get(`http://honor-webapp-server.std-763.ist.mospolytech.ru/getPost?id=${id}`).toPromise();
+        return this.http.get(`${this.baseURL}/get/post?id=${id}`).toPromise();
     }
 
     getAlbums() {
-        return this.http.get(`http://honor-webapp-server.std-763.ist.mospolytech.ru/getAlbums`).toPromise();
+        return this.http.get(`${this.baseURL}/get/all/albums`).toPromise();
     }
 
     getAlbumById(id) {
-        return this.http.get(`http://honor-webapp-server.std-763.ist.mospolytech.ru/getAlbum?id=${id}`).toPromise();
+        return this.http.get(`${this.baseURL}/get/album?id=${id}`).toPromise();
     }
 
     getNews() {
-        return this.http.get('http://honor-webapp-server.std-763.ist.mospolytech.ru/getAllNews').toPromise();
+        return this.http.get(`${this.baseURL}/get/all/news`).toPromise();
     }
 
     getNewsById(id) {
-        return this.http.get(`http://honor-webapp-server.std-763.ist.mospolytech.ru/getNews?id=${id}`).toPromise();
+        return this.http.get(`${this.baseURL}/get/news?id=${id}`).toPromise();
     }
 
     getRally() {
-        return this.http.get(`http://honor-webapp-server.std-763.ist.mospolytech.ru/getActions/Rallies`).toPromise();
+        return this.http.get(`${this.baseURL}/get/actions/rallies`).toPromise();
     }
 
     getEvents() {
-        return this.http.get(`http://honor-webapp-server.std-763.ist.mospolytech.ru/getActions/Events`).toPromise();
+        return this.http.get(`${this.baseURL}/get/actions/events`).toPromise();
     }
 
     getEventById(id) {
-        return this.http.get(`http://honor-webapp-server.std-763.ist.mospolytech.ru/getAction?id=${id}`).toPromise();
+        return this.http.get(`${this.baseURL}/get/action?id=${id}`).toPromise();
     }
 
     getAwardById(id) {
-        return this.http.get(`http://honor-webapp-server.std-763.ist.mospolytech.ru/getOrden?id=${id}`).toPromise();
+        return this.http.get(`${this.baseURL}/get/orden?id=${id}`).toPromise();
     }
 
     getAwards() {
-        return this.http.get(`http://honor-webapp-server.std-763.ist.mospolytech.ru/getOrdens`).toPromise();
+        return this.http.get(`${this.baseURL}/get/all/ordens`).toPromise();
     }
 
     postGalleryComment(comment:any,commentId:number){
-        return this.http.post(`http://honor-webapp-server.std-763.ist.mospolytech.ru/addComment/${commentId}`,comment,{responseType:"text"}).toPromise();
+        return this.http.post(`${this.baseURL}/add/comment/${commentId}`,comment,{responseType:"text"}).toPromise();
     }
 
     // postRallyComment(comment:any,commentId:number){
