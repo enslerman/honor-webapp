@@ -1,4 +1,10 @@
 <div class="main">
+ 
+    <a class="logo-link text-center m-2" routerLink="">
+        <div class="logo2 mx-2" routerLink=""></div>
+        <h2 style="margin-top:0.5rem;">ЧЕСТЬ</h2>
+    </a>
+
     <div class="icons-links text-right m-4">  
             <a class="text-right mx-2" href="#">
                 <img src="/assets/icons/inst.png" class ="icons" alt="">
@@ -46,7 +52,7 @@
 </mdb-carousel>
 
 
-<div class="jumbotron jumbotron-fluid mb-0 cloudy-knoxville-gradient">
+<div class="jumbotron jumbotron-fluid mb-0 elegant-color">
   <div class="container d-sm-flex align-items-center justify-content-center">
     <div class="mx-auto text-center mb-3">
       <img src="/assets/images/logo.png" alt="logo" class="img-fluid logo-jum mx-auto">
@@ -58,12 +64,12 @@
   </div>
 </div>
 
-<div class="bg-dark">
+<div class="elegant-color">
 
   <ngx-slick-carousel class="slick-car" 
                       #slickModal="slick-carousel" 
                       [config]="slideConfig">
-    <div ngxSlickItem *ngFor="let slide of slides" class="slick-item view overlay" style="height: 100%;">
+    <div ngxSlickItem *ngFor="let slide of slides" class="slick-item view overlay" style="height: 100%; margin: 2px;">
       <div [routerLink]="['/memories', slide.id]">
         <div class="slick-text">
           <p>Воспоминания</p>
@@ -78,7 +84,7 @@
   <ngx-slick-carousel class="slick-car" 
                       #slickModal="slick-carousel" 
                       [config]="slideConfig">
-    <div ngxSlickItem *ngFor="let slide of news" class="slick-item view overlay" style="height: 100%;">
+    <div ngxSlickItem *ngFor="let slide of news" class="slick-item view overlay" style="height: 100%; margin: 2px;">
       <div [routerLink]="['/news', slide.id]">
         <div class="slick-text">
           <p>Новости</p>
