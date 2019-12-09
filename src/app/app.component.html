@@ -56,10 +56,12 @@
         
     </mat-sidenav>
     <mat-sidenav-content style="width: 100vw;" class="cloudy-knoxville-gradient" >
-        <i (click)="sidenav.toggle()" class="material-icons md-light menu-icon p-3">menu</i>
+        <i (click)="sidenav.toggle()" class="material-icons md-light menu-icon p-3"
+        [style.display]="opened==false?'inline-block':'none'">menu</i>
         <router-outlet (activate)="onActivate($event)"></router-outlet>
         <app-footer></app-footer>
     </mat-sidenav-content>
+
 
 </mat-sidenav-container>
 <ngx-spinner

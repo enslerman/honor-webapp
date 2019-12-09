@@ -11,7 +11,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NewsComponent } from 'src/app/components/news/news.component';
-import { FullNewsComponent } from 'src/app/components/full-news/full-news.component';
+import { FullNewsComponent } from 'src/app/components/news/full-news/full-news.component';
 import { MatCardModule } from '@angular/material/card';
 import { BackButtonComponent } from 'src/app/components/back-button/back-button.component';
 import { GalleryModule } from '../gallery/gallery.module';

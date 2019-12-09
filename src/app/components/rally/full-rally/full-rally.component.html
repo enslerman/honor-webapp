@@ -1,0 +1,45 @@
+<section class="cloudy-knoxville-gradient pt-5">
+    <app-back-button></app-back-button>
+    <section class="p-3 animated zoomIn">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>{{rally.title}}</mat-card-title>
+                <mat-card-subtitle>Опубликовано {{rally.author}} в {{rally.time}}</mat-card-subtitle>
+            </mat-card-header>
+            <div class="container-fluid">
+                <div class="row justify-content-center py-3">
+                        <img mat-card-image [src]="rally.album.images[0].url">
+                </div>
+            </div>
+            <mat-card-content>
+                <p>{{rally.description}}</p>
+                <hr>
+                <div class="comments">
+                    <mat-list>
+                    <h3 mat-subheader>Комментарии</h3>
+                    <mat-list-item *ngFor="let item of comments">
+                        <h4 mat-line>{{item.nickname}}</h4>
+                        <h5 mat-line>{{item.description}}</h5>
+                        <p mat-line mat-subheader> {{item.time}} </p>
+                    </mat-list-item>
+                    </mat-list>
+                </div>
+                <hr>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button (click)="test.toggle()" class="mx-3">Написать комментарий</button>
+                <div class="" mdbCollapse #test="bs-collapse">
+                    <form class="example-form m-3" [formGroup]="commentFb" (ngSubmit)="onSubmit()">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Ваше имя" formControlName="nickname">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <textarea matInput placeholder="Комментарий" formControlName="description"></textarea>
+                    </mat-form-field>
+                    <button mat-raised-button type="submit">Отправить</button>
+                    </form>
+                </div>
+            </mat-card-actions>
+        </mat-card>
+    </section>
+</section>

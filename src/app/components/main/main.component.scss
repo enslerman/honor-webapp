@@ -5,6 +5,17 @@
     right: 0;
     z-index: 9999;
 }
+.logo-link{
+  background-color: transparent;
+  color:white;
+  position: absolute;
+  right:0;
+  left:0;
+  z-index: 9999;
+}
+.logo-link:hover{
+  color: #46a9ff;
+}
 .icons {
     width: 30px;
     height: 30px;
@@ -129,6 +140,7 @@ img {
   object-fit: cover;
   cursor: pointer;
   opacity: 0.8;
+  margin-bottom: 1%;
 }
 
 .slick-text {
@@ -150,4 +162,7 @@ img {
 
 .overlay .mask {
   cursor: pointer;
+}
+.display-4, .lead{
+  color: white;
 }
