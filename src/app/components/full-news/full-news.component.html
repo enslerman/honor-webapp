@@ -11,8 +11,7 @@
                         <img mat-card-image [src]="news.title_image">
                 </div>
             </div>
-            <mat-card-content>
-                <p>{{news.description}}</p>
+            <mat-card-content [innerHTML]="htmlData">
             </mat-card-content>
             <mat-card-actions>
               <button mat-button>Написать комментарий</button>
