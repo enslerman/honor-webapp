@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
 	providedIn: 'root'
 })
 export class HttpService {
-   // private baseURL:string="http://honor-webapp-server.std-763.ist.mospolytech.ru";
-    private baseURL:string="http://localhost:8082/public"
+    private baseURL:string="http://honor-webapp-server.std-763.ist.mospolytech.ru/public";
+    //private baseURL:string="http://localhost:8082/public"
     constructor(private http: HttpClient){ }
       
     getMain() {
