@@ -7,86 +7,64 @@
       <span class="navbar-toggler-icon "></span>
     </button>
     <div class="collapse navbar-collapse"  id="navbarNavDropdown">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav d-flex align-items-center">
         <li class="nav-item"><a 
             class="nav-link text-uppercase" 
             routerLink="" 
             routerLinkActive="active"
             style="outline: none;"
             [routerLinkActiveOptions]="{exact:true}"
-            (click)="sidenav.toggle()"
         >Главная</a></li>
         <li class="nav-item"><a 
             class="nav-link text-uppercase text-light" 
             routerLink="news" 
             routerLinkActive="active"
-            (click)="sidenav.toggle()"
         >Новости</a></li>
         <li class="nav-item text-light"><a 
             class="nav-link text-uppercase text-light" 
             routerLink="gallery" 
             routerLinkActive="active"
-            (click)="sidenav.toggle()"
         >Галерея</a></li>
         <li class="nav-item"><a 
             class="nav-link text-uppercase text-light" 
             routerLink="memories" 
             routerLinkActive="active"
-            (click)="sidenav.toggle()"
         >Воспоминания</a></li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown align-middle">
             <a class="nav-link text-uppercase text-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              События▿
+              События<i class="material-icons align-middle">keyboard_arrow_down</i>
             </a>
             <ul class="dropdown-menu navbar-dark" aria-labelledby="navbarDropdownMenuLink">
                    <li><a 
                     class="nav-link text-uppercase" 
                     routerLink="rally" 
                     routerLinkActive="active"
-                    (click)="sidenav.toggle()"
                 >Автопробеги</a></li> 
             <li> <a 
                 class="nav-link text-uppercase" 
                 routerLink="events" 
                 routerLinkActive="active"
-                (click)="sidenav.toggle()"
                 >Мероприятия</a></li> 
             </ul>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown align-middle">
             <a class="nav-link text-uppercase text-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Организация▿
+              Организация<i class="material-icons align-middle">keyboard_arrow_down</i>
             </a>
             <ul class="dropdown-menu navbar-dark" aria-labelledby="navbarDropdownMenuLink">
                 <li class="nav-item"><a 
                     class="nav-link text-uppercase text-light" 
                     routerLink="awards" 
                     routerLinkActive="active"
-                    (click)="sidenav.toggle()"
                 >Награды</a></li>
                <li class="nav-item"><a 
                     class="nav-link text-uppercase text-light" 
                     routerLink="about" 
                     routerLinkActive="active"
-                    (click)="sidenav.toggle()"
                 >Об организации</a></li>
             </ul>
         </li>
         <div class="main">
-        <div class="icons-links text-right m-4">  
-                <a class="text-right mx-2" href="#">
-                    <img src="/assets/icons/inst.png" class ="icons" alt="">
-                    <img src="/assets/icons/inst-h.png" class ="icons hovered" alt="">
-                </a>
-                <a class="text-right mx-2" href="#">
-                    <img src="/assets/icons/fb.png" class ="icons" alt="">
-                    <img src="/assets/icons/fb-h.png" class ="icons hovered" alt="">
-                </a>
-                <a class="text-right mx-2" href="#">
-                    <img src="/assets/icons/ok.png" class ="icons" alt="">
-                    <img src="/assets/icons/ok-h.png" class ="icons hovered" alt="">
-                </a>
-        </div>
     </div>
       </ul>
     </div>
