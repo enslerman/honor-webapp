@@ -1,9 +1,6 @@
 <section>
     <section class="px-3 white animated zoomIn">
-            <a class="logo-link text-center m-2" routerLink="">
-                    <div class="logo2 mx-2" style = "margin-top:1rem;"routerLink="*"></div>
-                    <h2>ЧЕСТЬ</h2>
-            </a>
+        <br>
         <h2 class="h1-responsive font-weight-bold text-center py-5">Воспоминания</h2>
         <div *ngFor="let item of memo">
             <div class="row">
@@ -19,7 +16,7 @@
                     <h3 class="font-weight-bold mb-3"><strong>{{item.title}}</strong></h3>
                     <p class="dark-grey-text">{{item.description}}</p>
                     <p>от <a class="font-weight-bold">Admin</a>, 15.11.2019</p>
-                    <a mdbBtn color="success" mdbWavesEffect [routerLink]="['/memories', item.id]">Читать далее</a>
+                    <a class="btn btn-dark" mdbBtn color="success" mdbWavesEffect [routerLink]="['/memories', item.id]">Читать далее</a>
                 </div>
             </div>
             <hr class="py-5">

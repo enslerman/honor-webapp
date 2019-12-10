@@ -62,13 +62,15 @@
         <app-footer></app-footer>
     </mat-sidenav-content> -->
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="logo2 mx-2" routerLink=""></div>
-    <h2>ЧЕСТЬ</h2>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="logo-link mx-2">
+     <div class="logo2" routerLink=""></div>
+     <a class="text-link text-light" style="margin-top:4%;" routerLink=""><h2>ЧЕСТЬ</h2></a>
+    </div>
+    <button class="navbar-toggler pull-left"  type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon "></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="collapse navbar-collapse" style="margin-left:3rem;" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item"><a 
             class="nav-link text-uppercase" 
@@ -79,55 +81,71 @@
             (click)="sidenav.toggle()"
         >Главная</a></li>
         <li class="nav-item"><a 
-            class="nav-link text-uppercase" 
+            class="nav-link text-uppercase text-light" 
             routerLink="news" 
             routerLinkActive="active"
             (click)="sidenav.toggle()"
         >Новости</a></li>
-        <li class="nav-item"><a 
-            class="nav-link text-uppercase" 
+        <li class="nav-item text-light"><a 
+            class="nav-link text-uppercase text-light" 
             routerLink="gallery" 
             routerLinkActive="active"
             (click)="sidenav.toggle()"
         >Галерея</a></li>
         <li class="nav-item"><a 
-            class="nav-link text-uppercase" 
+            class="nav-link text-uppercase text-light" 
             routerLink="memories" 
             routerLinkActive="active"
             (click)="sidenav.toggle()"
         >Воспоминания</a></li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              События
+            <a class="nav-link text-uppercase text-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              События▿
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a 
-                    class="dropdown-item nav-link text-uppercase" 
+            <ul class="dropdown-menu navbar-dark" aria-labelledby="navbarDropdownMenuLink">
+                   <li><a 
+                    class="nav-link text-uppercase" 
                     routerLink="rally" 
                     routerLinkActive="active"
                     (click)="sidenav.toggle()"
-                >Автопробеги</a>
-                <a 
-                class="dropdown-item nav-link text-uppercase" 
+                >Автопробеги</a></li> 
+            <li> <a 
+                class="nav-link text-uppercase" 
                 routerLink="events" 
                 routerLinkActive="active"
                 (click)="sidenav.toggle()"
-                >Мероприятия</a>
-            </div>
+                >Мероприятия</a></li> 
+            </ul>
         </li>
         <li class="nav-item"><a 
-            class="dropdown-item nav-link text-uppercase" 
+            class="nav-link text-uppercase text-light" 
             routerLink="awards" 
             routerLinkActive="active"
             (click)="sidenav.toggle()"
         >Награды</a></li>
        <li class="nav-item"><a 
-            class="nav-link text-uppercase" 
+            class="nav-link text-uppercase text-light" 
             routerLink="about" 
             routerLinkActive="active"
             (click)="sidenav.toggle()"
         >Об организации</a></li>
       </ul>
+    </div>
+    <div class="main">
+        <div class="icons-links text-right m-4">  
+                <a class="text-right mx-2" href="#">
+                    <img src="/assets/icons/inst.png" class ="icons" alt="">
+                    <img src="/assets/icons/inst-h.png" class ="icons hovered" alt="">
+                </a>
+                <a class="text-right mx-2" href="#">
+                    <img src="/assets/icons/fb.png" class ="icons" alt="">
+                    <img src="/assets/icons/fb-h.png" class ="icons hovered" alt="">
+                </a>
+                <a class="text-right mx-2" href="#">
+                    <img src="/assets/icons/ok.png" class ="icons" alt="">
+                    <img src="/assets/icons/ok-h.png" class ="icons hovered" alt="">
+                </a>
+        </div>
     </div>
   </nav>
   <router-outlet (activate)="onActivate($event)"></router-outlet>

@@ -20,6 +20,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     right: 0;
 }
 
+img:hover{
+    filter: grayscale(50%);
+}
 .mdb-lightbox figure{
     float: left;
 }
