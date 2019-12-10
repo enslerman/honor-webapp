@@ -1,68 +1,7 @@
-<mat-sidenav-container class="header">
-    <mat-sidenav #sidenav over class="header-links p-3"  [(opened)]="opened">
-        <i (click)="sidenav.toggle()" class="btn-block text-right material-icons links" 
-            style="outline:none;">arrow_back_ios</i>
-        <div class="logo m-3" routerLink=""></div>
-        <a 
-            class="dropdown-item nav-link text-uppercase" 
-            routerLink="" 
-            routerLinkActive="active"
-            style="outline: none;"
-            [routerLinkActiveOptions]="{exact:true}"
-            (click)="sidenav.toggle()"
-        >Главная</a>
-        <a 
-            class="dropdown-item nav-link text-uppercase" 
-            routerLink="news" 
-            routerLinkActive="active"
-            (click)="sidenav.toggle()"
-        >Новости</a>
-        <a 
-            class="dropdown-item nav-link text-uppercase" 
-            routerLink="gallery" 
-            routerLinkActive="active"
-            (click)="sidenav.toggle()"
-        >Галерея</a>
-        <a 
-            class="dropdown-item nav-link text-uppercase" 
-            routerLink="memories" 
-            routerLinkActive="active"
-            (click)="sidenav.toggle()"
-        >Воспоминания</a>
-        <a 
-            class="dropdown-item nav-link text-uppercase" 
-            routerLink="rally" 
-            routerLinkActive="active"
-            (click)="sidenav.toggle()"
-        >Автопробеги</a>
-        <a 
-            class="dropdown-item nav-link text-uppercase" 
-            routerLink="events" 
-            routerLinkActive="active"
-            (click)="sidenav.toggle()"
-        >Мероприятия</a>
-        <a 
-            class="dropdown-item nav-link text-uppercase" 
-            routerLink="awards" 
-            routerLinkActive="active"
-            (click)="sidenav.toggle()"
-        >Награды</a>
-        <a 
-            class="dropdown-item nav-link text-uppercase mb-5" 
-            routerLink="about" 
-            routerLinkActive="active"
-            (click)="sidenav.toggle()"
-        >Об организации</a>
-        
-    </mat-sidenav>
-    <mat-sidenav-content style="width: 100vw;" class="cloudy-knoxville-gradient" >
-        <i (click)="sidenav.toggle()" class="material-icons md-light menu-icon p-3"
-        [style.display]="opened==false?'inline-block':'none'">menu</i>
-        <router-outlet (activate)="onActivate($event)"></router-outlet>
-        <app-footer></app-footer>
-    </mat-sidenav-content>
+<app-navbar></app-navbar>
+  <router-outlet (activate)="onActivate($event)"></router-outlet>
+  <app-footer></app-footer>
 
-</mat-sidenav-container>
 <ngx-spinner
 bdOpacity = 0.9
 bdColor = "#212121"

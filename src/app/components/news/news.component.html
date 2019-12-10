@@ -1,11 +1,14 @@
-<div class="p-3 cloudy-knoxville-gradient">
+<div class="p-3 white">
   <section class="animated zoomIn">
+    <br>
+    <br>
+    <br>
     <h3 class="text-center font-weight-bold mb-5">Новости</h3>
     <div class="row">
       <div class="col-md-12">
         <div class="card text-center">
           <div class="card-body px-3 pt-5 pb-4">
-            <div class="row">
+            <div class="row" >
               <div class="col-md-5 mb-md-4">
                 <div class="view overlay z-depth-1 mb-4">
                   <img [src]="news[0].title_image" class="img-fluid rounded-0" alt="Sample image" [routerLink]="['/news', news[0].id]">
@@ -14,17 +17,17 @@
                     </a>
                 </div>
               </div>
-              <div class="col-md-6 text-left mb-md-5 mb-4">
+              <div class="col-md-6 text-left mb-md-5 mb-4" >
                 <h4 class="mb-3"><strong>{{news[0].title}}</strong></h4>
                 <p class="dark-grey-text">{{news[0].description}}</p>
                 <p>by <a [routerLink]="['/news', news[0].id]"><strong>{{news[0].author}}</strong></a>, {{news[0].time}}</p>
-                <button [routerLink]="['/news', news[0].id]" mdbBtn type="button" color="indigo" mdbWavesEffect>Читать далее</button>
+                <button class="btn btn-dark" [routerLink]="['/news', news[0].id]" mdbBtn type="button" color="dark" mdbWavesEffect>Читать далее</button>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6">
                 <div class="single-news" *ngFor="let item of news; let i = index">
-                  <div class="row mb-3" *ngIf="(i %2 == 0) && (i != 0)" [routerLink]="['/news', item.id]">
+                  <div class="row mb-3" style = "border:1px solid #dadada; border-radius:4px; margin-left:0.5rem; margin-right:0.5rem;"  *ngIf="(i %2 == 0) && (i != 0)" [routerLink]="['/news', item.id]">
                     <div class="col-md-4">
                       <div class="view overlay rgba-white-slight z-depth-1 mb-3">
                         <img [src]="item.title_image" class="img-fluid rounded-0" alt="Minor sample post image">
@@ -45,8 +48,8 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="single-news" *ngFor="let item of news; let i = index">
-                  <div class="row mb-3" *ngIf="i %2 != 0" [routerLink]="['/news', item.id]">
+                <div class="single-news"  *ngFor="let item of news; let i = index">
+                  <div class="row mb-3" style = "border:1px solid #dadada; border-radius:4px; margin-right:0.5rem;"  *ngIf="i %2 != 0" [routerLink]="['/news', item.id]">
                     <div class="col-md-4">
                       <div class="view overlay rgba-white-slight z-depth-1 mb-3">
                         <img [src]="item.title_image" class="img-fluid rounded-0" alt="Minor sample post image">

@@ -5,6 +5,7 @@
     right: 0;
     z-index: 9999;
 }
+
 .icons {
     width: 30px;
     height: 30px;
@@ -100,9 +101,16 @@ body,
 img {
   &.d-block {
     height: 100vh;
-  }
+  } 
 }
-
+.transition{
+  position:fixed;
+  bottom:0;
+  height:15%;
+  width:100%;
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,212,255,0) 100%);
+  z-index:9999;
+}
 .logo {
   position: absolute;
   top: 5%;
@@ -129,6 +137,7 @@ img {
   object-fit: cover;
   cursor: pointer;
   opacity: 0.8;
+  margin-bottom: 1%;
 }
 
 .slick-text {
@@ -150,4 +159,7 @@ img {
 
 .overlay .mask {
   cursor: pointer;
+}
+.display-4, .lead{
+  color: white;
 }

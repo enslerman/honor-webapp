@@ -22,6 +22,8 @@ import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutComponent } from './components/about/about.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 declare var Hammer: any;
@@ -52,10 +54,12 @@ export class MyHammerConfig extends HammerGestureConfig {
     MainComponent,
     FooterComponent,
     AboutComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
+    MatGridListModule,
     HttpClientModule,
     AppRoutingModule,
     MatSliderModule,

@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="logo-link mx-2">
+     <div class="logo2" routerLink=""></div>
+     <a class="text-link text-light" style="margin-top:4%;" routerLink=""><h2>ЧЕСТЬ</h2></a>
+    </div>
+    <button class="navbar-toggler pull-left"  type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon "></span>
+    </button>
+    <div class="collapse navbar-collapse"  id="navbarNavDropdown">
+      <ul class="navbar-nav d-flex align-items-center">
+        <li class="nav-item"><a 
+            class="nav-link text-uppercase" 
+            routerLink="" 
+            routerLinkActive="active"
+            style="outline: none;"
+            [routerLinkActiveOptions]="{exact:true}"
+        >Главная</a></li>
+        <li class="nav-item"><a 
+            class="nav-link text-uppercase text-light" 
+            routerLink="news" 
+            routerLinkActive="active"
+        >Новости</a></li>
+        <li class="nav-item text-light"><a 
+            class="nav-link text-uppercase text-light" 
+            routerLink="gallery" 
+            routerLinkActive="active"
+        >Галерея</a></li>
+        <li class="nav-item"><a 
+            class="nav-link text-uppercase text-light" 
+            routerLink="memories" 
+            routerLinkActive="active"
+        >Воспоминания</a></li>
+        <li class="nav-item dropdown align-middle">
+            <a class="nav-link text-uppercase text-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              События<i class="material-icons align-middle">keyboard_arrow_down</i>
+            </a>
+            <ul class="dropdown-menu navbar-dark" aria-labelledby="navbarDropdownMenuLink">
+                   <li><a 
+                    class="nav-link text-uppercase" 
+                    routerLink="rally" 
+                    routerLinkActive="active"
+                >Автопробеги</a></li> 
+            <li> <a 
+                class="nav-link text-uppercase" 
+                routerLink="events" 
+                routerLinkActive="active"
+                >Мероприятия</a></li> 
+            </ul>
+        </li>
+        <li class="nav-item dropdown align-middle">
+            <a class="nav-link text-uppercase text-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Организация<i class="material-icons align-middle">keyboard_arrow_down</i>
+            </a>
+            <ul class="dropdown-menu navbar-dark" aria-labelledby="navbarDropdownMenuLink">
+                <li class="nav-item"><a 
+                    class="nav-link text-uppercase text-light" 
+                    routerLink="awards" 
+                    routerLinkActive="active"
+                >Награды</a></li>
+               <li class="nav-item"><a 
+                    class="nav-link text-uppercase text-light" 
+                    routerLink="about" 
+                    routerLinkActive="active"
+                >Об организации</a></li>
+            </ul>
+        </li>
+        <div class="main">
+    </div>
+      </ul>
+    </div>
+  </nav>
