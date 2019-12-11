@@ -27,7 +27,7 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="single-news" *ngFor="let item of news; let i = index">
-                  <div class="row mb-3" style = "border:1px solid #dadada; border-radius:4px; margin-left:0.5rem; margin-right:0.5rem;"  *ngIf="(i %2 == 0) && (i != 0)" [routerLink]="['/news', item.id]">
+                  <div class="row mb-3" style = "border:1px solid #dadada; border-radius:4px; margin-left:0.5rem; margin-right:0.5rem; padding-top:1rem;"  *ngIf="(i %2 == 0) && (i != 0)" [routerLink]="['/news', item.id]">
                     <div class="col-md-4">
                       <div class="view overlay rgba-white-slight z-depth-1 mb-3">
                         <img [src]="item.title_image" class="img-fluid rounded-0" alt="Minor sample post image">
@@ -49,7 +49,7 @@
               </div>
               <div class="col-md-6">
                 <div class="single-news"  *ngFor="let item of news; let i = index">
-                  <div class="row mb-3" style = "border:1px solid #dadada; border-radius:4px; margin-right:0.5rem;"  *ngIf="i %2 != 0" [routerLink]="['/news', item.id]">
+                  <div class="row mb-3" style = "border:1px solid #dadada; border-radius:4px; margin-right:0.5rem; padding-top:1rem;"  *ngIf="i %2 != 0" [routerLink]="['/news', item.id]">
                     <div class="col-md-4">
                       <div class="view overlay rgba-white-slight z-depth-1 mb-3">
                         <img [src]="item.title_image" class="img-fluid rounded-0" alt="Minor sample post image">
