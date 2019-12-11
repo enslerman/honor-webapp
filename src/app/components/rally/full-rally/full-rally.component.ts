@@ -64,9 +64,9 @@ export class FullRallyComponent implements OnInit {
     })
   }
 
-  // onSubmit() {
-  //   this.API.postRallyComment()
-  // }
+  onSubmit() {
+    //this.API.postRallyComment()
+  }
 
   goBack(){
     this.location.back();
