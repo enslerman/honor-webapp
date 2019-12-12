@@ -3,7 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { HttpService } from 'src/app/services/http.service';
 import { useAnimation, transition,trigger,query,style,animate } from "@angular/animations";
 import { slideInRightOnEnterAnimation, slideOutLeftOnLeaveAnimation,slideInRightAnimation } from 'angular-animations';
-
+export interface Tile {
+  color: string;
+  cols: number;
+  rows: number;
+  text: string;
+}
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -18,10 +23,19 @@ export class MainComponent implements OnInit {
 
   constructor(private http: HttpClient, private API: HttpService) {}
 
-  slides:any = [];
+  slides:any = [
+    {
+      image:""
+    }
+  ];
   news: any = [];
   vh = window.innerHeight * 0.01;
-
+  tiles: Tile[] = [
+    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
+    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
+    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
+    {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
+  ];
   jopa:any = {
     "id": "",
     "title":"",

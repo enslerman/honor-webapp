@@ -1,4 +1,4 @@
-<mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'" [isControls]="false">
+<!-- <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'" [isControls]="false">
   <mdb-carousel-item>
     <div class="view w-100">
       <img class="d-block slider-img" src="https://cdn.iz.ru/sites/default/files/styles/900x506/public/news-2019-06/ZUB_8112.jpg?itok=2KBQyBHc" alt="First slide">
@@ -29,8 +29,20 @@
       <p class="main-text animated fadeIn">МОО ВОС "ЧЕСТЬ"</p>
     </div>
   </mdb-carousel-item>
-</mdb-carousel>
+</mdb-carousel> -->
 
+<mat-grid-list cols="4" rowHeight="15rem" gutterSize="1rem">
+  <mat-grid-tile
+      *ngFor="let tile of tiles; let i=index"
+      [colspan]="tile.cols"
+      [rowspan]="tile.rows"
+      [style.background]="tile.color">
+    <img class="grid-img" [src]="slides[0].image">
+    <div class="who">
+      <p>Воспоминания</p>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
 
 <div class="jumbotron jumbotron-fluid mb-0 black">
   <div class="container d-sm-flex align-items-center justify-content-center">
