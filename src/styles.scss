@@ -89,3 +89,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .logo-link:hover{
     color: #46a9ff;
   }
+
+
+@media screen and (orientation: landscape) { 
+    figure{
+        img{
+          width:auto!important;
+          max-width:70%!important;
+          height:auto!important;
+          display:block;
+          margin:auto;
+        }
+      }
+}
+@media screen and (orientation: portrait) { 
+    figure{
+        img{
+          width:auto!important;
+          max-width:100%!important;
+          height:auto!important;
+        }
+      }
+}
+
+  

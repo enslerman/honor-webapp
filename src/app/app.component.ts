@@ -38,9 +38,9 @@ export class AppComponent implements OnInit {
     //   }, 3000)
     // }
     
-    window.addEventListener('scroll', function() {
-      console.log('scroll')
-    }, true);
+    // window.addEventListener('scroll', function() {
+    //   console.log('scroll')
+    // }, true);
   }
 
   onActivate(event) {
