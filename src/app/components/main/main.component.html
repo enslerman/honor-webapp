@@ -7,14 +7,14 @@
         [style.background]="tile.color">
       <ng-container *ngIf="i==0">
         <div>
-            <mdb-carousel [isControls]="false" [animation]="'slide'">
-                <mdb-carousel-item *ngFor="let img of photos">
-                  <img class="d-block w-100 ci" [src]="img?.url" alt="Third slide">
-                  <div class="carousel-caption">
+            <!-- <mdb-carousel [isControls]="false" [animation]="'slide'">
+                <mdb-carousel-item *ngFor="let img of photos"> -->
+                  <img class="d-block w-100 ci" src="https://i.kym-cdn.com/photos/images/original/001/479/169/c57.gif" alt="Third slide">
+                  <!-- <div class="carousel-caption">
                       <p>{{img?.title}}</p>
                   </div>
                 </mdb-carousel-item>
-              </mdb-carousel>
+              </mdb-carousel> -->
         </div>
       </ng-container>
       <ng-container *ngIf="i!=0">
