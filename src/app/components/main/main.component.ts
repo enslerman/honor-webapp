@@ -38,7 +38,7 @@ export class MainComponent implements OnInit {
     {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
     {text: 'Four', cols: 1, rows: 1, color: '#DDBDF1'},
   ];
-  photos:any=[];
+  
   jopa:any = {
     "id": "",
     "title":"",
@@ -93,9 +93,7 @@ export class MainComponent implements OnInit {
   async getLasts(){
     this.lasts=await this.API.getLasts();
   }
-  async getLastPhotos(){
-    this.photos=await this.API.getLastPhotos();
-  }
+
 
   ngOnInit() {
     this.adaptiveGrid();
@@ -113,9 +111,6 @@ export class MainComponent implements OnInit {
     this.getLasts().then(()=> {
       console.log(this.lasts)
       this.lasts.unshift({})
-    });
-    this.getLastPhotos().then(()=> {
-      console.log(this.photos);
     });
   }
   

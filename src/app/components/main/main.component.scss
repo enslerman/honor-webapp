@@ -205,10 +205,3 @@ figure{
   width: 100%;
   height: auto;
 }
-@media screen and (orientation: portrait) { 
-  .ci {
-    object-fit: cover;
-    height: 50%!important;
-    // height: auto;
-  }
-}

@@ -1,0 +1,40 @@
+.who{
+    position: absolute;
+    left: 0.5rem;
+    top: 0.5rem;
+    background: darkred;
+    padding: 0.2rem;
+    p{
+      color:white;
+      margin: 0!important;
+    }
+    div{
+      height: fit-content;
+      position: absolute;
+      top: 3.2rem;
+      padding:0.2rem!important;
+      background: #000000ba;
+    }
+  }
+  .slick-text {
+    h4 {
+      font-family: 'Uni Sans Heavy Italic';
+      font-style: italic;
+      font-weight: 400;
+      text-transform: uppercase;
+      font-size: 24px;
+      letter-spacing: .55px;
+    }
+    color: white;
+    position: absolute;
+    z-index: 9;
+    padding: 2rem;
+    bottom: 0;
+    font-weight: 400;
+  }
+  .ci {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+  }
+  
