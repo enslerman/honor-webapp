@@ -23,6 +23,7 @@ export class MainComponent implements OnInit {
 
   constructor(private http: HttpClient, private API: HttpService) {}
 
+  lasts:any[]=[];
   slides:any = [
     {
       image:""
@@ -31,11 +32,13 @@ export class MainComponent implements OnInit {
   news: any = [];
   vh = window.innerHeight * 0.01;
   tiles: Tile[] = [
-    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
+    {text: 'One', cols: 2, rows: 1, color: 'blue'},
+    {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
+    {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
     {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
+    {text: 'Four', cols: 1, rows: 1, color: '#DDBDF1'},
   ];
+  photos:any=[];
   jopa:any = {
     "id": "",
     "title":"",
@@ -51,6 +54,12 @@ export class MainComponent implements OnInit {
   async getNews(){
     this.news = await this.API.getNews();
   }
+  async getLasts(){
+    this.lasts=await this.API.getLasts();
+  }
+  async getLastPhotos(){
+    this.photos=await this.API.getLastPhotos();
+  }
 
   ngOnInit() {
     window.scroll(0,0);
@@ -63,6 +72,13 @@ export class MainComponent implements OnInit {
     });
     this.getNews().then(()=> {
       console.log(this.news)
+    });
+    this.getLasts().then(()=> {
+      console.log(this.lasts)
+      this.lasts.unshift({})
+    });
+    this.getLastPhotos().then(()=> {
+      console.log(this.photos);
     });
   }
   

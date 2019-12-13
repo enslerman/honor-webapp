@@ -182,4 +182,16 @@ mat-grid-list{
     color:white;
     margin: 0!important;
   }
+  div{
+    height: fit-content;
+    position: absolute;
+    top: 3.2rem;
+    padding:0.2rem!important;
+    background: #000000ba;
+  }
+}
+figure{
+  img{
+    max-width: 100%!important;
+  }
 }
