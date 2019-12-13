@@ -22,16 +22,6 @@ export class FullEventsComponent implements OnInit {
 
   id: number;
   event:any = {
-    album: {
-      id: 0, 
-      name: "", 
-      images: [{
-        id: 0,
-        name: "",
-        server_path: "",
-        url: ""
-      }]
-    },
     author: "",
     comments: [],
     description: "",

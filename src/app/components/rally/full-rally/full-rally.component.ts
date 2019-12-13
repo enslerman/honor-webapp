@@ -30,16 +30,6 @@ export class FullRallyComponent implements OnInit {
   });
 
   rally:any = {
-    album: {
-      id: 0, 
-      name: "", 
-      images: [{
-        id: 0,
-        name: "",
-        server_path: "",
-        url: ""
-      }]
-    },
     author: "",
     comments: [],
     description: "",

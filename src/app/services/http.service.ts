@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Last } from '../components/main/main.component';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Injectable({
