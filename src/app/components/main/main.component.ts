@@ -1,9 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpService } from 'src/app/services/http.service';
 import { useAnimation, transition,trigger,query,style,animate } from "@angular/animations";
 import { slideInRightOnEnterAnimation, slideOutLeftOnLeaveAnimation,slideInRightAnimation } from 'angular-animations';
-
+export interface Tile {
+  color: string;
+  cols: number;
+  rows: number;
+  text: string;
+}
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -17,11 +22,23 @@ import { slideInRightOnEnterAnimation, slideOutLeftOnLeaveAnimation,slideInRight
 export class MainComponent implements OnInit {
 
   constructor(private http: HttpClient, private API: HttpService) {}
-
-  slides:any = [];
+  public innerWidth: any;
+  lasts:any[]=[];
+  slides:any = [
+    {
+      image:""
+    }
+  ];
   news: any = [];
-  vh = window.innerHeight * 0.01;
-
+  public innerHeight: any; 
+  tiles: Tile[] = [
+    {text: 'One', cols: 2, rows: 1, color: 'blue'},
+    {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
+    {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
+    {text: 'Four', cols: 1, rows: 1, color: '#DDBDF1'},
+  ];
+  
   jopa:any = {
     "id": "",
     "title":"",
@@ -29,7 +46,43 @@ export class MainComponent implements OnInit {
     "image":"",
     hdn:false
   };
+  // lasts: any[] = [
+  //   {
+  //     "image": "https://9net.ru/uploads/posts/2019-01/1546515622_ricardo.gif",
+  //   },
+  //   {
+  //     "image": "https://steamuserimages-a.akamaihd.net/ugc/951841177148216940/4C0E46016EE7ABF8440FCA7B9B5AB60EF55AA969/?imw=512&imh=384&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true",
+  //   },
+  //   {
+  //     "image": "https://steamuserimages-a.akamaihd.net/ugc/956346433295880717/87FE6FB71818889F98F79BDA6BFC22BF99EA4112/",
+  //   },
+  //   {
+  //     "image": "https://66.media.tumblr.com/366ad4b76e87b2787aecdcd8842b3f34/tumblr_p4h0p25SAo1wyxz4yo1_500.gifv",
+  //   },
+  //   {
+  //     "image": "https://steamuserimages-a.akamaihd.net/ugc/951841177148216940/4C0E46016EE7ABF8440FCA7B9B5AB60EF55AA969/?imw=512&imh=384&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true",
+  //   }
+  // ]
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.adaptiveGrid()
+  } 
+
+
+  adaptiveGrid(){
+    this.innerHeight= window.innerHeight;
+    this.innerWidth = window.innerWidth;   
+    if(this.innerHeight>this.innerWidth){
+      for(let tile of this.tiles)
+        tile.cols=3;
+    }
+    else{
+      for(let tile of this.tiles)
+        tile.cols=1;
+      this.tiles[0].cols=2
+    }
+  }
   async getPosts(){
     this.slides = await this.API.getMain();
   }
@@ -37,18 +90,27 @@ export class MainComponent implements OnInit {
   async getNews(){
     this.news = await this.API.getNews();
   }
+  async getLasts(){
+    this.lasts=await this.API.getLasts();
+  }
+
 
   ngOnInit() {
+    this.adaptiveGrid();
     window.scroll(0,0);
-    window.addEventListener('resize', () => {
-      // We execute the same script as before
-      document.documentElement.style.setProperty('--vh', `${this.vh}px`);
-    });
+    // window.addEventListener('resize', () => {
+    //   // We execute the same script as before
+    //   document.documentElement.style.setProperty('--vh', `${this.vh}px`);
+    // });
     this.getPosts().then(()=> {
       console.log(this.slides)
     });
     this.getNews().then(()=> {
       console.log(this.news)
+    });
+    this.getLasts().then(()=> {
+      console.log(this.lasts)
+      this.lasts.unshift({})
     });
   }
   
