@@ -90,9 +90,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     color: #46a9ff;
   }
 
-
+.ci{
+  max-width: 100%!important;
+}
 @media screen and (orientation: landscape) { 
-    figure{
+    .image{
         img{
           width:auto!important;
           max-width:70%!important;
@@ -103,13 +105,25 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
       }
 }
 @media screen and (orientation: portrait) { 
-    figure{
+    .image{
         img{
           width:auto!important;
           max-width:100%!important;
           height:auto!important;
         }
       }
+}
+@media screen and (orientation: portrait) { 
+  .ci {
+    object-fit: cover;
+    height: 50%!important;
+    // height: auto;
+  }
+  .ci-slide{
+    object-fit: cover;
+    height: 100%!important;
+    max-width: 100%!important;
+  }
 }
 
   

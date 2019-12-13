@@ -1,7 +1,6 @@
 <div class="py-5 px-3 white">
     <section class="animated zoomIn">
-      <br>
-      <br>
+
       <h3 class="text-center font-weight-bold mb-5">Мероприятия</h3>
       <div class="row">
         <div class="col-md-12">
@@ -10,7 +9,7 @@
               <div class="row">
                 <div class="col-md-5 mb-md-4">
                   <div class="view overlay z-depth-1 mb-4">
-                    <img [src]="events[0].album.images[0].url" class="img-fluid rounded-0"
+                    <img [src]="events[0].title_image" class="img-fluid rounded-0"
                       alt="Sample image">
                     <a>
                       <div class="mask rgba-white-light waves-effect waves-light"></div>
@@ -31,7 +30,7 @@
                     <div class="row mb-3" *ngIf="(i %2 == 0) && (i != 0)">
                       <div class="col-md-4">
                         <div class="view overlay rgba-white-slight z-depth-1 mb-3">
-                          <img [src]="item.album.images[i].url"
+                          <img [src]="item.title_image"
                             class="img-fluid rounded-0" alt="Minor sample post image">
                           <a>
                             <div class="mask rgba-white-light waves-effect waves-light"></div>
@@ -54,7 +53,7 @@
                     <div class="row mb-3" *ngIf="i %2 != 0">
                       <div class="col-md-4">
                         <div class="view overlay rgba-white-slight z-depth-1 mb-3">
-                          <img [src]="item.album.images[i].url"
+                          <img [src]="item.title_image"
                             class="img-fluid rounded-0" alt="Minor sample post image">
                           <a>
                             <div class="mask rgba-white-slight waves-effect waves-light"></div>

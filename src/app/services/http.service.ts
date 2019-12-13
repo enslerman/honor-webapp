@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class HttpService {
-    private baseURL:string="http://honor-webapp-server.std-763.ist.mospolytech.ru/public";
-    //private baseURL:string="http://localhost:8082/public"
+    //private baseURL:string="http://honor-webapp-server.std-763.ist.mospolytech.ru/public";
+    private baseURL:string="http://localhost:8082/public"
     constructor(private http: HttpClient){ }
       
     getMain() {
@@ -53,6 +54,12 @@ export class HttpService {
         return this.http.get(`${this.baseURL}/get/all/ordens`).toPromise();
     }
 
+    getLasts(){
+        return this.http.get<any>(`${this.baseURL}/get/last/all`).toPromise();
+    }
+    getLastPhotos(){
+        return this.http.get<any>(`${this.baseURL}/get/last/photos`).toPromise();
+    }
     postGalleryComment(comment:any,commentId:number){
         return this.http.post(`${this.baseURL}/add/comment/${commentId}`,comment,{responseType:"text"}).toPromise();
     }

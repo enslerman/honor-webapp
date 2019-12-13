@@ -1,0 +1,24 @@
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000"  style="height: 100%;">
+        <div class="carousel-inner" style="height: 100%;">
+          <ng-container *ngFor="let img of photos;let i=index">
+            <div class="carousel-item active"  style="height: 100%;" *ngIf="i==0">
+              <img [src]="img?.url" class="d-block w-100 ci-slide" alt="...">
+              <div class="who">
+                  <p>Галерея</p>
+                  <div class="slick-text">
+                    <h4>{{img?.name}}</h4>
+                  </div>
+              </div>
+            </div>
+            <div class="carousel-item"  style="height: 100%;" *ngIf="i!=0">
+              <img [src]="img?.url" class="d-block w-100 ci-slide" alt="...">
+              <div class="who">
+                  <p>Галерея</p>
+                  <div class="slick-text">
+                    <h4>{{img?.name}}</h4>
+                  </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+</div>
