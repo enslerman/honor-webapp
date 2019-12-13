@@ -90,7 +90,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     color: #46a9ff;
   }
 
-
+.ci{
+  max-width: 100%!important;
+}
 @media screen and (orientation: landscape) { 
     figure{
         img{

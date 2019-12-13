@@ -163,3 +163,35 @@ img {
 .display-4, .lead{
   color: white;
 }
+mat-grid-list{
+  margin: 1rem;
+}
+.grid-img{
+      object-fit: cover!important;
+      width: 100%!important;
+      height: 100%!important;
+      max-width: 100%!important;
+}
+.who{
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  background: darkred;
+  padding: 0.2rem;
+  p{
+    color:white;
+    margin: 0!important;
+  }
+  div{
+    height: fit-content;
+    position: absolute;
+    top: 3.2rem;
+    padding:0.2rem!important;
+    background: #000000ba;
+  }
+}
+figure{
+  img{
+    max-width: 100%!important;
+  }
+}

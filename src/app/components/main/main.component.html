@@ -1,36 +1,34 @@
-<mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'" [isControls]="false">
-  <mdb-carousel-item>
-    <div class="view w-100">
-      <img class="d-block slider-img" src="https://cdn.iz.ru/sites/default/files/styles/900x506/public/news-2019-06/ZUB_8112.jpg?itok=2KBQyBHc" alt="First slide">
-      <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
-      <div class="transition"></div>
-    </div>
-    <div class="carousel-caption">
-      <p class="main-text animated fadeIn">СЛУЖИМ РОССИИ</p>
-    </div>
-  </mdb-carousel-item>
-  <mdb-carousel-item>
-    <div class="view w-100">
-      <img class="d-block slider-img" src="https://s0.rbk.ru/v6_top_pics/media/img/2/81/755711669423812.jpeg" alt="Second slide">
-      <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
-      <div class="transition"></div>
-    </div>
-    <div class="carousel-caption">
-      <p class="main-text animated fadeIn">СЛУЖИМ ЗАКОНУ</p>
-    </div>
-  </mdb-carousel-item>
-  <mdb-carousel-item>
-    <div class="view w-100">
-      <img class="d-block slider-img" src="https://ig.vgoroden.ru/gfzyemsteaz08_15iwsn5_w-1200.jpeg" alt="Third slide">
-      <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
-      <div class="transition"></div>
-    </div>
-    <div class="carousel-caption">
-      <p class="main-text animated fadeIn">МОО ВОС "ЧЕСТЬ"</p>
-    </div>
-  </mdb-carousel-item>
-</mdb-carousel>
 
+
+<mat-grid-list cols="3" rowHeight="15rem" gutterSize="1rem">
+  <mat-grid-tile
+      *ngFor="let tile of tiles; let i=index"
+      [colspan]="tile.cols"
+      [rowspan]="tile.rows"
+      [style.background]="tile.color">
+    <ng-container *ngIf="i==0">
+      <div>
+          <mdb-carousel [isControls]="false" [animation]="'slide'">
+              <mdb-carousel-item *ngFor="let img of photos">
+                <img class="d-block w-100 ci" [src]="img?.url" alt="Third slide">
+                <div class="carousel-caption">
+                    <p>{{img?.title}}</p>
+                </div>
+              </mdb-carousel-item>
+            </mdb-carousel>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="i!=0">
+      <img class="grid-img" [src]="lasts[i]?.image" [routerLink]="[lasts[i]?.url, lasts[i]?.id]">
+      <div class="who">
+        <p>{{lasts[i]?.type}}</p>
+        <div class="slick-text">
+          <h4>{{lasts[i]?.title}}</h4>
+        </div>
+      </div>
+    </ng-container>
+  </mat-grid-tile>
+</mat-grid-list>
 
 <div class="jumbotron jumbotron-fluid mb-0 black">
   <div class="container d-sm-flex align-items-center justify-content-center">
