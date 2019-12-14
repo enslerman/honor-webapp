@@ -131,7 +131,9 @@ img {
   background-size: cover;
   background-size: 200%;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   padding:0;
+  text-align: center;
 }
 .blur{
   display: block;
@@ -139,7 +141,8 @@ img {
   width: 100%;
   position: relative;
   backdrop-filter: blur(15px);
-  padding:8rem;
+  padding-top :5rem;
+  padding-bottom: 5rem;
 }
 
 @media screen and (orientation: portrait) {
@@ -229,4 +232,54 @@ figure{
   object-fit: cover;
   width: 100%;
   height: auto;
+}
+
+
+$animationSpeed: 40s;
+
+// Animation
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-250px * 7))}
+}
+
+
+// Styling
+.slider {
+	background: rgb(24, 24, 24);
+	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+	// height: 15rem;
+	margin: auto;
+	overflow:hidden;
+	position: relative;
+	width: 100%;
+	
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		width: 100%;
+		z-index: 2;
+	}
+	
+	&::after {
+		right: 0;
+		top: 0;
+		transform: rotateZ(180deg);
+	}
+
+	&::before {
+		left: 0;
+		top: 0;
+	}
+	
+	.slide-track {
+		animation: scroll $animationSpeed linear infinite;
+		display: flex;
+		width: calc(250px * 14);
+	}
+	
+	.slide {
+		width: 250px;
+	}
 }

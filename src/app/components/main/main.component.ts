@@ -1,8 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpService } from 'src/app/services/http.service';
-import { useAnimation, transition,trigger,query,style,animate } from "@angular/animations";
 import { slideInRightOnEnterAnimation, slideOutLeftOnLeaveAnimation,slideInRightAnimation } from 'angular-animations';
+
 export interface Tile {
   color: string;
   cols: number;
@@ -25,11 +25,8 @@ export class MainComponent implements OnInit {
 
   public innerWidth: any;
   lasts:any[]=[];
-  // slides:any = [
-  //   {
-  //     image:""
-  //   }
-  // ];
+  slides:any = [];
+  newSlides: any = [];
 
   news: any = [];
   public innerHeight: any; 
@@ -68,6 +65,7 @@ export class MainComponent implements OnInit {
       this.tiles[0].cols=2
     }
   }
+
   async getPosts(){
     this.slides = await this.API.getMain();
   }
@@ -84,7 +82,10 @@ export class MainComponent implements OnInit {
     this.adaptiveGrid();
     window.scroll(0,0);
     this.getPosts().then(()=> {
-      console.log(this.slides)
+      for (let i = 0; i < 7; i++) {
+        this.newSlides[i] = this.slides
+      }
+      console.table(this.newSlides)
     });
     this.getNews().then(()=> {
       console.log(this.news)
@@ -95,7 +96,6 @@ export class MainComponent implements OnInit {
     });
   }
   
-
   slideConfig = {
     "arrows": false,
     "autoplay": true,

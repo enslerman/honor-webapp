@@ -25,21 +25,21 @@
 
 <div class="jumbotron jumbotron-fluid mb-0">
   <div class="blur" >
-  <div class="container d-sm-flex align-items-center justify-content-center my-1">
-    <div class="mx-auto text-center mb-3">
-      <img class="background"src="/assets/images/logo.png" alt="logo" class="img-fluid logo-jum mx-auto">
+    <div class="container d-sm-flex align-items-center justify-content-center my-1">
+      <div class="mx-auto text-center mb-3">
+        <img class="background"src="/assets/images/logo.png" alt="logo" class="img-fluid logo-jum mx-auto">
+      </div>
+      <div class="mx-auto text-left">
+        <h1 class="display-4">ЧЕСТЬ</h1>
+        <p class="lead">МЕЖРЕГИОНАЛЬНАЯ ОБЩЕСТВЕННАЯ ОРГАНИЗАЦИЯ ВЕТЕРАНОВ ОПЕРАТИВНЫХ СЛУЖБ</p>
+      </div>
     </div>
-    <div class="mx-auto text-left">
-      <h1 class="display-4">ЧЕСТЬ</h1>
-      <p class="lead">МЕЖРЕГИОНАЛЬНАЯ ОБЩЕСТВЕННАЯ ОРГАНИЗАЦИЯ ВЕТЕРАНОВ ОПЕРАТИВНЫХ СЛУЖБ</p>
-    </div>
-  </div>
   </div>
 </div>
 
 <div class="black">
 
-  <ngx-slick-carousel class="slick-car" 
+  <!-- <ngx-slick-carousel class="slick-car" 
                       #slickModal="slick-carousel" 
                       [config]="slideConfig">
     <div ngxSlickItem *ngFor="let slide of slides" class="slick-item view overlay" style="height: 100%; width: 100%; margin-left: 2px; margin-right: 2px;">
@@ -52,7 +52,15 @@
         <div class="mask rgba-black-strong"></div>
       </div>
     </div>
-  </ngx-slick-carousel>
+  </ngx-slick-carousel> -->
+
+  <div class="slider">
+    <div class="slide-track">
+      <div class="slide" *ngFor="let slides of newSlides">
+        <img [src]="slide.title_image" height="100" width="250" alt="" />
+      </div>
+    </div>
+  </div>
 
   <ngx-slick-carousel class="slick-car" 
                       #slickModal="slick-carousel" 
