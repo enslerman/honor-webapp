@@ -1,59 +1,5 @@
-.icons-links {
-    background-color: transparent;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 9999;
-}
-
-.icons {
-    width: 30px;
-    height: 30px;
-}
-img.hovered,
-  a:hover>img { display: none }
-  a:hover>img.hovered { display: inline }
-
 div.main{
     color: white;
-}
-@media screen and (orientation: portrait) { 
-    .icons-links {
-        display: none;
-    }
-    .main-text {
-      font-family: 'Uni Sans Heavy Italic';
-      font-style: italic;
-      font-weight: 400;
-      text-transform: uppercase;
-      text-align: right;
-      font-size: 50px !important;
-      letter-spacing: 3.25px;
-      margin-bottom: 5vh !important;
-      line-height: 60px !important;
-    }
-    .slider-img {
-      position: absolute;
-      top: 0;
-      right: -20vh;
-      bottom: 0;
-      height: auto;
-      -ms-touch-action: auto !important;
-      touch-action: auto !important;
-      background-position: right;
-    }
-}
-
-@media screen and (orientation: landscape) {
-  .slider-img {
-    object-fit: cover;
-    width: 100vw;
-    height: auto;
-    -ms-touch-action: auto !important;
-    touch-action: auto !important;
-    background-position: right;
-    float: right;
-}
 }
 
 .main-text {
@@ -240,13 +186,13 @@ $animationSpeed: 40s;
 // Animation
 @keyframes scroll {
 	0% { transform: translateX(0); }
-	100% { transform: translateX(calc(-250px * 7))}
+	100% { transform: translateX(calc(-250px * 8))}
 }
 
 
 // Styling
 .slider {
-	background: rgb(24, 24, 24);
+	background: white;
 	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
 	height: 20rem;
 	margin: auto;
@@ -257,8 +203,9 @@ $animationSpeed: 40s;
 	&::before,
 	&::after {
 		content: "";
+		height: 20rem;
 		position: absolute;
-		width: 100%;
+		width: 200px;
 		z-index: 2;
 	}
 	
@@ -276,12 +223,18 @@ $animationSpeed: 40s;
 	.slide-track {
 		animation: scroll $animationSpeed linear infinite;
 		display: flex;
-		width: calc(250px * 7);
+		width: calc(30rem * 16);
 	}
 	
 	.slide {
-    width: 25rem;
-    
-    object-fit: contain;
-	}
+		height: 20rem;
+    width: 30rem;
+  }
+  
+  .slide-img {
+    height: 20rem;
+    width: 30rem;
+    object-fit: cover;
+    object-position: center;
+  }
 }

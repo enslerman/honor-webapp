@@ -64,8 +64,8 @@ export class HttpService {
         return this.http.post(`${this.baseURL}/add/comment/${commentId}`,comment,{responseType:"text"}).toPromise();
     }
 
-    getMemoForSlider() {
-        return this.http.get(this.baseURL+'/get/all/posts/1?count=7').toPromise();
+    getMemoForSlider(count) {
+        return this.http.get(this.baseURL+`/get/all/posts/1?count=${count}`).toPromise();
     }
 
     // postRallyComment(comment:any,commentId:number){

@@ -64,8 +64,9 @@ export class MainComponent implements OnInit {
       this.tiles[0].cols=2
     }
   }
-  async getPosts(){
-    this.Memos = await this.API.getMemoForSlider()
+  async getPosts(count){
+    count = 8
+    this.Memos = await this.API.getMemoForSlider(count)
   }
 
   async getNews(){
@@ -79,7 +80,7 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.adaptiveGrid();
     window.scroll(0,0);
-    this.getPosts().then(()=> {
+    this.getPosts(8).then(()=> {
       console.table(this.Memos)
     });
     this.getNews().then(()=> {
