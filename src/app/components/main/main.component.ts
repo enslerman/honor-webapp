@@ -25,8 +25,7 @@ export class MainComponent implements OnInit {
 
   public innerWidth: any;
   lasts:any[]=[];
-  slides:any = [];
-  newSlides: any = [];
+  Memos:any = [];
 
   news: any = [];
   public innerHeight: any; 
@@ -65,9 +64,8 @@ export class MainComponent implements OnInit {
       this.tiles[0].cols=2
     }
   }
-
   async getPosts(){
-    this.slides = await this.API.getMain();
+    this.Memos = await this.API.getMemoForSlider()
   }
 
   async getNews(){
@@ -82,10 +80,7 @@ export class MainComponent implements OnInit {
     this.adaptiveGrid();
     window.scroll(0,0);
     this.getPosts().then(()=> {
-      for (let i = 0; i < 7; i++) {
-        this.newSlides[i] = this.slides
-      }
-      console.table(this.newSlides)
+      console.table(this.Memos)
     });
     this.getNews().then(()=> {
       console.log(this.news)

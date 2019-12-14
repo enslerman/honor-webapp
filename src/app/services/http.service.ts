@@ -64,6 +64,10 @@ export class HttpService {
         return this.http.post(`${this.baseURL}/add/comment/${commentId}`,comment,{responseType:"text"}).toPromise();
     }
 
+    getMemoForSlider() {
+        return this.http.get(this.baseURL+'/get/all/posts/1?count=7').toPromise();
+    }
+
     // postRallyComment(comment:any,commentId:number){
     //     return this.http.post(`http://honor-webapp-server.std-763.ist.mospolytech.ru/addComment/${commentId}`,comment,{responseType:"text"}).toPromise();
     // }

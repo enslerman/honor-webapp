@@ -248,7 +248,7 @@ $animationSpeed: 40s;
 .slider {
 	background: rgb(24, 24, 24);
 	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
-	// height: 15rem;
+	height: 20rem;
 	margin: auto;
 	overflow:hidden;
 	position: relative;
@@ -276,10 +276,12 @@ $animationSpeed: 40s;
 	.slide-track {
 		animation: scroll $animationSpeed linear infinite;
 		display: flex;
-		width: calc(250px * 14);
+		width: calc(250px * 7);
 	}
 	
 	.slide {
-		width: 250px;
+    width: 25rem;
+    
+    object-fit: contain;
 	}
 }

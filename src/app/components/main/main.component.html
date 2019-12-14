@@ -56,8 +56,8 @@
 
   <div class="slider">
     <div class="slide-track">
-      <div class="slide" *ngFor="let slides of newSlides">
-        <img [src]="slide.title_image" height="100" width="250" alt="" />
+      <div class="slide m-5" *ngFor="let slide of Memos; let i = index">
+        <img [src]="slide.title_image" alt="" />
       </div>
     </div>
   </div>
