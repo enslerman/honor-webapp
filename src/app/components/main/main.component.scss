@@ -125,7 +125,32 @@ img {
   background-repeat: no-repeat;
   background-position: center;
 }
+.jumbotron{
+  background-image: url("/assets/images/BG-5.gif");
+  background-position: 75% center;
+  background-size: cover;
+  background-size: 200%;
+  background-repeat: no-repeat;
+  padding:0;
+}
+.blur{
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  backdrop-filter: blur(15px);
+  padding:8rem;
+}
 
+@media screen and (orientation: portrait) {
+  .jumbotron{
+    background-size: 900%;
+    background-position: 60% 60%;
+  }
+  .align-left{
+    text-align: left!important;
+  }
+}
 .logo-jum {
   width: 10rem; 
   height: auto;
