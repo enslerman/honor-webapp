@@ -22,13 +22,15 @@ export interface Tile {
 export class MainComponent implements OnInit {
 
   constructor(private http: HttpClient, private API: HttpService) {}
+
   public innerWidth: any;
   lasts:any[]=[];
-  slides:any = [
-    {
-      image:""
-    }
-  ];
+  // slides:any = [
+  //   {
+  //     image:""
+  //   }
+  // ];
+
   news: any = [];
   public innerHeight: any; 
   tiles: Tile[] = [
@@ -46,23 +48,6 @@ export class MainComponent implements OnInit {
     "image":"",
     hdn:false
   };
-  // lasts: any[] = [
-  //   {
-  //     "image": "https://9net.ru/uploads/posts/2019-01/1546515622_ricardo.gif",
-  //   },
-  //   {
-  //     "image": "https://steamuserimages-a.akamaihd.net/ugc/951841177148216940/4C0E46016EE7ABF8440FCA7B9B5AB60EF55AA969/?imw=512&imh=384&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true",
-  //   },
-  //   {
-  //     "image": "https://steamuserimages-a.akamaihd.net/ugc/956346433295880717/87FE6FB71818889F98F79BDA6BFC22BF99EA4112/",
-  //   },
-  //   {
-  //     "image": "https://66.media.tumblr.com/366ad4b76e87b2787aecdcd8842b3f34/tumblr_p4h0p25SAo1wyxz4yo1_500.gifv",
-  //   },
-  //   {
-  //     "image": "https://steamuserimages-a.akamaihd.net/ugc/951841177148216940/4C0E46016EE7ABF8440FCA7B9B5AB60EF55AA969/?imw=512&imh=384&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true",
-  //   }
-  // ]
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -98,10 +83,6 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.adaptiveGrid();
     window.scroll(0,0);
-    // window.addEventListener('resize', () => {
-    //   // We execute the same script as before
-    //   document.documentElement.style.setProperty('--vh', `${this.vh}px`);
-    // });
     this.getPosts().then(()=> {
       console.log(this.slides)
     });
@@ -117,10 +98,8 @@ export class MainComponent implements OnInit {
 
   slideConfig = {
     "arrows": false,
-    "slidesToShow": 5,
-    "slidesToScroll": 1,
     "autoplay": true,
-    "autoplaySpeed": 4000,
+    "autoplaySpeed": 2000,
     "responsive": [
       {
         "breakpoint": 2600,
@@ -129,7 +108,7 @@ export class MainComponent implements OnInit {
           "slidesToScroll": 1,
           "infinite": true,
           "autoplay": true,
-          "autoplaySpeed": 4000,
+          "autoplaySpeed": 2000,
           "mobileFirst": true
         }
       },
@@ -140,7 +119,7 @@ export class MainComponent implements OnInit {
           "slidesToScroll": 1,
           "infinite": true,
           "autoplay": true,
-          "autoplaySpeed": 4000,
+          "autoplaySpeed": 2000,
           "mobileFirst": true
         }
       },
@@ -151,7 +130,7 @@ export class MainComponent implements OnInit {
           "slidesToScroll": 1,
           "infinite": true,
           "autoplay": true,
-          "autoplaySpeed": 4000,
+          "autoplaySpeed": 2000,
           "mobileFirst": true,
         }
       },
@@ -162,7 +141,7 @@ export class MainComponent implements OnInit {
           "slidesToScroll": 1,
           "infinite": true,
           "autoplay": true,
-          "autoplaySpeed": 4000,
+          "autoplaySpeed": 2000,
           "mobileFirst": true,
         }
       },
@@ -173,7 +152,7 @@ export class MainComponent implements OnInit {
           "slidesToScroll": 1,
           "infinite": true,
           "autoplay": true,
-          "autoplaySpeed": 4000,
+          "autoplaySpeed": 2000,
           "mobileFirst": true,
         }
       },
@@ -184,7 +163,7 @@ export class MainComponent implements OnInit {
           "slidesToScroll": 1,
           "infinite": true,
           "autoplay": true,
-          "autoplaySpeed": 4000,
+          "autoplaySpeed": 2000,
           "mobileFirst": true,
         }
       }

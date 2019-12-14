@@ -1,5 +1,6 @@
 <div style="background-color: rgb(24, 24, 24);">
-  <mat-grid-list cols="3" rowHeight="46vh" gutterSize="0.5rem" style="margin-top: 0; margin-bottom: 0;">
+<div style="background-color: rgb(24, 24, 24);">
+  <mat-grid-list cols="3" rowHeight="45vh" gutterSize="0.5rem" style="margin-top: 0; margin-bottom: 0;" class="mb-3">
     <mat-grid-tile
         *ngFor="let tile of tiles; let i=index"
         [colspan]="tile.cols"
@@ -39,7 +40,7 @@
   <ngx-slick-carousel class="slick-car" 
                       #slickModal="slick-carousel" 
                       [config]="slideConfig">
-    <div ngxSlickItem *ngFor="let slide of slides" class="slick-item view overlay" style="height: 100%; margin: 2px;">
+    <div ngxSlickItem *ngFor="let slide of slides" class="slick-item view overlay" style="height: 100%; width: 100%; margin-left: 2px; margin-right: 2px;">
       <div [routerLink]="['/memories', slide.id]">
         <div class="slick-text">
           <p>Воспоминания</p>
@@ -54,7 +55,7 @@
   <ngx-slick-carousel class="slick-car" 
                       #slickModal="slick-carousel" 
                       [config]="slideConfig">
-    <div ngxSlickItem *ngFor="let slide of news" class="slick-item view overlay" style="height: 100%; margin: 2px;">
+    <div ngxSlickItem *ngFor="let slide of news" class="slick-item view overlay" style="height: 100%; margin-left: 2px; margin-right: 2px;">
       <div [routerLink]="['/news', slide.id]">
         <div class="slick-text">
           <p>Новости</p>
@@ -67,3 +68,4 @@
   </ngx-slick-carousel>
 </div>
 
+</div>
