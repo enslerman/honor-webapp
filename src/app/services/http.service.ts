@@ -68,6 +68,10 @@ export class HttpService {
         return this.http.get(this.baseURL+`/get/all/posts/1?count=${count}`).toPromise();
     }
 
+    getNewsForSlider(count) {
+        return this.http.get(this.baseURL+`/get/all/news/1?count=${count}`).toPromise();
+    }
+
     // postRallyComment(comment:any,commentId:number){
     //     return this.http.post(`http://honor-webapp-server.std-763.ist.mospolytech.ru/addComment/${commentId}`,comment,{responseType:"text"}).toPromise();
     // }

@@ -9,6 +9,7 @@ export interface Tile {
   rows: number;
   text: string;
 }
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -19,16 +20,15 @@ export interface Tile {
     slideInRightOnEnterAnimation({anchor:"in",duration: 1000, delay: 0, translate: '100%' })
  ]
 })
+
 export class MainComponent implements OnInit {
 
   constructor(private http: HttpClient, private API: HttpService) {}
 
-  public innerWidth: any;
   lasts:any[]=[];
   Memos:any = [];
-
   news: any = [];
-  public innerHeight: any; 
+
   tiles: Tile[] = [
     {text: 'One', cols: 2, rows: 1, color: 'blue'},
     {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
@@ -36,7 +36,7 @@ export class MainComponent implements OnInit {
     {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
     {text: 'Four', cols: 1, rows: 1, color: '#DDBDF1'},
   ];
-  
+
   jopa:any = {
     "id": "",
     "title":"",
@@ -45,11 +45,13 @@ export class MainComponent implements OnInit {
     hdn:false
   };
 
+  public innerWidth: any;
+  public innerHeight: any; 
+
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.adaptiveGrid()
   } 
-
 
   adaptiveGrid(){
     this.innerHeight= window.innerHeight;
@@ -67,10 +69,13 @@ export class MainComponent implements OnInit {
   async getPosts(count){
     count = 8
     this.Memos = await this.API.getMemoForSlider(count)
+    this.Memos = this.Memos.concat(this.Memos)
   }
 
-  async getNews(){
-    this.news = await this.API.getNews();
+  async getNews(count){
+    count = 8
+    this.news = await this.API.getNewsForSlider(count);
+    this.news = this.news.concat(this.news)
   }
   async getLasts(){
     this.lasts=await this.API.getLasts();
@@ -82,8 +87,9 @@ export class MainComponent implements OnInit {
     window.scroll(0,0);
     this.getPosts(8).then(()=> {
       console.table(this.Memos)
+      
     });
-    this.getNews().then(()=> {
+    this.getNews(8).then(()=> {
       console.log(this.news)
     });
     this.getLasts().then(()=> {
@@ -92,77 +98,4 @@ export class MainComponent implements OnInit {
     });
   }
   
-  slideConfig = {
-    "arrows": false,
-    "autoplay": true,
-    "autoplaySpeed": 2000,
-    "responsive": [
-      {
-        "breakpoint": 2600,
-        "settings": {
-          "slidesToShow": 5,
-          "slidesToScroll": 1,
-          "infinite": true,
-          "autoplay": true,
-          "autoplaySpeed": 2000,
-          "mobileFirst": true
-        }
-      },
-      {
-        "breakpoint": 1500,
-        "settings": {
-          "slidesToShow": 4,
-          "slidesToScroll": 1,
-          "infinite": true,
-          "autoplay": true,
-          "autoplaySpeed": 2000,
-          "mobileFirst": true
-        }
-      },
-      {
-        "breakpoint": 1281,
-        "settings": {
-          "slidesToShow": 3,
-          "slidesToScroll": 1,
-          "infinite": true,
-          "autoplay": true,
-          "autoplaySpeed": 2000,
-          "mobileFirst": true,
-        }
-      },
-      {
-        "breakpoint": 769,
-        "settings": {
-          "slidesToShow": 2,
-          "slidesToScroll": 1,
-          "infinite": true,
-          "autoplay": true,
-          "autoplaySpeed": 2000,
-          "mobileFirst": true,
-        }
-      },
-      {
-        "breakpoint": 576,
-        "settings": {
-          "slidesToShow": 2,
-          "slidesToScroll": 1,
-          "infinite": true,
-          "autoplay": true,
-          "autoplaySpeed": 2000,
-          "mobileFirst": true,
-        }
-      },
-      {
-        "breakpoint": 480,
-        "settings": {
-          "slidesToShow": 1,
-          "slidesToScroll": 1,
-          "infinite": true,
-          "autoplay": true,
-          "autoplaySpeed": 2000,
-          "mobileFirst": true,
-        }
-      }
-    ]
-  }
 }
