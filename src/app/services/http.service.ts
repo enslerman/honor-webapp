@@ -11,7 +11,7 @@ export class HttpService {
     constructor(private http: HttpClient){ }
       
     getMain() {
-        return this.http.get(this.baseURL+'/get/all/posts').toPromise();
+        return this.http.get(this.baseURL+'/get/all/posts/1').toPromise();
     }
 
     getPostById(id) {
@@ -19,7 +19,7 @@ export class HttpService {
     }
 
     getAlbums() {
-        return this.http.get(`${this.baseURL}/get/all/albums`).toPromise();
+        return this.http.get(`${this.baseURL}/get/all/albums/1`).toPromise();
     }
 
     getAlbumById(id) {
@@ -27,7 +27,7 @@ export class HttpService {
     }
 
     getNews() {
-        return this.http.get(`${this.baseURL}/get/all/news`).toPromise();
+        return this.http.get(`${this.baseURL}/get/all/news/1`).toPromise();
     }
 
     getNewsById(id) {
@@ -35,11 +35,11 @@ export class HttpService {
     }
 
     getRally() {
-        return this.http.get(`${this.baseURL}/get/actions/rallies`).toPromise();
+        return this.http.get(`${this.baseURL}/get/actions/rallies/1`).toPromise();
     }
 
     getEvents() {
-        return this.http.get(`${this.baseURL}/get/actions/events`).toPromise();
+        return this.http.get(`${this.baseURL}/get/actions/events/1`).toPromise();
     }
 
     getEventById(id) {
@@ -51,7 +51,7 @@ export class HttpService {
     }
 
     getAwards() {
-        return this.http.get(`${this.baseURL}/get/all/ordens`).toPromise();
+        return this.http.get(`${this.baseURL}/get/all/ordens/1`).toPromise();
     }
 
     getLasts(){
@@ -62,6 +62,14 @@ export class HttpService {
     }
     postGalleryComment(comment:any,commentId:number){
         return this.http.post(`${this.baseURL}/add/comment/${commentId}`,comment,{responseType:"text"}).toPromise();
+    }
+
+    getMemoForSlider(count) {
+        return this.http.get(this.baseURL+`/get/all/posts/1?count=${count}`).toPromise();
+    }
+
+    getNewsForSlider(count) {
+        return this.http.get(this.baseURL+`/get/all/news/1?count=${count}`).toPromise();
     }
 
     // postRallyComment(comment:any,commentId:number){
