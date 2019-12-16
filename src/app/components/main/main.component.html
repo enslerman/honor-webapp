@@ -10,12 +10,15 @@
           </app-grid-slider>
         </ng-container>
         <ng-container *ngIf="i!=0">
-          <img class="grid-img" [src]="lasts[i]?.image" [routerLink]="[lasts[i]?.url, lasts[i]?.id]">
-          <div class="who">
-            <p>{{lasts[i]?.type}}</p>
-            <div class="slick-text">
-              <h4>{{lasts[i]?.title}}</h4>
+          <div class="view zoom" [routerLink]="[lasts[i]?.url, lasts[i]?.id]">
+            <img class="grid-img" [src]="lasts[i]?.image">
+            <div class="who">
+              <p>{{lasts[i]?.type}}</p>
+              <div class="slick-text">
+                <h4>{{lasts[i]?.title}}</h4>
+              </div>
             </div>
+            <div class="mask flex-center rgba-black-slight"></div>
           </div>
         </ng-container>
       </mat-grid-tile>
@@ -25,12 +28,11 @@
     <div class="blur" >
       <div class="container d-sm-flex align-items-center justify-content-center my-1">
         <div class="mx-auto text-center mb-3">
-          <!-- <img class="background"src="/assets/images/logo.png" alt="logo" class="img-fluid logo-jum mx-auto"> -->
+          <img class="background"src="/assets/images/logo.png" alt="logo" class="img-fluid logo-jum mx-auto">
         </div>
-        <div class="mx-auto text-left">
-          <h1 class="h3 text-white">Чувствуешь запах? Это напалм, сынок. Больше ничто в мире не пахнет так.</h1>
-          <p class="lead">Я люблю запах напалма поутру. Однажды мы бомбили одну высоту, двенадцать часов подряд. И когда всё закончилось, я поднялся на неё. Там уже никого не было, даже ни одного вонючего трупа. Но запах! Весь холм был им пропитан. Это был запах… победы!
-            Когда-нибудь эта война закончится.</p>
+        <div class="mx-auto mr-3 text-left">
+          <h1 class="display-4">ЧЕСТЬ</h1>
+          <p class="lead">МЕЖРЕГИОНАЛЬНАЯ ОБЩЕСТВЕННАЯ ОРГАНИЗАЦИЯ ВЕТЕРАНОВ ОПЕРАТИВНЫХ СЛУЖБ</p>
         </div>
       </div>
     </div>

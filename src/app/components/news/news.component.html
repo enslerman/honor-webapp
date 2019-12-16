@@ -16,7 +16,8 @@
               </div>
               <div class="col-md-6 text-left mb-md-5 mb-4" >
                 <h4 class="mb-3"><strong>{{news[0].title}}</strong></h4>
-                <p class="dark-grey-text">{{news[0].description}}</p>
+                <!-- <p class="dark-grey-text" [innerHTML]="htmlData">{{news[0].description}}</p> -->
+                <div class="dark-grey-text" [innerHTML]="htmlData"></div>
                 <p>by <a [routerLink]="['/news', news[0].id]"><strong>{{news[0].author}}</strong></a>, {{news[0].time}}</p>
                 <button class="btn btn-dark" [routerLink]="['/news', news[0].id]" mdbBtn type="button" color="dark" mdbWavesEffect>Читать далее</button>
               </div>
