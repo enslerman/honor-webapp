@@ -1,5 +1,5 @@
 <div style="background-color: rgb(24, 24, 24);">
-    <!-- <mat-grid-list cols="3" rowHeight="44vh" gutterSize="0.5rem" style="margin-top: 0; margin-bottom: 0;" class="mb-3">
+    <mat-grid-list cols="3" rowHeight="44vh" gutterSize="0.5rem" style="margin-top: 0; margin-bottom: 0;" class="mb-3">
       <mat-grid-tile
           *ngFor="let tile of tiles; let i=index"
           [colspan]="tile.cols"
@@ -19,13 +19,13 @@
           </div>
         </ng-container>
       </mat-grid-tile>
-    </mat-grid-list> -->
+    </mat-grid-list>
 
-  <!-- <div class="jumbotron jumbotron-fluid mb-5">
+  <div class="jumbotron jumbotron-fluid mb-5">
     <div class="blur" >
       <div class="container d-sm-flex align-items-center justify-content-center my-1">
         <div class="mx-auto text-center mb-3">
-          <img class="background"src="/assets/images/logo.png" alt="logo" class="img-fluid logo-jum mx-auto">
+          <!-- <img class="background"src="/assets/images/logo.png" alt="logo" class="img-fluid logo-jum mx-auto"> -->
         </div>
         <div class="mx-auto text-left">
           <h1 class="h3 text-white">Чувствуешь запах? Это напалм, сынок. Больше ничто в мире не пахнет так.</h1>
@@ -34,21 +34,26 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 
   <div class="slider">
     <div class="slide-track">
       <div class="slide mr-5" *ngFor="let slide of Memos; let i = index">
-        <div class="slider-text">
-          <p>Воспоминания</p>
-          <h4>{{ slide.title }}</h4>
+        <div style="height: 15rem;">
+          <div class="view overlay">
+            <div class="slider-text">
+              <p>Воспоминания</p>
+              <h4>{{ slide.title }}</h4>
+            </div>
+            <img [src]="slide.title_image" class="slide-img" />
+            <div class="mask flex-center rgba-black-strong"></div>
+          </div>
         </div>
-        <img [src]="slide.title_image" class="slide-img" />
       </div>
     </div>
   </div>
 
-  <div class="slider mt-5 mb-5">
+  <div class="slider mt-5">
     <div class="slide-track1">
       <div class="slide mr-5" *ngFor="let slide of news; let i = index">
         <div style="height: 15rem;">
@@ -58,12 +63,14 @@
               <h4>{{ slide.title }}</h4>
             </div>
             <img [src]="slide.title_image" class="slide-img" />
-            <div class="mask flex-center rgba-red-strong"></div>
+            <div class="mask flex-center rgba-black-strong"></div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="pb-5"></div>
 
   <!-- <ngx-slick-carousel class="slick-car" 
                       #slickModal="slick-carousel" 
