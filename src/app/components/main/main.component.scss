@@ -30,7 +30,8 @@ body,
   background-position: center;
 }
 .jumbotron{
-  background-image: url("/assets/images/BG-5.gif");
+  background-image: url("/assets/images/war.gif");
+  // background-image: url("/assets/images/BG-5.gif");
   background-position: 75% center;
   background-size: cover;
   background-size: 200%;
@@ -44,9 +45,9 @@ body,
   height: 100%;
   width: 100%;
   position: relative;
-  backdrop-filter: blur(15px);
-  padding-top :5rem;
-  padding-bottom: 5rem;
+  backdrop-filter: blur(10px);
+  padding-top :12rem;
+  padding-bottom: 12rem;
 }
 
 @media screen and (orientation: portrait) {
