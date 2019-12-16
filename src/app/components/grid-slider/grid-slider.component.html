@@ -1,7 +1,7 @@
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000"  style="height: 100%;">
         <div class="carousel-inner" style="height: 100%;">
           <ng-container *ngFor="let img of photos;let i=index">
-            <div class="view zoom">
+            <div class="view zoom" style="height: 100%;">
             <div class="carousel-item active"  style="height: 100%;" *ngIf="i==0">
               <img [src]="img?.url" [routerLink]="['/gallery']" class="d-block w-100 ci-slide" alt="...">
               <div class="who">

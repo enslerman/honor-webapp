@@ -23,6 +23,7 @@ export class FullNewsComponent implements OnInit {
     });
   }
   htmlData;
+
   id: number;
   news:any = {
     "author": "",
@@ -32,15 +33,23 @@ export class FullNewsComponent implements OnInit {
     "title": "",
     "title_image": ""
   };
+  OtherNews: any = [{}];
 
   async getNews(){
     this.news = await this.API.getNewsById(this.id);
+  }
+
+  async getOtherNews() {
+    this.OtherNews = await this.API.getNews();
   }
 
   ngOnInit() {
     this.getNews().then(()=>{
       this.htmlData=this.sanitizer.bypassSecurityTrustHtml(this.news.description);
       console.log(this.news);
+    })
+    this.getOtherNews().then(async () => {
+      console.log(this.OtherNews)
     })
   }
 

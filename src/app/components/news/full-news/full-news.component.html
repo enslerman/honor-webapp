@@ -1,22 +1,47 @@
-
-<section class="cloudy-knoxville-gradient pt-5">
+<div class="container pt-3">
     <app-back-button></app-back-button>
-    <section class="p-3 animated zoomIn">
-        <mat-card class="example-card">
-            <mat-card-header>
-                <mat-card-title>{{news.title}}</mat-card-title>
-                <mat-card-subtitle>Опубликовано {{news.author}} в {{news.time}}</mat-card-subtitle>
-            </mat-card-header>
-            <div class="container-fluid">
-                <div class="row justify-content-center py-3">
-                        <img  mat-card-image [src]="news.title_image">
-                </div>
-            </div>
-            <mat-card-content [innerHTML]="htmlData">
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>Написать комментарий</button>
-            </mat-card-actions>
-        </mat-card>
-    </section>
-</section>
+    <div class="row mt-1">
+        <div class="col-md-8">
+            <section>
+                <section class="py-3 animated zoomIn">
+                    <mat-card class="example-card">
+                        <mat-card-header class="p-3">
+                            <mat-card-title>{{news.title}}</mat-card-title>
+                            <mat-card-subtitle>Опубликовано {{news.author}} в {{news.time}}</mat-card-subtitle>
+                        </mat-card-header>
+                        <div class="container-fluid">
+                            <div class="row justify-content-center p-3">
+                                <img  mat-card-image [src]="news.title_image">
+                            </div>
+                        </div>
+                        <mat-card-content [innerHTML]="htmlData" class="p-3">
+                        </mat-card-content>
+                        <mat-card-actions class="p-3">
+                          <button mat-button>Написать комментарий</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </section>
+            </section>
+        </div>
+        <div class="col-md-4">
+            <h4 class="my-3">Другие новости</h4>
+            <section class="mb-3">
+                <section class="animated fadeInRight">
+                    <mat-card class="example-card my-3" *ngFor="let item of OtherNews.slice(0, 3); let i = index">
+                        <div [routerLink]="['/news', item.id]">
+                        <mat-card-header class="p-2">
+                            <mat-card-title>{{item.title}}</mat-card-title>
+                            <mat-card-subtitle>Опубликовано {{item.author}} в {{item.time}}</mat-card-subtitle>
+                        </mat-card-header>
+                        <div class="container-fluid">
+                            <div class="row justify-content-center">
+                                <img  mat-card-image [src]="item.title_image" style="width: 100%; margin: 0;">
+                            </div>
+                        </div>
+                        </div>
+                    </mat-card>
+                </section>
+            </section>
+        </div>
+    </div>
+</div>

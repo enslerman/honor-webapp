@@ -62,7 +62,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* width */
 ::-webkit-scrollbar {
-    width: 4px;
+    width: 10px;
   }
   
   /* Track */
@@ -94,36 +94,33 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   max-width: 100%!important;
 }
 @media screen and (orientation: landscape) { 
-    .image{
-        img{
-          width:auto!important;
-          max-width:70%!important;
-          height:auto!important;
+    .image {
+      img {
+          width:auto !important;
+          max-width:100% !important;
+          height:auto !important;
           display:block;
           margin:auto;
-        }
       }
+    }
 }
 @media screen and (orientation: portrait) { 
     .image{
         img{
-          width:auto!important;
-          max-width:100%!important;
-          height:auto!important;
+          width:auto !important;
+          max-width:100% !important;
+          height:auto !important;
         }
-      }
-}
-@media screen and (orientation: portrait) { 
-  .ci {
-    object-fit: cover;
-    height: 50%!important;
-    // height: auto;
-  }
-  .ci-slide{
-    object-fit: cover;
-    height: 100%!important;
-    max-width: 100%!important;
-  }
-}
+    }
 
-  
+    .ci {
+      object-fit: cover;
+      height: 100% !important;
+      // height: auto;
+    }
+    .ci-slide{
+      object-fit: cover;
+      height: 100%;
+      max-width: 100% !important;
+    }
+}
