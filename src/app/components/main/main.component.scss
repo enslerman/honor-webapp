@@ -114,7 +114,7 @@ figure{
 }
 
 
-$animationSpeed: 60s;
+$animationSpeed: 80s;
 
 // Animation
 @keyframes scroll {
@@ -168,6 +168,24 @@ $animationSpeed: 60s;
 	
 	.slide {
     width: 25rem;
+    position: relative;
+
+    .overlay-mask {
+      opacity: 0;
+      -webkit-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-attachment: fixed;
+      background-color: rgba(0,0,0,0.7);
+    }
+
   }
   
   .slide-img {
@@ -175,9 +193,19 @@ $animationSpeed: 60s;
     width: 25rem;
     object-fit: cover;
     object-position: center;
+    opacity: 0.8;
   }
-  
-  .slick-text {
+
+  .slider-text {
+    position: absolute;
+    height: 15rem;
+    width: 25rem;
+    // background-color: red;
+    color: white;
+    padding: 1rem;
+    // bottom: 0;
+    z-index: 10;
+
     h4 {
       font-family: 'Uni Sans Heavy Italic';
       font-style: italic;
@@ -186,14 +214,7 @@ $animationSpeed: 60s;
       font-size: 24px;
       letter-spacing: .55px;
     }
-    color: white;
-    position: absolute;
-    overflow: hidden;
-    z-index: 9;
-    padding: 2rem;
-    bottom: 0;
-    font-weight: 400;
-    text-align: center;
+
   }
 
 }

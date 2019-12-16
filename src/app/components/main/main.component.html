@@ -1,6 +1,5 @@
 <div style="background-color: rgb(24, 24, 24);">
-  <div style="background-color: rgb(24, 24, 24);">
-    <mat-grid-list cols="3" rowHeight="44vh" gutterSize="0.5rem" style="margin-top: 0; margin-bottom: 0;" class="mb-3">
+    <!-- <mat-grid-list cols="3" rowHeight="44vh" gutterSize="0.5rem" style="margin-top: 0; margin-bottom: 0;" class="mb-3">
       <mat-grid-tile
           *ngFor="let tile of tiles; let i=index"
           [colspan]="tile.cols"
@@ -20,14 +19,13 @@
           </div>
         </ng-container>
       </mat-grid-tile>
-    </mat-grid-list>
-  </div>
+    </mat-grid-list> -->
 
-  <div class="jumbotron jumbotron-fluid mb-5">
+  <!-- <div class="jumbotron jumbotron-fluid mb-5">
     <div class="blur" >
       <div class="container d-sm-flex align-items-center justify-content-center my-1">
         <div class="mx-auto text-center mb-3">
-          <!-- <img class="background"src="/assets/images/logo.png" alt="logo" class="img-fluid logo-jum mx-auto"> -->
+          <img class="background"src="/assets/images/logo.png" alt="logo" class="img-fluid logo-jum mx-auto">
         </div>
         <div class="mx-auto text-left">
           <h1 class="h3 text-white">Чувствуешь запах? Это напалм, сынок. Больше ничто в мире не пахнет так.</h1>
@@ -36,50 +34,38 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="">
-
-  <!-- <ngx-slick-carousel class="slick-car" 
-                      #slickModal="slick-carousel" 
-                      [config]="slideConfig">
-    <div ngxSlickItem *ngFor="let slide of slides" class="slick-item view overlay" style="height: 100%; width: 100%; margin-left: 2px; margin-right: 2px;">
-      <div [routerLink]="['/memories', slide.id]">
-        <div class="slick-text">
-          <p>Воспоминания</p>
-          <h4>{{ slide.title }}</h4>
-        </div>
-        <img src="{{ slide.title_image }}" alt="" class="slick-img">
-        <div class="mask rgba-black-strong"></div>
-      </div>
-    </div>
-  </ngx-slick-carousel> -->
+  </div> -->
 
   <div class="slider">
     <div class="slide-track">
       <div class="slide mr-5" *ngFor="let slide of Memos; let i = index">
-        <!-- <div class="slick-text">
+        <div class="slider-text">
           <p>Воспоминания</p>
           <h4>{{ slide.title }}</h4>
-        </div> -->
+        </div>
         <img [src]="slide.title_image" class="slide-img" />
       </div>
     </div>
   </div>
 
-  <div class="slider mt-5 pb-5">
+  <div class="slider mt-5 mb-5">
     <div class="slide-track1">
       <div class="slide mr-5" *ngFor="let slide of news; let i = index">
-        <!-- <div class="slick-text">
-          <p class="text-justify">Новости</p>
-          <h4>{{ slide.title }}</h4>
-        </div> -->
-        <img [src]="slide.title_image" class="slide-img" />
+        <div style="height: 15rem;">
+          <div class="view overlay">
+            <div class="slider-text">
+              <p>Новости</p>
+              <h4>{{ slide.title }}</h4>
+            </div>
+            <img [src]="slide.title_image" class="slide-img" />
+            <div class="mask flex-center rgba-red-strong"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-<!-- 
-  <ngx-slick-carousel class="slick-car" 
+
+  <!-- <ngx-slick-carousel class="slick-car" 
                       #slickModal="slick-carousel" 
                       [config]="slideConfig">
     <div ngxSlickItem *ngFor="let slide of news" class="slick-item view overlay" style="height: 100%; margin-left: 2px; margin-right: 2px;">
@@ -90,6 +76,5 @@
       </div>
     </div>
   </ngx-slick-carousel> -->
-  </div>
 
 </div>
