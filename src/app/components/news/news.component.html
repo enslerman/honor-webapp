@@ -32,7 +32,7 @@
               <div class="dark-grey-text m-3 text-break" [innerHTML]="item.description"></div>
             </mat-card-content>
             <mat-card-actions class="m-3">
-              <button mat-button>Читать далее</button>
+              <button mat-button [routerLink]="['/news', item.id]" class="mb-2">Читать далее</button>
             </mat-card-actions>
           </mat-card>
         </div>
