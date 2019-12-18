@@ -30,6 +30,7 @@ export class NewsComponent implements OnInit {
   rowspan: any;
   public wh: any;
   public ht: any; 
+  arr: any = [];
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -55,9 +56,14 @@ export class NewsComponent implements OnInit {
   ngOnInit() {
     this.adaptiveGrid();
     this.getPosts().then(()=>{
-      this.htmlData=this.sanitizer.bypassSecurityTrustHtml(this.news[0].description);
+      for (let item of this.news) {
+        item.description = this.sanitizer.bypassSecurityTrustHtml(item.description.replace(new RegExp("<p[^>]*>","g"),"").replace(new RegExp("</p[^>]*>","g"),"").substring(0, 180) + `...`)
+      }
       console.log(this.news);
     })
+    for (let i = 0; i < 50; i++) {
+      this.arr.push({"a": "a"})
+    }
   }
 
 }

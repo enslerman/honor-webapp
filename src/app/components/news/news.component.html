@@ -1,6 +1,6 @@
 <!-- <div class="dark-grey-text" [innerHTML]="htmlData"></div> -->
 <div> <h4 class="m-3">Новости</h4>
-  <mat-grid-list cols="{{cols}}" rowHeight="13:9" class="m-3">
+  <!-- <mat-grid-list cols="{{cols}}" rowHeight="13:9" class="m-3">
     <mat-grid-tile  style="background-color: red;" 
                     *ngFor="let item of news"
                     class="z-depth-1-half" 
@@ -14,5 +14,29 @@
       </div>
     </div>
     </mat-grid-tile>
-  </mat-grid-list>
-</div>
+  </mat-grid-list> -->
+  <div class="container-fluid">
+    <ng-container>
+      <div class="row">
+        <div class="col-sm-3" *ngFor="let item of news; let i = index">
+          <mat-card class="example-card mx-1 my-3">
+            <div>
+              <div class="view zoom card-news" style="border-top-left-radius: 4px; border-top-right-radius: 4px;">
+                <img [src]="item.title_image" alt="" style="height: 15rem;">
+                <div class="mask rgba-black-light slick-text">
+                  <h5>{{item.title}}</h5>
+                </div>
+              </div>
+            </div>
+            <mat-card-content class="">
+              <div class="dark-grey-text m-3 text-break" [innerHTML]="item.description"></div>
+            </mat-card-content>
+            <mat-card-actions class="m-3">
+              <button mat-button>Читать далее</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div> 
