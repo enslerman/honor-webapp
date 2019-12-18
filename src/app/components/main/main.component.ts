@@ -29,13 +29,6 @@ export class MainComponent implements OnInit {
   Memos:any = [];
   news: any = [];
 
-  tiles: Tile[] = [
-    {text: 'One', cols: 2, rows: 1, color: 'blue'},
-    {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    {text: 'Four', cols: 1, rows: 1, color: '#DDBDF1'},
-  ];
 
   jopa:any = {
     "id": "",
@@ -56,15 +49,6 @@ export class MainComponent implements OnInit {
   adaptiveGrid(){
     this.innerHeight= window.innerHeight;
     this.innerWidth = window.innerWidth;   
-    if(this.innerHeight>this.innerWidth){
-      for(let tile of this.tiles)
-        tile.cols=3;
-    }
-    else{
-      for(let tile of this.tiles)
-        tile.cols=1;
-      this.tiles[0].cols=2
-    }
   }
   async getPosts(count){
     count = 8

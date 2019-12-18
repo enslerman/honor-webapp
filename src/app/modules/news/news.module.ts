@@ -15,6 +15,7 @@ import { FullNewsComponent } from 'src/app/components/news/full-news/full-news.c
 import { MatCardModule } from '@angular/material/card';
 import { BackButtonComponent } from 'src/app/components/back-button/back-button.component';
 import { GalleryModule } from '../gallery/gallery.module';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 
@@ -35,6 +36,7 @@ import { GalleryModule } from '../gallery/gallery.module';
     NgxSpinnerModule,
     SlickCarouselModule,
     MatCardModule,
+    MatGridListModule,
     GalleryModule
   ]
 })
