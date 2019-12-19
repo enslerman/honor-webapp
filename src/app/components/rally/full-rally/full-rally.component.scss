@@ -1,17 +1,8 @@
 @media screen and (orientation: landscape) { 
   .mat-card-image {
-    width: 50%;
+    width: 100%;
     height: auto;
     object-fit: cover;
-  }
-  .example-form {
-    display: block;
-    width: 50%;
-  }
-  
-  .example-full-width {
-    display: block;
-    width: 50%;
   }
 }
 .example-card {
@@ -24,15 +15,6 @@
   }
 }
 
-.comments {
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-}
-.example-form {
-  display: block;
-}
-
-.example-full-width {
-  display: block;
+.mat-card {
+  padding: 0 !important;
 }
