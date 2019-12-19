@@ -1,0 +1,32 @@
+.card-news {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .slick-text {
+        h5 {
+          font-family: 'Uni Sans Heavy Italic';
+          font-style: italic;
+          font-weight: 300;
+          text-transform: uppercase;
+          font-size: 22px;
+          letter-spacing: .55px;
+        }
+        color: white;
+        position: absolute;
+        z-index: 10;
+        padding: 1.2rem;
+        font-weight: 400 !important;
+    }
+}
+
+.mat-card {
+    padding: 0 !important;
+}
