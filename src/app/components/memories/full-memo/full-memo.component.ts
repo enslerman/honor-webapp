@@ -15,7 +15,8 @@ export class FullMemoComponent implements OnInit {
     private API: HttpService, 
     private activatedRouter: ActivatedRoute,
     private location:Location,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private router: Router,
   ) { 
     this.activatedRouter.params.subscribe(param => {
       this.id = param.id;
@@ -52,6 +53,16 @@ export class FullMemoComponent implements OnInit {
 
   goBack(){
     this.location.back();
+  }
+
+  routerLink(id) {
+    console.log(id)
+    this.id = id;
+    this.router.navigateByUrl(`/memories/${id}`);
+    this.getMemo().then(()=>{
+      this.htmlData=this.sanitizer.bypassSecurityTrustHtml(this.memo.description);
+      console.log(this.memo);
+    })
   }
 
 }
