@@ -15,7 +15,8 @@ export class FullNewsComponent implements OnInit {
     private API: HttpService, 
     private activatedRouter: ActivatedRoute,
     private location:Location,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private router: Router,
   ) { 
     this.activatedRouter.params.subscribe(param => {
       console.log(param);
@@ -55,6 +56,16 @@ export class FullNewsComponent implements OnInit {
 
   goBack(){
     this.location.back();
+  }
+
+  routerLink(id) {
+    console.log(id)
+    this.id = id;
+    this.router.navigateByUrl(`/news/${id}`);
+    this.getNews().then(()=>{
+      this.htmlData=this.sanitizer.bypassSecurityTrustHtml(this.news.description);
+      console.log(this.news);
+    })
   }
 
 }
