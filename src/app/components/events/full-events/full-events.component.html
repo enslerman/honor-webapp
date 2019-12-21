@@ -28,7 +28,7 @@
             <section class="mb-3">
                 <section class="animated fadeInRight">
                     <mat-card class="example-card my-3" *ngFor="let item of OtherEvents.slice(0, 3); let i = index">
-                        <div [routerLink]="['/events', item.id]">
+                        <div (click)="routerLink(item.id)">
                         <mat-card-header class="p-2">
                             <mat-card-title>{{item.title}}</mat-card-title>
                             <mat-card-subtitle>Опубликовано {{item.author}} в {{item.time}}</mat-card-subtitle>

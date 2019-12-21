@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -15,7 +15,8 @@ export class FullEventsComponent implements OnInit {
     private API: HttpService, 
     private activatedRouter: ActivatedRoute,
     private location:Location,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private router: Router,
   ) { 
     this.activatedRouter.params.subscribe(param => {
       this.id = param.id;
@@ -60,5 +61,16 @@ export class FullEventsComponent implements OnInit {
   goBack(){
     this.location.back();
   }
+
+  routerLink(id) {
+    console.log(id)
+    this.id = id;
+    this.router.navigateByUrl(`/events/${id}`);
+    this.getEvent().then(()=>{
+      this.htmlData = this.sanitizer.bypassSecurityTrustHtml(this.event.description);
+      console.log(this.event);
+    })
+  }
+
 
 }
