@@ -6,7 +6,7 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 	providedIn: 'root'
 })
 export class HttpService {
-    private baseURL:string="http://honor-webapp-server.std-763.ist.mospolytech.ru/public";
+    private baseURL:string="http://database.ensler.ru/public";
     // private baseURL:string="http://localhost:8082/public"
     constructor(private http: HttpClient){ }
       
@@ -51,7 +51,7 @@ export class HttpService {
     }
 
     getAwards() {
-        return this.http.get(`${this.baseURL}/get/all/ordens/1`).toPromise();
+        return this.http.get(`${this.baseURL}/get/all/ordens`).toPromise();
     }
 
     getLasts(){
