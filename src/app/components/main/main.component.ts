@@ -94,7 +94,7 @@ export class MainComponent implements OnInit {
     });
     this.getLasts().then(()=> {
       console.log(this.lasts)
-      this.lasts.unshift({})
+      //this.lasts.unshift({})
     });
   }
   
