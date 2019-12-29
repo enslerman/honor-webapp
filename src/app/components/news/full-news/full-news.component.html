@@ -1,7 +1,7 @@
 <div class="container pt-3">
     <app-back-button></app-back-button>
     <div class="row mt-1">
-        <div class="col-md-8">
+        <div class="col-md-9">
             <section>
                 <section class="py-3 animated zoomIn">
                     <mat-card class="example-card">
@@ -23,15 +23,15 @@
                 </section>
             </section>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <h4 class="my-3">Другие новости</h4>
             <section class="mb-3">
                 <section class="animated fadeInRight">
                     <mat-card class="example-card my-3" *ngFor="let item of OtherNews.slice(0, 3); let i = index">
                         <div (click)="routerLink(item.id)">
                         <mat-card-header class="p-2">
-                            <mat-card-title>{{item.title}}</mat-card-title>
-                            <mat-card-subtitle>Опубликовано {{item.author}} в {{item.time}}</mat-card-subtitle>
+                            <mat-card-title style="font-size: 1rem">{{item.title}}</mat-card-title>
+                            <mat-card-subtitle>Опубликовано {{item.author}} {{item.time}}</mat-card-subtitle>
                         </mat-card-header>
                         <div class="container-fluid">
                             <div class="row justify-content-center">
