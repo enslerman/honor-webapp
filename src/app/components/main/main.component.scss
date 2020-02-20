@@ -29,34 +29,34 @@ body,
   background-repeat: no-repeat;
   background-position: center;
 }
-.jumbotron{
-  background-image: url("/assets/images/BG-5.gif");
-  background-position: 75% center;
-  background-size: cover;
-  background-size: 200%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  padding:0;
-  text-align: center;
-}
-.blur{
-  display: block;
-  height: 100%;
-  width: 100%;
-  position: relative;
-  backdrop-filter: blur(10px);
-  padding-top :10rem;
-  padding-bottom: 10rem;
-}
+// .jumbotron{
+//   background-image: url("/assets/images/BG-5.gif");
+//   background-position: 75% center;
+//   background-size: cover;
+//   background-size: 200%;
+//   background-repeat: no-repeat;
+//   background-attachment: fixed;
+//   padding:0;
+//   text-align: center;
+// }
+// .blur{
+//   display: block;
+//   height: 100%;
+//   width: 100%;
+//   position: relative;
+//   backdrop-filter: blur(10px);
+//   padding-top :10rem;
+//   padding-bottom: 10rem;
+// }
 
 @media screen and (orientation: portrait) {
-  .jumbotron{
-    background-size: 900%;
-    background-position: 60% 60%;
-  }
-  .align-left{
-    text-align: left!important;
-  }
+  // .jumbotron{
+  //   background-size: 900%;
+  //   background-position: 60% 60%;
+  // }
+  // .align-left{
+  //   text-align: left!important;
+  // }
 }
 .logo-jum {
   width: 10rem; 
@@ -72,11 +72,11 @@ body,
 mat-grid-list{
   margin: 1rem;
 }
-.grid-img{
-      object-fit: cover!important;
-      width: 100%!important;
-      height: 100%!important;
-      max-width: 100%!important;
+.grid-img {
+      object-fit: cover !important;
+      width: 100% !important;
+      height: 100% !important;
+      max-width: 100% !important;
       cursor: pointer;
 }
 .who{
@@ -225,7 +225,7 @@ $animationSpeed: 80s;
     font-style: italic;
     font-weight: 400;
     text-transform: uppercase;
-    font-size: 24px;
+    font-size: 20px;
     letter-spacing: .55px;
   }
   color: white;
