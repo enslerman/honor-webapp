@@ -5,10 +5,6 @@
           [colspan]="tile.cols"
           [rowspan]="tile.rows"
           [style.background]="tile.color">
-        <!-- <ng-container *ngIf="i==0">
-          <app-grid-slider style="height:100%;width: 100%;">
-          </app-grid-slider>
-        </ng-container> -->
         <ng-container>
           <div class="view zoom" [routerLink]="[lasts[i]?.url, lasts[i]?.id]">
             <img class="grid-img" [src]="lasts[i]?.image">
