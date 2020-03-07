@@ -11,7 +11,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { MatCardModule } from '@angular/material/card';
 import { BackButtonComponent } from 'src/app/components/back-button/back-button.component';
 import { GalleryModule } from '../gallery/gallery.module';
@@ -29,7 +28,6 @@ import { GalleryModule } from '../gallery/gallery.module';
     MatListModule,
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
-    SlickCarouselModule,
     MatCardModule,
     GalleryModule
   ],

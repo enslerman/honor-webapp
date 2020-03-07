@@ -9,7 +9,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NewsComponent } from 'src/app/components/news/news.component';
 import { FullNewsComponent } from 'src/app/components/news/full-news/full-news.component';
 import { MatCardModule } from '@angular/material/card';
@@ -34,7 +33,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatListModule,
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
-    SlickCarouselModule,
     MatCardModule,
     MatGridListModule,
     GalleryModule

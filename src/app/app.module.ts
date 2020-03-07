@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,7 +15,6 @@ import { MatListModule } from '@angular/material/list';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { MatCardModule } from '@angular/material/card';
 
 import { MainComponent } from './components/main/main.component';
@@ -30,6 +29,7 @@ import { GraphQLModule } from './graphql.module';
 
 declare var Hammer: any;
 
+@Injectable()
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any> {
     'pan': { direction: Hammer.DIRECTION_All },
@@ -74,7 +74,6 @@ export class MyHammerConfig extends HammerGestureConfig {
     MatListModule,
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
-    SlickCarouselModule,
     MatCardModule,
     GraphQLModule,
     

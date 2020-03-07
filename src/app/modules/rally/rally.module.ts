@@ -10,7 +10,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { RallyComponent } from 'src/app/components/rally/rally.component';
 import { FullRallyComponent } from 'src/app/components/rally/full-rally/full-rally.component';
 import { MatCardModule } from '@angular/material/card';
@@ -34,7 +33,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
     MatInputModule,
-    SlickCarouselModule,
     MatCardModule,
     GalleryModule
   ],
