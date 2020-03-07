@@ -11,7 +11,7 @@ export class GridSliderComponent implements OnInit {
   constructor(private API: HttpService) { }
   photos:any=[];
   ngOnInit() {
-    this.getLastPhotos();
+    this.getLastPhotos().then();
   }
 
   async getLastPhotos(){

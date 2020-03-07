@@ -26,6 +26,7 @@
     "angular-animations": "0.0.10",
     "angular-bootstrap-md": "^8.5.0",
     "animate.css": "^3.7.2",
+    "apollo-angular": "^1.8.0",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.5.0",
     "fullscreen": "^1.1.1",
@@ -38,10 +39,16 @@
     "serialize-javascript": "^2.1.2",
     "slick-carousel": "^1.8.1",
     "tslib": "^1.10.0",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.9.1",
+    "apollo-angular-link-http": "^1.9.0",
+    "apollo-link": "^1.2.11",
+    "apollo-client": "^2.6.0",
+    "apollo-cache-inmemory": "^1.6.0",
+    "graphql-tag": "^2.10.0",
+    "graphql": "^14.5.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.803.17",
+    "@angular-devkit/build-angular": "^0.900.5",
     "@angular/cli": "^8.3.18",
     "@angular/compiler-cli": "~8.2.13",
     "@angular/language-service": "~8.2.13",

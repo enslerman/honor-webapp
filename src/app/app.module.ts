@@ -25,6 +25,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { GridSliderComponent } from './components/grid-slider/grid-slider.component';
+import { GraphQLModule } from './graphql.module';
 
 
 declare var Hammer: any;
@@ -75,6 +76,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     NgxSpinnerModule,
     SlickCarouselModule,
     MatCardModule,
+    GraphQLModule,
     
   ],
   providers: [
