@@ -24,16 +24,18 @@ export class RallyComponent implements OnInit {
   rally: any;
 
   async getPosts(){
-    this.rally = await this.API.getRally();
+    this.API.getAll('{getAll(page: 1, count: 8, type: 1) {id title title_image description}}').subscribe(res => {
+      this.rally = res.data
+      this.rally = this.rally.getAll
+      for (let item of this.rally) {
+        item.description = this.sanitizer.bypassSecurityTrustHtml(item.description.replace(new RegExp("<p[^>]*>","g"),"").replace(new RegExp("</p[^>]*>","g"),"").substring(0, 250) + `...`)
+      }
+    })
+    console.log(this.rally)
   }
 
   ngOnInit() {
-    this.getPosts().then(()=> {
-      for (let item of this.rally) {
-        item.description = this.sanitizer.bypassSecurityTrustHtml(item.description.replace(new RegExp("<p[^>]*>","g"),"").replace(new RegExp("</p[^>]*>","g"),"").substring(0, 180) + `...`)
-      }
-      console.log(this.rally);
-    })
+    this.getPosts()
   }
 
 }

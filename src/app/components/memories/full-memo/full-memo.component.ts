@@ -25,30 +25,27 @@ export class FullMemoComponent implements OnInit {
   htmlData;
 
   id: number;
-  memo:any = {
-    id: "",
-    "title": "",
-    "description": "",
-    "image": ""
-  };
+  memo:any = {};
   OtherMemo: any = [{}];
 
-  async getMemo(){
-    this.memo = await this.API.getPostById(this.id);
+  getMemo(){
+    this.API.getAll(`{getById(id: ${this.id}, type: 3) {id title title_image description time author}}`).subscribe(res => {
+      this.memo = res.data;
+      this.memo = this.memo.getById;
+      this.htmlData=this.sanitizer.bypassSecurityTrustHtml(this.memo.description);
+    })
   }
 
-  async getOtherMemo() {
-    this.OtherMemo = await this.API.getMain();
+  getOtherMemo() {
+    this.API.getAll('{getAll(page: 1, count: 8, type: 3) {id title title_image}}').subscribe(res => {
+      this.OtherMemo = res.data
+      this.OtherMemo = this.OtherMemo.getAll
+    })
   }
 
   ngOnInit() {
-    this.getMemo().then(()=>{
-      this.htmlData=this.sanitizer.bypassSecurityTrustHtml(this.memo.description);
-      console.log(this.memo);
-    })
-    this.getOtherMemo().then(async () => {
-      console.log(this.OtherMemo)
-    })
+    this.getMemo()
+    this.getOtherMemo()
   }
 
   goBack(){
@@ -59,10 +56,7 @@ export class FullMemoComponent implements OnInit {
     console.log(id)
     this.id = id;
     this.router.navigateByUrl(`/memories/${id}`);
-    this.getMemo().then(()=>{
-      this.htmlData=this.sanitizer.bypassSecurityTrustHtml(this.memo.description);
-      console.log(this.memo);
-    })
+    this.getMemo()
   }
 
 }

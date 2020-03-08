@@ -24,17 +24,19 @@ export class MemoriesComponent implements OnInit {
   id: number;
   memo: any;
 
-  async getPosts(){
-    this.memo = await this.API.getMain();
-    for (let item of this.memo) {
-      item.description = this.sanitizer.bypassSecurityTrustHtml(item.description.replace(new RegExp("<p[^>]*>","g"),"").replace(new RegExp("</p[^>]*>","g"),"").substring(0, 250) + `...`)
-    }
+  getPosts(){
+    this.API.getAll('{getAll(page: 1, count: 8, type: 3) {id title title_image description}}').subscribe(res => {
+      this.memo = res.data
+      this.memo = this.memo.getAll
+      for (let item of this.memo) {
+        item.description = this.sanitizer.bypassSecurityTrustHtml(item.description.replace(new RegExp("<p[^>]*>","g"),"").replace(new RegExp("</p[^>]*>","g"),"").substring(0, 250) + `...`)
+      }
+    })
+    console.log(this.memo)
   }
 
   ngOnInit() {
-    this.getPosts().then(()=>{
-      console.log(this.memo);
-    })
+    this.getPosts()
   }
 
 }

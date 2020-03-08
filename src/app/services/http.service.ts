@@ -8,17 +8,10 @@ import gql from 'graphql-tag';
 	providedIn: 'root'
 })
 export class HttpService {
+    
     private baseURL:string="http://database.ensler.ru/public";
-    // private baseURL:string="http://localhost:8082/public"
+    
     constructor(private http: HttpClient, private graph: Apollo){ }
-      
-    getMain() {
-        return this.http.get(this.baseURL+'/get/all/posts/1').toPromise();
-    }
-
-    getPostById(id) {
-        return this.http.get(`${this.baseURL}/get/post?id=${id}`).toPromise();
-    }
 
     getAlbums() {
         return this.http.get(`${this.baseURL}/get/all/albums/1`).toPromise();
@@ -26,26 +19,6 @@ export class HttpService {
 
     getAlbumById(id) {
         return this.http.get(`${this.baseURL}/get/album?id=${id}`).toPromise();
-    }
-
-    getNews() {
-        return this.http.get(`${this.baseURL}/get/all/news/1`).toPromise();
-    }
-
-    getNewsById(id) {
-        return this.http.get(`${this.baseURL}/get/news?id=${id}`).toPromise();
-    }
-
-    getRally() {
-        return this.http.get(`${this.baseURL}/get/actions/rallies/1`).toPromise();
-    }
-
-    getEvents() {
-        return this.http.get(`${this.baseURL}/get/actions/events/1`).toPromise();
-    }
-
-    getEventById(id) {
-        return this.http.get(`${this.baseURL}/get/action?id=${id}`).toPromise();
     }
 
     getAwardById(id) {
@@ -57,15 +30,9 @@ export class HttpService {
     }
 
     getLasts(query){
-        let data: any
-        let load: boolean = true
-        let err: any
-        // return this.http.get<any>(`${this.baseURL}/get/last/all`).toPromise();
-        return this.graph.watchQuery({
-            query: gql`${query}`
-        }).valueChanges
-
+        return this.graph.watchQuery({query: gql`${query}`}).valueChanges
     }
+
     getLastPhotos(){
         return this.http.get<any>(`${this.baseURL}/get/last/photos`).toPromise();
     }
@@ -73,12 +40,9 @@ export class HttpService {
         return this.http.post(`${this.baseURL}/add/comment/${commentId}`,comment,{responseType:"text"}).toPromise();
     }
 
-    getMemoForSlider(count) {
-        return this.http.get(this.baseURL+`/get/all/posts/1?count=${count}`).toPromise();
-    }
-
-    getNewsForSlider(count) {
-        return this.http.get(this.baseURL+`/get/all/news/1?count=${count}`).toPromise();
+    getAll(query) {
+        // return this.http.get(this.baseURL+`/get/all/posts/1?count=${count}`).toPromise();
+        return this.graph.watchQuery({query: gql`${query}`}).valueChanges
     }
 
     // postRallyComment(comment:any,commentId:number){
