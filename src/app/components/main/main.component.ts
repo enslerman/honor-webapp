@@ -72,24 +72,26 @@ export class MainComponent implements OnInit {
     }
   }
   
-  async getPosts(count){
-    count = 8
-    this.Memos = await this.API.getMemoForSlider(count)
-    this.Memos = this.Memos.concat(this.Memos)
+  async getPosts(){
+    this.API.getImagesForSlider('{getAll(page: 1, count: 8, type: 3) {id title title_image}}').subscribe(res => {
+      this.Memos = res.data
+      this.Memos = this.Memos.getAll
+      this.Memos = this.Memos.concat(this.Memos)
+    })
   }
 
-  async getNews(count){
-    count = 8
-    this.news = await this.API.getNewsForSlider(count);
-    this.news = this.news.concat(this.news)
+  async getNews(){
+    this.API.getImagesForSlider('{getAll(page: 1, count: 8, type: 4) {id title title_image}}').subscribe(res => {
+      this.news = res.data
+      this.news = this.news.getAll
+      this.news = this.news.concat(this.news)
+    })
   }
 
   getLasts(){
-    // this.lasts=await this.API.getLasts();
-    this.gridLasts = this.API.getLasts('{getGrid{image title}}').subscribe(result => {
+    this.gridLasts = this.API.getLasts('{getGrid{image title type}}').subscribe(result => {
       this.lasts = result.data
       this.lasts = this.lasts.getGrid 
-      console.log(this.lasts)
     });
   }
 
@@ -97,19 +99,9 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.adaptiveGrid();
     window.scroll(0,0);
-    this.getPosts(8).then(()=> {
-      // console.table(this.Memos)
-      
-    });
-    this.getNews(8).then(()=> {
-      // console.log(this.news)
-    });
-    // this.getLasts().then(()=> {
-    //   // console.log(this.lasts)
-    //   //this.lasts.unshift({})
-    // });
+    this.getPosts();
+    this.getNews();
     this.getLasts()
-
   }
   
 }

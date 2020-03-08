@@ -57,10 +57,6 @@ export class HttpService {
     }
 
     getLasts(query){
-        let data: any
-        let load: boolean = true
-        let err: any
-        // return this.http.get<any>(`${this.baseURL}/get/last/all`).toPromise();
         return this.graph.watchQuery({
             query: gql`${query}`
         }).valueChanges
@@ -73,12 +69,9 @@ export class HttpService {
         return this.http.post(`${this.baseURL}/add/comment/${commentId}`,comment,{responseType:"text"}).toPromise();
     }
 
-    getMemoForSlider(count) {
-        return this.http.get(this.baseURL+`/get/all/posts/1?count=${count}`).toPromise();
-    }
-
-    getNewsForSlider(count) {
-        return this.http.get(this.baseURL+`/get/all/news/1?count=${count}`).toPromise();
+    getImagesForSlider(query) {
+        // return this.http.get(this.baseURL+`/get/all/posts/1?count=${count}`).toPromise();
+        return this.graph.watchQuery({query: gql`${query}`}).valueChanges
     }
 
     // postRallyComment(comment:any,commentId:number){
