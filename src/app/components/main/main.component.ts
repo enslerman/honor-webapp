@@ -73,7 +73,7 @@ export class MainComponent implements OnInit {
   }
   
   async getPosts(){
-    this.API.getImagesForSlider('{getAll(page: 1, count: 8, type: 3) {id title title_image}}').subscribe(res => {
+    this.API.getAll('{getAll(page: 1, count: 8, type: 3) {id title title_image}}').subscribe(res => {
       this.Memos = res.data
       this.Memos = this.Memos.getAll
       this.Memos = this.Memos.concat(this.Memos)
@@ -81,7 +81,7 @@ export class MainComponent implements OnInit {
   }
 
   async getNews(){
-    this.API.getImagesForSlider('{getAll(page: 1, count: 8, type: 4) {id title title_image}}').subscribe(res => {
+    this.API.getAll('{getAll(page: 1, count: 8, type: 4) {id title title_image}}').subscribe(res => {
       this.news = res.data
       this.news = this.news.getAll
       this.news = this.news.concat(this.news)
