@@ -26,7 +26,7 @@ export class NewsComponent implements OnInit {
   news:any=[{id:"0"}];
   
   getPosts(){
-    this.API.getAll('{getAll(page: 1, count: 8, type: 4) {id title title_image description}}').subscribe(res => {
+    this.API.getAll('{getAll(page: 1, count: 8, type: 4) {id title title_image_mini description}}').subscribe(res => {
       this.news = res.data
       this.news = this.news.getAll
       for (let item of this.news) {

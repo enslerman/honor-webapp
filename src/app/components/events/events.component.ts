@@ -28,7 +28,7 @@ export class EventsComponent implements OnInit {
   }];
 
   async getEvents(){
-    this.API.getAll('{getAll(page: 1, count: 8, type: 2) {id title title_image description}}').subscribe(res => {
+    this.API.getAll('{getAll(page: 1, count: 8, type: 2) {id title title_image_mini description}}').subscribe(res => {
       this.events = res.data
       this.events = this.events.getAll
       for (let item of this.events) {
