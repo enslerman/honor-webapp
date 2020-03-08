@@ -75,23 +75,39 @@ export class MainComponent implements OnInit {
     }
   }
   
-  async getPosts(count){
-    count = 8
-    this.Memos = await this.API.getMemoForSlider(count)
-    this.Memos = this.Memos.concat(this.Memos)
+  async getPosts(){
+    this.API.getAll('{getAll(page: 1, count: 8, type: 3) {id title title_image title_image_mini}}').subscribe(res => {
+      this.Memos = res.data
+      this.Memos = this.Memos.getAll
+      for(let i=0;i<this.Memos.length;i++){
+        let last=this.Memos[i];
+        if(last.title_image_mini!=="not set"){
+          last.title_image=last.title_image_mini;
+        }
+      }
+      this.Memos = this.Memos.concat(this.Memos)
+    })
   }
 
-  async getNews(count){
-    count = 8
-    this.news = await this.API.getNewsForSlider(count);
-    this.news = this.news.concat(this.news)
+  async getNews(){
+    this.API.getAll('{getAll(page: 1, count: 8, type: 4) {id title title_image title_image_mini}}').subscribe(res => {
+      this.news = res.data
+      this.news = this.news.getAll
+      for(let i=0;i<this.news.length;i++){
+        let last=this.news[i];
+        if(last.title_image_mini!=="not set"){
+          last.title_image=last.title_image_mini;
+        }
+      }
+      this.news = this.news.concat(this.news)
+    })
   }
 
   dataUrl="";
   async getLasts(){
     // this.lasts=await this.API.getLasts();
     let proxyUrl="https://cors-anywhere.herokuapp.com/";
-    this.gridLasts = this.API.getLasts('{getGrid{image title title_image_mini}}').subscribe(async (result) => {
+    this.gridLasts = this.API.getLasts('{getGrid{image title title_image_mini type url id}}').subscribe(async (result) => {
       this.lasts = result.data
       this.lasts = this.lasts.getGrid 
       for(let i=0;i<this.lasts.length;i++){
@@ -139,19 +155,9 @@ export class MainComponent implements OnInit {
   //  console.log(this.canvas.nativeElement);
     this.adaptiveGrid();
     window.scroll(0,0);
-    this.getPosts(8).then(()=> {
-      // console.table(this.Memos)
-      
-    });
-    this.getNews(8).then(()=> {
-      // console.log(this.news)
-    });
-    // this.getLasts().then(()=> {
-    //   // console.log(this.lasts)
-    //   //this.lasts.unshift({})
-    // });
+    this.getPosts();
+    this.getNews();
     this.getLasts()
-
   }
   
 }

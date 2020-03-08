@@ -31,39 +31,28 @@ export class FullRallyComponent implements OnInit {
     description: new FormControl(),
     nickname: new FormControl()
   });
+
   OtherRally: any = [{}];
+  rally:any = {};
 
-  rally:any = {
-    author: "",
-    comments: [],
-    description: "",
-    id: 0,
-    time: "",
-    title: "",
-    type: {
-      id: 0, 
-      name: ""
-    }
-  };
-
-  async getEvent(){
-    this.rally = await this.API.getEventById(this.id);
-    this.comments = this.rally.comments;
+  getEvent(){
+    this.API.getAll(`{getById(id: ${this.id}, type: 1) {id title title_image description time author}}`).subscribe(res => {
+      this.rally = res.data;
+      this.rally = this.rally.getById;
+      this.htmlData=this.sanitizer.bypassSecurityTrustHtml(this.rally.description);
+    })
   }
 
-  async getOtherRally() {
-    this.OtherRally = await this.API.getRally();
+  getOtherRally() {
+    this.API.getAll('{getAll(page: 1, count: 8, type: 1) {id title title_image}}').subscribe(res => {
+    this.OtherRally = res.data
+    this.OtherRally = this.OtherRally.getAll
+  })
   }
 
   ngOnInit() {
-    this.getEvent().then(()=>{
-      console.log(this.rally);
-      this.htmlData = this.sanitizer.bypassSecurityTrustHtml(this.rally.description);
-      console.log(this.comments);
-    })
-    this.getOtherRally().then(async () => {
-      console.log(this.OtherRally)
-    })
+    this.getEvent()
+    this.getOtherRally()
   }
 
   onSubmit() {
@@ -74,16 +63,11 @@ export class FullRallyComponent implements OnInit {
     this.location.back();
   }
 
-
   routerLink(id) {
     console.log(id)
     this.id = id;
     this.router.navigateByUrl(`/events/${id}`);
-    this.getEvent().then(()=>{
-      console.log(this.rally);
-      this.htmlData = this.sanitizer.bypassSecurityTrustHtml(this.rally.description);
-      console.log(this.comments);
-    })
+    this.getEvent()
   }
 
 }

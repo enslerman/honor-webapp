@@ -27,35 +27,26 @@ export class FullEventsComponent implements OnInit {
 
   htmlData;
   id: number;
-  event:any = {
-    author: "",
-    comments: [],
-    description: "",
-    id: 0,
-    time: "",
-    title: "",
-    type: {
-      id: 0, 
-      name: ""
-    }
-  };
+  event:any = {};
 
   async getOtherEvents() {
-    this.OtherEvents = await this.API.getEvents();
+    this.API.getAll('{getAll(page: 1, count: 8, type: 2) {id title title_image}}').subscribe(res => {
+      this.OtherEvents = res.data
+      this.OtherEvents = this.OtherEvents.getAll
+    })
   }
 
   async getEvent(){
-    this.event = await this.API.getEventById(this.id);
+    this.API.getAll(`{getById(id: ${this.id}, type: 2) {id title title_image description time author}}`).subscribe(res => {
+      this.event = res.data;
+      this.event = this.event.getById;
+      this.htmlData=this.sanitizer.bypassSecurityTrustHtml(this.event.description);
+    })
   }
 
   ngOnInit() {
-    this.getEvent().then(()=>{
-      this.htmlData = this.sanitizer.bypassSecurityTrustHtml(this.event.description);
-      console.log(this.event);
-    })
-    this.getOtherEvents().then(async () => {
-      console.log(this.OtherEvents)
-    })
+    this.getEvent()
+    this.getOtherEvents()
   }
 
   goBack(){
@@ -66,10 +57,7 @@ export class FullEventsComponent implements OnInit {
     console.log(id)
     this.id = id;
     this.router.navigateByUrl(`/events/${id}`);
-    this.getEvent().then(()=>{
-      this.htmlData = this.sanitizer.bypassSecurityTrustHtml(this.event.description);
-      console.log(this.event);
-    })
+    this.getEvent()
   }
 
 

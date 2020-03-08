@@ -24,19 +24,19 @@ export class NewsComponent implements OnInit {
 
   id: number;
   news:any=[{id:"0"}];
-
-
-  async getPosts(){
-    this.news = await this.API.getNews()
-  }
-
-  ngOnInit() {
-    this.getPosts().then(()=>{
+  
+  getPosts(){
+    this.API.getAll('{getAll(page: 1, count: 8, type: 4) {id title title_image_mini description}}').subscribe(res => {
+      this.news = res.data
+      this.news = this.news.getAll
       for (let item of this.news) {
         item.description = this.sanitizer.bypassSecurityTrustHtml(item.description.replace(new RegExp("<p[^>]*>","g"),"").replace(new RegExp("</p[^>]*>","g"),"").substring(0, 250) + `...`)
       }
-      console.log(this.news);
     })
+  }
+
+  ngOnInit() {
+    this.getPosts()
   }
 
 }

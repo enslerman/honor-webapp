@@ -19,39 +19,34 @@ export class FullNewsComponent implements OnInit {
     private router: Router,
   ) { 
     this.activatedRouter.params.subscribe(param => {
-      console.log(param);
+      // console.log(param);
       this.id = param.id;
     });
   }
   htmlData;
 
   id: number;
-  news:any = {
-    "author": "",
-    "description": "",
-    "id": "",
-    "time": "",
-    "title": "",
-    "title_image": ""
-  };
+  news:any = {};
   OtherNews: any = [{}];
 
-  async getNews(){
-    this.news = await this.API.getNewsById(this.id);
+  getNews(){
+    this.API.getAll(`{getById(id: ${this.id}, type: 4) {id title title_image description time author}}`).subscribe(res => {
+      this.news = res.data;
+      this.news = this.news.getById;
+      this.htmlData=this.sanitizer.bypassSecurityTrustHtml(this.news.description);
+    })
   }
 
-  async getOtherNews() {
-    this.OtherNews = await this.API.getNews();
+  getOtherNews() {
+    this.API.getAll('{getAll(page: 1, count: 8, type: 4) {id title title_image}}').subscribe(res => {
+      this.OtherNews = res.data
+      this.OtherNews = this.OtherNews.getAll
+    })
   }
 
   ngOnInit() {
-    this.getNews().then(()=>{
-      this.htmlData=this.sanitizer.bypassSecurityTrustHtml(this.news.description);
-      console.log(this.news);
-    })
-    this.getOtherNews().then(async () => {
-      console.log(this.OtherNews)
-    })
+    this.getNews()
+    this.getOtherNews()
   }
 
   goBack(){
@@ -59,13 +54,9 @@ export class FullNewsComponent implements OnInit {
   }
 
   routerLink(id) {
-    console.log(id)
     this.id = id;
     this.router.navigateByUrl(`/news/${id}`);
-    this.getNews().then(()=>{
-      this.htmlData=this.sanitizer.bypassSecurityTrustHtml(this.news.description);
-      console.log(this.news);
-    })
+    this.getNews()
   }
 
 }

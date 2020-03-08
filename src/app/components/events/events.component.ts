@@ -28,16 +28,18 @@ export class EventsComponent implements OnInit {
   }];
 
   async getEvents(){
-    this.events = await this.API.getEvents()
+    this.API.getAll('{getAll(page: 1, count: 8, type: 2) {id title title_image_mini description}}').subscribe(res => {
+      this.events = res.data
+      this.events = this.events.getAll
+      for (let item of this.events) {
+        item.description = this.sanitizer.bypassSecurityTrustHtml(item.description.replace(new RegExp("<p[^>]*>","g"),"").replace(new RegExp("</p[^>]*>","g"),"").substring(0, 250) + `...`)
+      }
+    })
+    console.log(this.events)
   }
 
   ngOnInit() {
-    this.getEvents().then(()=>{
-      for (let item of this.events) {
-        item.description = this.sanitizer.bypassSecurityTrustHtml(item.description.replace(new RegExp("<p[^>]*>","g"),"").replace(new RegExp("</p[^>]*>","g"),"").substring(0, 180) + `...`)
-      }
-      console.log(this.events);
-    })
+    this.getEvents()
   }
 
 }
