@@ -2,6 +2,9 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpService } from 'src/app/services/http.service';
 import { slideInRightOnEnterAnimation, slideOutLeftOnLeaveAnimation,slideInRightAnimation } from 'angular-animations';
+import { Apollo } from 'apollo-angular';
+import gql from 'graphql-tag'
+import { Observable } from 'apollo-link';
 
 export interface Tile {
   color: string;
@@ -23,9 +26,11 @@ export interface Tile {
 
 export class MainComponent implements OnInit {
 
-  constructor(private http: HttpClient, private API: HttpService) {}
+  constructor(private http: HttpClient, private API: HttpService, private graph: Apollo) {}
 
-  lasts:any[]=[];
+  // lasts:any[] = []
+  gridLasts:any;
+  lasts:any = [];
   Memos:any = [];
   news: any = [];
 
@@ -66,6 +71,7 @@ export class MainComponent implements OnInit {
       this.tiles[0].cols=2
     }
   }
+  
   async getPosts(count){
     count = 8
     this.Memos = await this.API.getMemoForSlider(count)
@@ -77,8 +83,14 @@ export class MainComponent implements OnInit {
     this.news = await this.API.getNewsForSlider(count);
     this.news = this.news.concat(this.news)
   }
-  async getLasts(){
-    this.lasts=await this.API.getLasts();
+
+  getLasts(){
+    // this.lasts=await this.API.getLasts();
+    this.gridLasts = this.API.getLasts('{getGrid{image title}}').subscribe(result => {
+      this.lasts = result.data
+      this.lasts = this.lasts.getGrid 
+      console.log(this.lasts)
+    });
   }
 
 
@@ -92,10 +104,12 @@ export class MainComponent implements OnInit {
     this.getNews(8).then(()=> {
       // console.log(this.news)
     });
-    this.getLasts().then(()=> {
-      // console.log(this.lasts)
-      //this.lasts.unshift({})
-    });
+    // this.getLasts().then(()=> {
+    //   // console.log(this.lasts)
+    //   //this.lasts.unshift({})
+    // });
+    this.getLasts()
+
   }
   
 }
