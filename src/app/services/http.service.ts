@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { Apollo } from 'apollo-angular';
+import gql from 'graphql-tag';
 
 @Injectable({
 	providedIn: 'root'
@@ -8,7 +10,7 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 export class HttpService {
     private baseURL:string="http://database.ensler.ru/public";
     // private baseURL:string="http://localhost:8082/public"
-    constructor(private http: HttpClient){ }
+    constructor(private http: HttpClient, private graph: Apollo){ }
       
     getMain() {
         return this.http.get(this.baseURL+'/get/all/posts/1').toPromise();
@@ -54,8 +56,15 @@ export class HttpService {
         return this.http.get(`${this.baseURL}/get/all/ordens`).toPromise();
     }
 
-    getLasts(){
-        return this.http.get<any>(`${this.baseURL}/get/last/all`).toPromise();
+    getLasts(query){
+        let data: any
+        let load: boolean = true
+        let err: any
+        // return this.http.get<any>(`${this.baseURL}/get/last/all`).toPromise();
+        return this.graph.watchQuery({
+            query: gql`${query}`
+        }).valueChanges
+
     }
     getLastPhotos(){
         return this.http.get<any>(`${this.baseURL}/get/last/photos`).toPromise();

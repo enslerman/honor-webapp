@@ -2,6 +2,9 @@ import { Component, OnInit, HostListener, ViewChild, ElementRef, ContentChild } 
 import { HttpClient } from '@angular/common/http';
 import { HttpService } from 'src/app/services/http.service';
 import { slideInRightOnEnterAnimation, slideOutLeftOnLeaveAnimation,slideInRightAnimation } from 'angular-animations';
+import { Apollo } from 'apollo-angular';
+import gql from 'graphql-tag'
+import { Observable } from 'apollo-link';
 
 export interface Tile {
   color: string;
@@ -24,18 +27,20 @@ export interface Tile {
 export class MainComponent implements OnInit {
   @ViewChild('canvas1',{static:true}) canvas:any;
 
-  constructor(private http: HttpClient, private API: HttpService) {}
+  constructor(private http: HttpClient, private API: HttpService, private graph: Apollo) {}
 
-  lasts:any[]=[];
+  // lasts:any[] = []
+  gridLasts:any;
+  lasts:any = [];
   Memos:any = [];
   news: any = [];
 
   tiles: Tile[] = [
-    {text: 'One', cols: 2, rows: 1, color: '#212529'},
-    {text: 'One', cols: 1, rows: 1, color: '#212529'},
-    {text: 'Two', cols: 1, rows: 1, color: '#212529'},
-    {text: 'Three', cols: 1, rows: 1, color: '#212529'},
-    {text: 'Four', cols: 1, rows: 1, color: '#212529'},
+    {text: '1', cols: 2, rows: 1, color: '#212529'},
+    {text: '2', cols: 1, rows: 1, color: '#212529'},
+    {text: '3', cols: 1, rows: 1, color: '#212529'},
+    {text: '4', cols: 1, rows: 1, color: '#212529'},
+    {text: '5', cols: 1, rows: 1, color: '#212529'},
   ];
 
   jopa:any = {
@@ -67,6 +72,7 @@ export class MainComponent implements OnInit {
       this.tiles[0].cols=2
     }
   }
+  
   async getPosts(count){
     count = 8
     this.Memos = await this.API.getMemoForSlider(count)
@@ -78,8 +84,14 @@ export class MainComponent implements OnInit {
     this.news = await this.API.getNewsForSlider(count);
     this.news = this.news.concat(this.news)
   }
-  async getLasts(){
-    this.lasts=await this.API.getLasts();
+
+  getLasts(){
+    // this.lasts=await this.API.getLasts();
+    this.gridLasts = this.API.getLasts('{getGrid{image title}}').subscribe(result => {
+      this.lasts = result.data
+      this.lasts = this.lasts.getGrid 
+      console.log(this.lasts)
+    });
   }
 
   cropImage(src,coords){
@@ -110,16 +122,18 @@ export class MainComponent implements OnInit {
     this.adaptiveGrid();
     window.scroll(0,0);
     this.getPosts(8).then(()=> {
-      console.table(this.Memos)
+      // console.table(this.Memos)
       
     });
     this.getNews(8).then(()=> {
-      console.log(this.news)
+      // console.log(this.news)
     });
-    this.getLasts().then(()=> {
-      console.log(this.lasts)
-      //this.lasts.unshift({})
-    });
+    // this.getLasts().then(()=> {
+    //   // console.log(this.lasts)
+    //   //this.lasts.unshift({})
+    // });
+    this.getLasts()
+
   }
   
 }
