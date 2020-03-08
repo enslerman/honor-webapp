@@ -1,17 +1,19 @@
 <section class="cloudy-knoxville-gradient">
-    <div>
+    <div class="m-3 d-flex justify-content-between">
         <app-back-button></app-back-button>
-        <h2 class="font-weight-bold py-5 text-center">{{album.name}}</h2>
+        <h2 class="font-weight-bold text-center">{{album.name}}</h2>
+        <div></div>
+        <!-- НЕ КОСТЫЛЬ И НЕ ВЕЛОСИПЕД -->
     </div>
     <div class="row no-gutters animated zoomIn">
         <div class="col-md-12">
             <div id="mdb-lightbox-ui"></div>
             <div class="mdb-lightbox" data-pswp-uid="4">
-                <mat-grid-list cols="4" rowHeight="1.5:1">
+                <mat-grid-list cols="4" rowHeight="13:9">
                         <mat-grid-tile *ngFor="let item of images; let i = index">
                             <a class="wrapper">
                                 <img [src]="item.url" (click)="openDialog(i)" class="img-fluid z-depth-1">
-                                <h5 class="text-center text-uppercase text-dark m-2">{{item.name}}</h5>
+                                <!-- <h5 class="text-center text-uppercase text-dark m-2">{{item.name}}</h5> -->
                             </a>
                         </mat-grid-tile>
                     </mat-grid-list>

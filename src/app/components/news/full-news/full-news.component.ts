@@ -15,7 +15,8 @@ export class FullNewsComponent implements OnInit {
     private API: HttpService, 
     private activatedRouter: ActivatedRoute,
     private location:Location,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private router: Router,
   ) { 
     this.activatedRouter.params.subscribe(param => {
       console.log(param);
@@ -23,6 +24,7 @@ export class FullNewsComponent implements OnInit {
     });
   }
   htmlData;
+
   id: number;
   news:any = {
     "author": "",
@@ -32,9 +34,14 @@ export class FullNewsComponent implements OnInit {
     "title": "",
     "title_image": ""
   };
+  OtherNews: any = [{}];
 
   async getNews(){
     this.news = await this.API.getNewsById(this.id);
+  }
+
+  async getOtherNews() {
+    this.OtherNews = await this.API.getNews();
   }
 
   ngOnInit() {
@@ -42,10 +49,23 @@ export class FullNewsComponent implements OnInit {
       this.htmlData=this.sanitizer.bypassSecurityTrustHtml(this.news.description);
       console.log(this.news);
     })
+    this.getOtherNews().then(async () => {
+      console.log(this.OtherNews)
+    })
   }
 
   goBack(){
     this.location.back();
+  }
+
+  routerLink(id) {
+    console.log(id)
+    this.id = id;
+    this.router.navigateByUrl(`/news/${id}`);
+    this.getNews().then(()=>{
+      this.htmlData=this.sanitizer.bypassSecurityTrustHtml(this.news.description);
+      console.log(this.news);
+    })
   }
 
 }

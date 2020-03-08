@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormGroup, FormControl } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-full-rally',
@@ -14,7 +15,9 @@ export class FullRallyComponent implements OnInit {
   constructor(  
     private API: HttpService, 
     private activatedRouter: ActivatedRoute,
-    private location:Location
+    private location:Location,
+    private sanitizer: DomSanitizer,
+    private router: Router,
   ) { 
     this.activatedRouter.params.subscribe(param => {
       this.id = param.id;
@@ -23,11 +26,12 @@ export class FullRallyComponent implements OnInit {
 
   id: number;
   comments: any[];
-
+  htmlData;
   commentFb = new FormGroup({
     description: new FormControl(),
     nickname: new FormControl()
   });
+  OtherRally: any = [{}];
 
   rally:any = {
     author: "",
@@ -47,10 +51,18 @@ export class FullRallyComponent implements OnInit {
     this.comments = this.rally.comments;
   }
 
+  async getOtherRally() {
+    this.OtherRally = await this.API.getRally();
+  }
+
   ngOnInit() {
     this.getEvent().then(()=>{
       console.log(this.rally);
+      this.htmlData = this.sanitizer.bypassSecurityTrustHtml(this.rally.description);
       console.log(this.comments);
+    })
+    this.getOtherRally().then(async () => {
+      console.log(this.OtherRally)
     })
   }
 
@@ -60,6 +72,18 @@ export class FullRallyComponent implements OnInit {
 
   goBack(){
     this.location.back();
+  }
+
+
+  routerLink(id) {
+    console.log(id)
+    this.id = id;
+    this.router.navigateByUrl(`/events/${id}`);
+    this.getEvent().then(()=>{
+      console.log(this.rally);
+      this.htmlData = this.sanitizer.bypassSecurityTrustHtml(this.rally.description);
+      console.log(this.comments);
+    })
   }
 
 }
