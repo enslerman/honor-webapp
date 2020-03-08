@@ -5,6 +5,7 @@ import { slideInRightOnEnterAnimation, slideOutLeftOnLeaveAnimation,slideInRight
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag'
 import { Observable } from 'apollo-link';
+import { DomSanitizer } from '@angular/platform-browser';
 
 export interface Tile {
   color: string;
@@ -26,8 +27,9 @@ export interface Tile {
 
 export class MainComponent implements OnInit {
   @ViewChild('canvas1',{static:true}) canvas:any;
-
-  constructor(private http: HttpClient, private API: HttpService, private graph: Apollo) {}
+  getContext = require('get-canvas-context');
+  
+  constructor(private http: HttpClient, private API: HttpService, private graph: Apollo,private sanitizer:DomSanitizer) {}
 
   // lasts:any[] = []
   gridLasts:any;
@@ -85,40 +87,56 @@ export class MainComponent implements OnInit {
     this.news = this.news.concat(this.news)
   }
 
-  getLasts(){
+  dataUrl="";
+  async getLasts(){
     // this.lasts=await this.API.getLasts();
-    this.gridLasts = this.API.getLasts('{getGrid{image title}}').subscribe(result => {
+    let proxyUrl="https://cors-anywhere.herokuapp.com/";
+    this.gridLasts = this.API.getLasts('{getGrid{image title title_image_mini}}').subscribe(async (result) => {
       this.lasts = result.data
       this.lasts = this.lasts.getGrid 
+      for(let i=0;i<this.lasts.length;i++){
+        let last=this.lasts[i];
+        if(last.title_image_mini!=="not set"){
+          last.image=last.title_image_mini;
+        }
+      }
       console.log(this.lasts)
     });
   }
+  
 
   cropImage(src,coords){
-    console.log("suka");
-    var img= new Image();
-    img.src=src;
-    img.crossOrigin="anonymous";
-    // this.
-   // var canvas = document.getElementById("canvas");
+    return new Promise((resolve,reject)=>{
+      let context=this.getContext('2d',{
+        width:0,
+        height:0
+      });
+      console.log(src);
+      var img= new Image();
+      img.src=src;
+      console.log(img)
+      img.crossOrigin="anonymous";
     
-    var context = this.canvas.getContext("2d");
-    var ratio=1.0;
-    return img.onload=()=>{
-        console.log(img.width);
-        console.log(img.height);
-        this.canvas.setAttribute("width",img.width);
-        this.canvas.setAttribute("height",img.height);
-        let sx=coords.sx,sy=coords.sy,sW=coords.sW,sH=coords.sH;
-        context.drawImage(img,sx,sy,sW,sH,sx,sy,sW,sH);
-
-        let dataURL=this.canvas.toDataURL();
-        return dataURL;
-    }
+      var ratio=1.0;
+      img.onload=()=>{
+        {
+          console.log(img);
+          console.log(img.height);
+          let sx=coords.sx,sy=coords.sy,sW=coords.sW,sH=coords.sH;
+          context.canvas.height=sH;
+          context.canvas.width=sW;
+          
+          console.log(context);
+          context.drawImage(img,sx,sy,sW,sH,0,0,sW,sH);
+          let dataURL=context.canvas.toDataURL();
+          resolve(dataURL);
+        }
+      };
+    });
   }
-
+  
   ngOnInit() {
-    console.log(this.canvas.nativeElement);
+  //  console.log(this.canvas.nativeElement);
     this.adaptiveGrid();
     window.scroll(0,0);
     this.getPosts(8).then(()=> {
