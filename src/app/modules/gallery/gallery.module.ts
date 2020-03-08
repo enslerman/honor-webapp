@@ -9,14 +9,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
 import { FullGalleryComponent } from 'src/app/components/full-gallery/full-gallery.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ImageModalComponent } from 'src/app/components/full-gallery/image-modal/image-modal.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
 import { BackButtonComponent } from 'src/app/components/back-button/back-button.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -40,7 +39,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
     ReactiveFormsModule,
-    SlickCarouselModule,
     MatDialogModule,
     MatFormFieldModule,
     MatCardModule,
