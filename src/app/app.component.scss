@@ -1,78 +1,7 @@
-// .header {  
-//     flex-direction: column;
-//     position: fixed;
-//     background-color: transparent;
-//     overflow: hidden;
-//     height: 100vh;
-// }
-// .header-links {
-//     background-color: rgba(10, 10, 10, 0.849) !important;
-//     color: rgb(245, 245, 245) !important;
-//     overflow-x:hidden;
-//     overflow-y:visible;
-//     font-size: large;
-// }
-// .dropdown-item {
-//     background-color: transparent;
-//     color: rgb(255, 255, 255);
-// }
-// .dropdown-item:hover {
-//     background-color: rgba(10, 10, 10, 0.849) !important;
-//     color: rgb(190, 190, 190);
-// }
-// .menu-icon {
-//     display: inline-block;
-//     outline:none;
-//     position: fixed;
-//     z-index: 999;
-//     color: rgb(255, 255, 255);
-//     margin-top: -5px;
-//     font-size: 2.5rem;
-//     cursor: pointer;
-// }
-
-// .menu-icon:hover {
-//     color: rgb(83, 198, 254);
-// }
-
-// @media screen and (orientation: portrait) { 
-//     .header-links {
-//         background-color: rgba(10, 10, 10, 0.849);
-//         color: rgb(245, 245, 245) !important;
-//         overflow-x:hidden;
-//         width: 100vw;
-//         text-align: center;
-//         vertical-align: middle;
-//         font-size: large;
-//     }
-// }
-// .links:hover {
-//     color: rgb(190, 190, 190);
-//     cursor: pointer;
-// }
-
-// .logo {
-//     margin: auto;
-//     z-index: 10;
-//     height: 10rem;
-//     background-image: url("/assets/images/logo.png");
-//     background-size: contain;
-//     background-repeat: no-repeat;
-//     background-position: center;
-//     outline: none;
-//     cursor: pointer;
-// }
-
-// .active {
-//     background-color: white;
-//     color: black;
-//     outline: none;
-// }
 .nav-item{
     height: fit-content;
 }
 .navbar {
-  //position: absolute;
   background-color: rgb(5, 5, 5);
  
   z-index: 999999;
@@ -154,30 +83,7 @@ img.hovered,
     color: #9e9e9e;
   }
   @media screen and (orientation: portrait) { 
-    // .icons-links {
-    //     display: none;
-    // }
-    // .logo-link{
-    //   position:absolute;
-    //   left: 50%;
-    // }
-    // .logo2{
-    //   position: relative;
-    //   float:left;
-    //   margin: auto;
-    //   z-index: 9999;
-    //   width: 3rem;
-    //   height: 3rem;
-    //   background-image: url("/assets/images/logo.png");
-    //   background-size: contain;
-    //   background-repeat: no-repeat;
-    //   background-position: center; 
-    // }
-    // .text-link{
-    //   float:right;
-    // }
     .logo-link{
       display:none;
     }
   }
-  

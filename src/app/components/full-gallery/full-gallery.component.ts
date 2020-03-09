@@ -28,20 +28,20 @@ export class FullGalleryComponent implements OnInit {
   images: any;
 
   async getAlbum(){
-    this.album = await this.API.getAlbumById(this.id);
-    this.images = this.album.images;
+    this.API.getAll(`{getAlbumById(id: ${this.id}) {id name images{id url}}}`).subscribe(res => {
+      this.album = res.data
+      this.album = this.album.getAlbumById
+      this.images = this.album.images;
+      console.log(this.album)
+    })
+    // this.album = await this.API.getAlbumById(this.id);
+    // this.images = this.album.images;
   }
 
   ngOnInit() {
-    this.getAlbum().then(()=>{
-      console.log(this.album);
-      console.log(this.images[0]);
-    })
+    this.getAlbum()
   }
 
-  goScreenFull(){
-    
-  }
   goBack(){
     this.location.back();
   }

@@ -1,7 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { 
+  height: 100%; 
+}
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  display: flex !important; 
+  flex-direction: column !important;
+}
+
+.content {
+  flex: 1 0 auto !important;
+}
+
+.podval {
+  flex: 0 0 auto !important;
+}
 
 @font-face {
     font-family: 'Uni Sans Heavy Italic';

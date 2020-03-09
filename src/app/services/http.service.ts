@@ -13,9 +13,9 @@ export class HttpService {
     
     constructor(private http: HttpClient, private graph: Apollo){ }
 
-    getAlbums() {
-        return this.http.get(`${this.baseURL}/get/all/albums/1`).toPromise();
-    }
+    // getAlbums() {
+    //     return this.http.get(`${this.baseURL}/get/all/albums/1`).toPromise();
+    // }
 
     getAlbumById(id) {
         return this.http.get(`${this.baseURL}/get/album?id=${id}`).toPromise();
@@ -36,12 +36,12 @@ export class HttpService {
     getLastPhotos(){
         return this.http.get<any>(`${this.baseURL}/get/last/photos`).toPromise();
     }
+
     postGalleryComment(comment:any,commentId:number){
         return this.http.post(`${this.baseURL}/add/comment/${commentId}`,comment,{responseType:"text"}).toPromise();
     }
 
     getAll(query) {
-        // return this.http.get(this.baseURL+`/get/all/posts/1?count=${count}`).toPromise();
         return this.graph.watchQuery({query: gql`${query}`}).valueChanges
     }
 
