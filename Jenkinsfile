@@ -1,6 +1,5 @@
 pipeline {
   agent any
-  tools {nodejs "latest"}
   stages {
     stage('preflight') {
       steps {
@@ -11,7 +10,6 @@ pipeline {
     stage('build') {
       steps {
         sh 'npm --version'
-        sh 'git log --reverse -1'
         sh 'npm install'
       }
     }
