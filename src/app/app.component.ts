@@ -15,13 +15,11 @@ export class AppComponent implements OnInit {
   scrHeight:any;
   scrWidth:any;
 
-  visi
-
   @HostListener('window:resize', ['$event'])
   getScreenSize(event?) {
     this.scrHeight = window.innerHeight;
     this.scrWidth = window.innerWidth;
-    console.log(this.scrHeight, this.scrWidth);
+    // console.log(this.scrHeight, this.scrWidth);
   }
 
   ngOnInit() {

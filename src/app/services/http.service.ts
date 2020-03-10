@@ -13,10 +13,6 @@ export class HttpService {
     
     constructor(private http: HttpClient, private graph: Apollo){ }
 
-    // getAlbums() {
-    //     return this.http.get(`${this.baseURL}/get/all/albums/1`).toPromise();
-    // }
-
     getAlbumById(id) {
         return this.http.get(`${this.baseURL}/get/album?id=${id}`).toPromise();
     }
@@ -45,8 +41,8 @@ export class HttpService {
         return this.graph.watchQuery({query: gql`${query}`}).valueChanges
     }
 
-    // postRallyComment(comment:any,commentId:number){
-    //     return this.http.post(`http://honor-webapp-server.std-763.ist.mospolytech.ru/addComment/${commentId}`,comment,{responseType:"text"}).toPromise();
-    // }
+    get(query) {
+        return this.graph.watchQuery({query: gql`${query}`}).valueChanges.toPromise();
+    }
 
 }
