@@ -1,6 +1,6 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
-import { DomSanitizer } from '@angular/platform-browser';
+import { PageEvent } from '@angular/material/paginator';
 
 export interface Tile {
   color: string;
@@ -19,24 +19,44 @@ export class NewsComponent implements OnInit {
 
   constructor(  
     private API: HttpService,
-    private sanitizer: DomSanitizer
   ) { }
 
   id: number;
   news:any=[{id:"0"}];
+  size: any;
+  lenght: any;
+  pagination: any;
+  pageEvent: PageEvent;
   
-  getPosts(){
-    this.API.getAll('{getAll(page: 1, count: 8, type: 4) {id title title_image_mini description}}').subscribe(res => {
+  getPosts(page: any){
+    this.API.getAll(`{getAll(page: ${page}, count: null, type: 4) {id title title_image_mini description_short}}`).subscribe(res => {
       this.news = res.data
       this.news = this.news.getAll
-      for (let item of this.news) {
-        item.description = this.sanitizer.bypassSecurityTrustHtml(item.description.replace(new RegExp("<p[^>]*>","g"),"").replace(new RegExp("</p[^>]*>","g"),"").substring(0, 250) + `...`)
-      }
     })
   }
 
+  getPage() {
+    this.API.getAll(`
+    {
+      getCount(type: 4) {
+        size 
+        count
+      }
+    }`).subscribe(res => {
+      this.pagination = res.data
+      this.pagination = this.pagination.getCount
+      this.size = this.pagination.size
+      this.lenght = this.pagination.count * this.size
+    })
+  }
+
+  changePage(event) {
+    this.getPosts(event.pageIndex + 1)
+  }
+
   ngOnInit() {
-    this.getPosts()
+    this.getPage()
+    this.getPosts(1)
   }
 
 }

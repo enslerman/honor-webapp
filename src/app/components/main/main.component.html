@@ -15,7 +15,7 @@
                 <h4>{{lasts[i]?.title}}</h4>
               </div>
             </div>
-            <div class="mask flex-center rgba-black-slight"></div>
+            <div class="mask flex-center rgba-black-light"></div>
           </div>
         </ng-container>
       </mat-grid-tile>
@@ -39,13 +39,13 @@
     <div class="slide-track">
       <div class="slide mr-5" *ngFor="let slide of Memos; let i = index">
         <div style="height: 15rem;" [routerLink]="['memories', slide.id]">
-          <div class="view overlay">
+          <div class="view zoom" style="cursor: pointer;">
             <div class="slider-text">
               <p>Воспоминания</p>
               <h4>{{ slide.title }}</h4>
             </div>
             <img [src]="slide.title_image" class="slide-img" />
-            <div class="mask flex-center rgba-black-strong"></div>
+            <div class="mask flex-center rgba-black-light"></div>
           </div>
         </div>
       </div>
@@ -56,13 +56,13 @@
     <div class="slide-track1">
       <div class="slide mr-5" *ngFor="let slide of news; let i = index">
         <div style="height: 15rem;" [routerLink]="['news', slide.id]">
-          <div class="view overlay">
+          <div class="view zoom" style="cursor: pointer;">
             <div class="slider-text">
               <p>Новости</p>
               <h4>{{ slide.title }}</h4>
             </div>
             <img [src]="slide.title_image" class="slide-img" />
-            <div class="mask flex-center rgba-black-strong"></div>
+            <div class="mask flex-center rgba-black-light"></div>
           </div>
         </div>
       </div>

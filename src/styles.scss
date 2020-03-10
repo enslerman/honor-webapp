@@ -6,16 +6,10 @@ html, body {
 body { 
   margin: 0; 
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  display: flex !important; 
-  flex-direction: column !important;
 }
 
-.content {
-  flex: 1 0 auto !important;
-}
-
-.podval {
-  flex: 0 0 auto !important;
+.mat-paginator {
+  background: transparent !important;
 }
 
 @font-face {

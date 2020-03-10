@@ -16,6 +16,7 @@ import { MatCardModule } from '@angular/material/card';
 import { GalleryModule } from '../gallery/gallery.module';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -34,7 +35,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgxSpinnerModule,
     MatInputModule,
     MatCardModule,
-    GalleryModule
+    GalleryModule,
+    MatPaginatorModule
   ],
   declarations: [RallyComponent,FullRallyComponent],
 })

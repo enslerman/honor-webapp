@@ -15,6 +15,7 @@ import { MatCardModule } from '@angular/material/card';
 import { BackButtonComponent } from 'src/app/components/back-button/back-button.component';
 import { GalleryModule } from '../gallery/gallery.module';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -35,7 +36,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     NgxSpinnerModule,
     MatCardModule,
     MatGridListModule,
-    GalleryModule
+    GalleryModule,
+    MatPaginatorModule
   ]
 })
 export class NewsModule { }

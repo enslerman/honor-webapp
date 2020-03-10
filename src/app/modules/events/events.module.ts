@@ -15,6 +15,7 @@ import { FullEventsComponent } from 'src/app/components/events/full-events/full-
 import { MatCardModule } from '@angular/material/card';
 import { BackButtonComponent } from 'src/app/components/back-button/back-button.component';
 import { GalleryModule } from '../gallery/gallery.module';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { GalleryModule } from '../gallery/gallery.module';
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
     MatCardModule,
-    GalleryModule
+    GalleryModule,
+    MatPaginatorModule
   ],
   declarations: [EventsComponent,FullEventsComponent],
 })
