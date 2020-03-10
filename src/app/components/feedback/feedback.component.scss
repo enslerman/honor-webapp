@@ -1,0 +1,10 @@
+.jumbotron {
+    margin-bottom: 0;
+}
+
+@media (orientation: portrait) { 
+    .mat-form-field {
+        width: 100% !important;
+        color: white;
+    }
+}

@@ -25,6 +25,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { GridSliderComponent } from './components/grid-slider/grid-slider.component';
 import { GraphQLModule } from './graphql.module';
+import { FeedbackComponent } from './components/feedback/feedback.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 declare var Hammer: any;
@@ -58,7 +61,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     AboutComponent,
     NotfoundComponent,
     NavbarComponent,
-    GridSliderComponent
+    GridSliderComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +79,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
     MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
     GraphQLModule,
     
   ],
