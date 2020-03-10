@@ -1,6 +1,5 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
-import { DomSanitizer } from '@angular/platform-browser';
 import { PageEvent } from '@angular/material/paginator';
 
 export interface Tile {
@@ -20,7 +19,6 @@ export class NewsComponent implements OnInit {
 
   constructor(  
     private API: HttpService,
-    private sanitizer: DomSanitizer
   ) { }
 
   id: number;
@@ -30,16 +28,10 @@ export class NewsComponent implements OnInit {
   pagination: any;
   pageEvent: PageEvent;
   
-  getPosts(page: any, count: any){
+  getPosts(page: any){
     this.API.getAll(`{getAll(page: ${page}, count: null, type: 4) {id title title_image_mini description_short}}`).subscribe(res => {
       this.news = res.data
       this.news = this.news.getAll
-      // for (let item of this.news) {
-        // item.description = this.sanitizer.bypassSecurityTrustHtml(item.description.replace(new RegExp("<p[^>]*>","g"),"").replace(new RegExp("</p[^>]*>","g"),"").substring(0, 250) + `...`)
-        // if(item.description_short.lenght<255){
-        //   for(let i=0;i<255-item.d)
-        // }
-      // }
     })
   }
 
@@ -55,20 +47,16 @@ export class NewsComponent implements OnInit {
       this.pagination = this.pagination.getCount
       this.size = this.pagination.size
       this.lenght = this.pagination.count * this.size
-      console.log(this.pagination)
-      console.log(this.size)
-      console.log(this.lenght)
     })
   }
 
   changePage(event) {
-    this.getPosts(event.pageIndex + 1, this.size)
-    console.log(event.pageIndex)
+    this.getPosts(event.pageIndex + 1)
   }
 
   ngOnInit() {
     this.getPage()
-    this.getPosts(1, this.size)
+    this.getPosts(1)
   }
 
 }
