@@ -31,12 +31,15 @@ export class NewsComponent implements OnInit {
   pageEvent: PageEvent;
   
   getPosts(page: any, count: any){
-    this.API.getAll(`{getAll(page: ${page}, count: ${count}, type: 4) {id title title_image_mini description}}`).subscribe(res => {
+    this.API.getAll(`{getAll(page: ${page}, count: null, type: 4) {id title title_image_mini description_short}}`).subscribe(res => {
       this.news = res.data
       this.news = this.news.getAll
-      for (let item of this.news) {
-        item.description = this.sanitizer.bypassSecurityTrustHtml(item.description.replace(new RegExp("<p[^>]*>","g"),"").replace(new RegExp("</p[^>]*>","g"),"").substring(0, 250) + `...`)
-      }
+      // for (let item of this.news) {
+        // item.description = this.sanitizer.bypassSecurityTrustHtml(item.description.replace(new RegExp("<p[^>]*>","g"),"").replace(new RegExp("</p[^>]*>","g"),"").substring(0, 250) + `...`)
+        // if(item.description_short.lenght<255){
+        //   for(let i=0;i<255-item.d)
+        // }
+      // }
     })
   }
 

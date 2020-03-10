@@ -1,6 +1,6 @@
 <div class="animated fadeInDown"> <h4 class="m-3">Новости</h4>
   <div class="container-fluid">
-    <ng-container *ngIf="pageEvent">
+    <ng-container>
       <div class="row">
         <div class="col-sm-4" *ngFor="let item of news; let i = index">
           <mat-card class="example-card mx-1 my-3">
@@ -13,7 +13,7 @@
               </div>
             </div>
             <mat-card-content class="">
-              <div class="dark-grey-text m-3 text-break" [innerHTML]="item.description"></div>
+              <div class="dark-grey-text m-3 text-break" [innerHTML]="item.description_short"></div>
             </mat-card-content>
             <mat-card-actions class="m-3">
               <button mat-button [routerLink]="['/news', item.id]" class="mb-2">Читать далее</button>
