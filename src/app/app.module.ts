@@ -28,6 +28,8 @@ import { GraphQLModule } from './graphql.module';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ThemeService } from './services/theme.service';
 
 
 declare var Hammer: any;
@@ -82,13 +84,15 @@ export class MyHammerConfig extends HammerGestureConfig {
     MatInputModule,
     MatFormFieldModule,
     GraphQLModule,
+    MatSlideToggleModule
     
   ],
   providers: [
     {
     provide: HAMMER_GESTURE_CONFIG,
     useClass: MyHammerConfig
-    }
+    },
+    ThemeService
   ],
   bootstrap: [AppComponent]
 })

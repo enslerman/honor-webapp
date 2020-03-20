@@ -1,5 +1,7 @@
 import { Component, OnInit, DoCheck, HostListener } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ThemeService } from './services/theme.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +10,10 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private spinner: NgxSpinnerService) { }
+  constructor(private spinner: NgxSpinnerService, private themeService: ThemeService) { }
 
   opened: boolean = false; // true
+  isDarkTheme: Observable<boolean>;
 
   scrHeight:any;
   scrWidth:any;
@@ -19,7 +22,6 @@ export class AppComponent implements OnInit {
   getScreenSize(event?) {
     this.scrHeight = window.innerHeight;
     this.scrWidth = window.innerWidth;
-    // console.log(this.scrHeight, this.scrWidth);
   }
 
   ngOnInit() {
@@ -28,17 +30,7 @@ export class AppComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
     }, 1)
-    // if (this.scrWidth <= this.scrHeight) {
-    //   this.opened = false;
-    // } else {
-    //   setTimeout(()=> {
-    //     this.opened = false;
-    //   }, 3000)
-    // }
-    
-    // window.addEventListener('scroll', function() {
-    //   console.log('scroll')
-    // }, true);
+    this.isDarkTheme = this.themeService.isDarkTheme;
   }
 
   onActivate(event) {
