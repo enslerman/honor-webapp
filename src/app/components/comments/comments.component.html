@@ -1,0 +1,20 @@
+<div class="d-flex flex-column p-3">
+    <div mat-dialog-content class="d-flex flex-column">
+    <mat-form-field>
+        <mat-label>Ваше имя</mat-label>
+        <input matInput placeholder="Иван Иванов">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Ваш email</mat-label>
+        <input matInput placeholder="example@mail.ru">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Ваш комментарий</mat-label>
+        <textarea matInput placeholder="Прекрасная новость..."></textarea>
+    </mat-form-field>
+    </div>
+    <div mat-dialog-actions class="m-1">
+        <button mat-button (click)="onNoClick()" color="warn">Отмена</button>
+        <button mat-flat-button cdkFocusInitial color="primary">Отправить</button>
+    </div>
+</div>

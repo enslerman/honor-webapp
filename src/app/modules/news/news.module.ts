@@ -13,9 +13,12 @@ import { NewsComponent } from 'src/app/components/news/news.component';
 import { FullNewsComponent } from 'src/app/components/news/full-news/full-news.component';
 import { MatCardModule } from '@angular/material/card';
 import { BackButtonComponent } from 'src/app/components/back-button/back-button.component';
+import { MatInputModule } from '@angular/material/input';
 import { GalleryModule } from '../gallery/gallery.module';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -37,7 +40,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatCardModule,
     MatGridListModule,
     GalleryModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule
   ]
 })
 export class NewsModule { }
