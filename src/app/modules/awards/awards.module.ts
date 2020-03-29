@@ -10,7 +10,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { AwardsComponent } from 'src/app/components/awards/awards.component';
 import { FullAwardsComponent } from 'src/app/components/awards/full-awards/full-awards.component';
 import { MatCardModule } from '@angular/material/card';
@@ -30,7 +29,6 @@ import { GalleryModule } from '../gallery/gallery.module';
     MatListModule,
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
-    SlickCarouselModule,
     MatCardModule,
     GalleryModule
   ],

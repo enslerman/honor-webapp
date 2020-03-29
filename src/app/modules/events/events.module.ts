@@ -10,12 +10,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { EventsComponent } from 'src/app/components/events/events.component';
 import { FullEventsComponent } from 'src/app/components/events/full-events/full-events.component';
 import { MatCardModule } from '@angular/material/card';
 import { BackButtonComponent } from 'src/app/components/back-button/back-button.component';
 import { GalleryModule } from '../gallery/gallery.module';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -30,9 +30,9 @@ import { GalleryModule } from '../gallery/gallery.module';
     MatListModule,
     MDBBootstrapModule.forRoot(),
     NgxSpinnerModule,
-    SlickCarouselModule,
     MatCardModule,
-    GalleryModule
+    GalleryModule,
+    MatPaginatorModule
   ],
   declarations: [EventsComponent,FullEventsComponent],
 })

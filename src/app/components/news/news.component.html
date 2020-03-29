@@ -1,76 +1,27 @@
-<div class="p-3 white">
-  <section class="animated zoomIn">
-    <h3 class="text-center font-weight-bold mb-5">Новости</h3>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card text-center">
-          <div class="card-body px-3 pt-5 pb-4">
-            <div class="row" >
-              <div class="col-md-5 mb-md-4">
-                <div class="view overlay z-depth-1 mb-4">
-                  <img [src]="news[0].title_image" class="img-fluid rounded-0" alt="Sample image" [routerLink]="['/news', news[0].id]">
-                    <a>
-                      <div class="mask rgba-white-slight waves-effect waves-light"></div>
-                    </a>
-                </div>
-              </div>
-              <div class="col-md-6 text-left mb-md-5 mb-4" >
-                <h4 class="mb-3"><strong>{{news[0].title}}</strong></h4>
-                <!-- <p class="dark-grey-text" [innerHTML]="htmlData">{{news[0].description}}</p> -->
-                <div class="dark-grey-text" [innerHTML]="htmlData"></div>
-                <p>by <a [routerLink]="['/news', news[0].id]"><strong>{{news[0].author}}</strong></a>, {{news[0].time}}</p>
-                <button class="btn btn-dark" [routerLink]="['/news', news[0].id]" mdbBtn type="button" color="dark" mdbWavesEffect>Читать далее</button>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="single-news" *ngFor="let item of news; let i = index">
-                  <div class="row mb-3" style = "border:1px solid #dadada; border-radius:4px; margin-left:0.5rem; margin-right:0.5rem; padding-top:1rem;"  *ngIf="(i %2 == 0) && (i != 0)" [routerLink]="['/news', item.id]">
-                    <div class="col-md-4">
-                      <div class="view overlay rgba-white-slight z-depth-1 mb-3">
-                        <img [src]="item.title_image" class="img-fluid rounded-0" alt="Minor sample post image">
-                        <a>
-                          <div class="mask rgba-white-slight waves-effect waves-light"></div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-md-8">
-                      <p class="font-small text-left mb-2"><strong>{{item.time}}</strong></p>
-                      <p class="text-left">
-                        <a [routerLink]="['/news', item.id]">{{item.title}}
-                          <i class="material-icons float-right">arrow_forward_ios</i>
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="single-news"  *ngFor="let item of news; let i = index">
-                  <div class="row mb-3" style = "border:1px solid #dadada; border-radius:4px; margin-right:0.5rem; padding-top:1rem;"  *ngIf="i %2 != 0" [routerLink]="['/news', item.id]">
-                    <div class="col-md-4">
-                      <div class="view overlay rgba-white-slight z-depth-1 mb-3">
-                        <img [src]="item.title_image" class="img-fluid rounded-0" alt="Minor sample post image">
-                        <a>
-                          <div class="mask rgba-white-slight waves-effect waves-light"></div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-md-8">
-                      <p class="font-small text-left mb-2"><strong>{{item.time}}</strong></p>
-                      <p class="text-left">
-                        <a [routerLink]="['/news', item.id]">{{item.title}}
-                          <i class="material-icons float-right">arrow_forward_ios</i>
-                        </a>
-                      </p>
-                    </div>
-                  </div>
+<div class="animated fadeInDown"> <h4 class="m-3">Новости</h4>
+  <div class="container-fluid">
+    <ng-container>
+      <div class="row">
+        <div class="col-sm-4 mb-3" *ngFor="let item of news; let i = index">
+          <mat-card class="mx-1 h-100">
+            <div [routerLink]="['/news', item.id]">
+              <div class="view zoom card-news" style="border-top-left-radius: 4px; border-top-right-radius: 4px; cursor: pointer;">
+                <img [src]="item.title_image_mini" alt="" style="height: 15rem;">
+                <div class="mask rgba-black-light slick-text">
+                  <h5>{{item.title}}</h5>
                 </div>
               </div>
             </div>
-          </div>
+            <mat-card-content class="">
+              <div class="dark-grey-text m-3 text-break" [innerHTML]="item.description_short"></div>
+            </mat-card-content>
+          </mat-card>
         </div>
       </div>
-    </div>
-  </section>
-</div>
+    </ng-container>
+  </div>
+  <mat-paginator  [length]="lenght"
+                  [pageSize]="size"
+                  (page)="changePage($event)">
+  </mat-paginator>
+</div> 

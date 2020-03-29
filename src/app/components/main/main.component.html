@@ -1,30 +1,27 @@
-<div style="background-color: rgb(24, 24, 24);">
+<canvas id="canvas1" style="position: absolute;" ></canvas>
+<div style="background-color: rgb(24, 24, 24);" class="animated fadeInDown">
     <mat-grid-list cols="3" rowHeight="44vh" gutterSize="0.5rem" style="margin-top: 0; margin-bottom: 0;" class="mb-3">
       <mat-grid-tile
           *ngFor="let tile of tiles; let i=index"
           [colspan]="tile.cols"
           [rowspan]="tile.rows"
           [style.background]="tile.color">
-        <ng-container *ngIf="i==0">
-          <app-grid-slider style="height:100%;width: 100%;">
-          </app-grid-slider>
-        </ng-container>
-        <ng-container *ngIf="i!=0">
+        <ng-container>
           <div class="view zoom" [routerLink]="[lasts[i]?.url, lasts[i]?.id]">
-            <img class="grid-img" [src]="lasts[i]?.image">
+            <img class="grid-img" [src]="lasts[i]?.image" crossorigin="anonymous">
             <div class="who">
               <p>{{lasts[i]?.type}}</p>
               <div class="slick-text">
                 <h4>{{lasts[i]?.title}}</h4>
               </div>
             </div>
-            <div class="mask flex-center rgba-black-slight"></div>
+            <div class="mask flex-center rgba-black-light"></div>
           </div>
         </ng-container>
       </mat-grid-tile>
     </mat-grid-list>
 
-  <div class="jumbotron jumbotron-fluid mb-5">
+  <div class="jumbotron jumbotron-fluid mb-5 elegant-color">
     <div class="blur" >
       <div class="container d-sm-flex align-items-center justify-content-center my-1">
         <div class="mx-auto text-center mb-3">
@@ -41,14 +38,14 @@
   <div class="slider">
     <div class="slide-track">
       <div class="slide mr-5" *ngFor="let slide of Memos; let i = index">
-        <div style="height: 15rem;">
-          <div class="view overlay">
+        <div style="height: 15rem;" [routerLink]="['memories', slide.id]">
+          <div class="view zoom" style="cursor: pointer;">
             <div class="slider-text">
               <p>Воспоминания</p>
               <h4>{{ slide.title }}</h4>
             </div>
             <img [src]="slide.title_image" class="slide-img" />
-            <div class="mask flex-center rgba-black-strong"></div>
+            <div class="mask flex-center rgba-black-light"></div>
           </div>
         </div>
       </div>
@@ -58,14 +55,14 @@
   <div class="slider mt-5">
     <div class="slide-track1">
       <div class="slide mr-5" *ngFor="let slide of news; let i = index">
-        <div style="height: 15rem;">
-          <div class="view overlay">
+        <div style="height: 15rem;" [routerLink]="['news', slide.id]">
+          <div class="view zoom" style="cursor: pointer;">
             <div class="slider-text">
               <p>Новости</p>
               <h4>{{ slide.title }}</h4>
             </div>
             <img [src]="slide.title_image" class="slide-img" />
-            <div class="mask flex-center rgba-black-strong"></div>
+            <div class="mask flex-center rgba-black-light"></div>
           </div>
         </div>
       </div>
@@ -73,17 +70,5 @@
   </div>
 
   <div class="pb-5"></div>
-
-  <!-- <ngx-slick-carousel class="slick-car" 
-                      #slickModal="slick-carousel" 
-                      [config]="slideConfig">
-    <div ngxSlickItem *ngFor="let slide of news" class="slick-item view overlay" style="height: 100%; margin-left: 2px; margin-right: 2px;">
-      <div [routerLink]="['/news', slide.id]">
-        
-        <img src="{{ slide.title_image }}" alt="" class="slick-img">
-        <div class="mask rgba-black-strong"></div>
-      </div>
-    </div>
-  </ngx-slick-carousel> -->
-
+  <app-feedback></app-feedback>
 </div>

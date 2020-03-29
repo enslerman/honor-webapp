@@ -1,6 +1,6 @@
 @media screen and (orientation: landscape) { 
   .mat-card-image {
-    width: 50%;
+    width: 100%;
     height: auto;
     object-fit: cover;
   }
@@ -13,4 +13,12 @@
     height: 15rem !important;
     object-fit: cover !important;
   }
+}
+
+.mat-card {
+  padding: 0 !important;
+}
+.mat-card-content {
+  color: black !important;
+  font-size: 1.1rem !important;
 }
