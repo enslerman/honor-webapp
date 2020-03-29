@@ -1,4 +1,4 @@
-<section class="cloudy-knoxville-gradient pt-5">
+<section class="pt-5">
     <app-back-button></app-back-button>
     <div class="animated zoomIn">
         <section class="p-3">
@@ -32,7 +32,7 @@
                         <th>Ранг</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="white-text">
                     <tr mdbTableCol *ngFor="let el of veterans; let i = index">
                     <th scope="row">{{i}}</th>
                     <td>{{el.name}}</td>

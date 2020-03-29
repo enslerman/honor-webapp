@@ -1,4 +1,4 @@
-<section class="white animated zoomIn">
+<section class="animated zoomIn">
     <h2 class="font-weight-bold py-5 text-center">Галерея</h2>
     <div class="row no-gutters">
         <div class="col-md-12">
@@ -7,7 +7,7 @@
                 <figure class="col-md-4" *ngFor="let item of albums">
                     <a [routerLink]="['/gallery', item.id]" data-size="1600x1067">
                         <img [src]="item.images[0].url" class="img-fluid z-depth-1">
-                        <h4 class="text-center text-uppercase text-dark m-2">{{item.name}}</h4>
+                        <h4 class="text-center text-uppercase text-white m-2">{{item.name}}</h4>
                     </a>
                 </figure>
             </div>

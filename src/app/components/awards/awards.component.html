@@ -1,4 +1,4 @@
-<section class="text-center py-5 px-3 white">
+<section class="text-center py-5 px-3">
     <h1 class="h1-responsive font-weight-bold my-3">Награды</h1>
     <div class="row animated zoomIn">
         <div class="col-lg-4 col-md-12 mb-lg-0 mb-4" *ngFor="let item of awards; let i = index">
@@ -10,8 +10,8 @@
             </div>
             <h4 class="font-weight-bold mb-3"><strong>{{item.name}}</strong></h4>
             <p>by <a class="font-weight-bold">Admin</a>, 17/11/2019</p>
-            <p class="dark-grey-text">{{item.small_description}}</p>
-            <a mdbBtn color="red" rounded="true" mdbWavesEffect [routerLink]="['/awards', item.id]">ЧИТАТЬ ДАЛЕЕ</a>
+            <p class="">{{item.small_description}}</p>
+            <a mdbBtn color="white" rounded="true" mdbWavesEffect [routerLink]="['/awards', item.id]">ЧИТАТЬ ДАЛЕЕ</a>
         </div>
     </div>
 </section>
