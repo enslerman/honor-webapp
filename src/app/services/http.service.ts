@@ -9,7 +9,8 @@ import gql from 'graphql-tag';
 })
 export class HttpService {
     
-    private baseURL:string="http://database.ensler.ru/public";
+    // private baseURL:string="http://database.ensler.ru/public";//dev
+    private baseURL:string="http://server.veteran-chest.ru/public";//prod
     
     constructor(private http: HttpClient, private graph: Apollo){ }
 
