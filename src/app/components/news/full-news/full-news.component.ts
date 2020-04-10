@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CommentsComponent } from '../../comments/comments.component';
 
 @Component({
   selector: 'app-full-news',
@@ -17,6 +19,7 @@ export class FullNewsComponent implements OnInit {
     private location:Location,
     private sanitizer: DomSanitizer,
     private router: Router,
+    public dialog: MatDialog
   ) { 
     this.activatedRouter.params.subscribe(param => {
       // console.log(param);
@@ -29,11 +32,22 @@ export class FullNewsComponent implements OnInit {
   news:any = {};
   OtherNews: any = [{}];
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CommentsComponent, {
+      width: '300px',
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
   getNews(){
     this.API.getAll(`{getById(id: ${this.id}, type: 4) {id title title_image description time author}}`).subscribe(res => {
       this.news = res.data;
       this.news = this.news.getById;
-      this.htmlData=this.sanitizer.bypassSecurityTrustHtml(this.news.description);
+      this.htmlData = this.sanitizer.bypassSecurityTrustHtml(this.news.description);
     })
   }
 

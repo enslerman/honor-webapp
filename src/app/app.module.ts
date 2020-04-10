@@ -30,6 +30,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ThemeService } from './services/theme.service';
+import { CommentsComponent } from './components/comments/comments.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 declare var Hammer: any;
@@ -64,7 +66,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     NotfoundComponent,
     NavbarComponent,
     GridSliderComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
@@ -84,8 +87,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     MatInputModule,
     MatFormFieldModule,
     GraphQLModule,
-    MatSlideToggleModule
-    
+    MatSlideToggleModule,
+    MatDialogModule
   ],
   providers: [
     {
