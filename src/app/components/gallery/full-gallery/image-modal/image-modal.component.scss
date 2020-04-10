@@ -2,13 +2,71 @@
     padding:0 !important;
 }
 .comments{
-    background-color: rgb(243, 243, 243);
+    background-color: #181818;
     mat-list{
         overflow-y: scroll;
         height: 21rem;
     }
 }
+.text-center{
+    color:white;
+}
+.mat-stroked-button{
+    background-color:#ffffff;
+    color:black;
+}
+.mat-stroked-button:hover{
+    background-color:rgb(187, 187, 187);
+}
+::ng-deep .mat-form-field {
+    .mat-input-element {
+        color: rgb(202, 202, 202);
+    }
+    .mat-form-field-label {
+        color: rgb(184, 184, 184);
+    }
+    .mat-form-field-underline {
+        background-color: rgb(184, 184, 184);
+    }
+    .mat-form-field-ripple {
+        background-color: rgb(184, 184, 184);
+    }
+    .mat-form-field-required-marker {
+        color: rgb(184, 184, 184);
+    }
+}
+::ng-deep .mat-form-field.mat-focused {
+    .mat-form-field-label {
+        color: white;
+    }
+    .mat-form-field-ripple {
+        background-color: white;
+    }
+    .mat-form-field-required-marker {
+        color: white;
+    }
+    .mat-input-element {
+        color: white;
+    }
+    .mat-input-cursor{
+        color: white;
+    }
+}
 
+::ng-deep .mat-form-field.mat-form-field-invalid {
+    .mat-input-element {
+        color: #B00020;
+    }
+    .mat-form-field-label {
+        color: #B00020;
+        .mat-form-field-required-marker {
+            color: #B00020;
+        }
+    }
+    .mat-form-field-ripple {
+        background-color: #B00020;
+    }
+}
 
 @media screen and (orientation: portrait) { 
     .comments{
@@ -54,13 +112,17 @@
     .btn-next{
         color: white;
         position: absolute;
-        left: 3vw;
+        left: 20%;
         top: 50%;
     }
+    
     .btn-prev{
         color: white;
         position: absolute;
-        left: 90vw;
+        left: 73%;
         top: 50%;
+    }
+    .btn-next:hover, .btn-prev:hover{
+        color:grey !important;
     }
   }
