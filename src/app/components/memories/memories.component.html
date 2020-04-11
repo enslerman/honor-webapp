@@ -2,7 +2,7 @@
     <div class="container-fluid">
       <ng-container>
         <div class="row">
-          <div class="col-sm-4 mb-3" *ngFor="let item of memo; let i = index">
+          <div class="col-sm-3 mb-3" *ngFor="let item of memo; let i = index">
             <mat-card class="mx-1 h-100">
               <div [routerLink]="['/memories', item.id]" style="cursor: pointer;">
                 <div class="view zoom card-news" style="border-top-left-radius: 4px; border-top-right-radius: 4px; cursor: pointer;">
