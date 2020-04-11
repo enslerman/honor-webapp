@@ -26,3 +26,20 @@
 .mat-card-content {
   font-size: 1.1rem !important;
 }
+.head{
+    background: lightslategrey;
+    font-style: italic;
+    font-size: 13px;
+    font-weight: bolder;
+}
+.body{
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    font-weight: bold;
+}
+.c-name{
+  float: left;
+}
+.c-date{
+  text-align: end;
+}

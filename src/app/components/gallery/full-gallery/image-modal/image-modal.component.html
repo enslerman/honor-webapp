@@ -11,16 +11,18 @@
     <i (click)="previousSlide(carouselRef)" style="font-size: 60px;" class="btn-next material-icons">keyboard_arrow_left</i>
     <i (click)="nextSlide(carouselRef)" style="font-size: 60px;" class="btn-prev material-icons">keyboard_arrow_right</i>
     <div class="col-4 comments p-0">
-      <div>
-        <mat-list class="p-2">
-            <mat-list-item class="item" *ngFor="let comment of currentPhotoComments">
-                <h3 class="nickname" matLine> {{comment.nickname}} </h3>
-                <p matLine>
-                  <span > {{comment.comment}} </span>
-                  <span class="time">{{comment.time}} </span>
-                </p>
-            </mat-list-item>
-        </mat-list>
+      <div class="top">
+        <div class="p-2">
+            <div class="item" *ngFor="let comment of currentPhotoComments">
+              <div class="head">
+                <p class="time">{{comment.time}} </p>
+                <p class="name">{{comment.nickname}}</p>
+              </div>
+              <div class="body">
+                {{comment.comment}}
+              </div>
+            </div>
+        </div>
       </div>
       <div class="container bottom">
           <form class="text-center border-light" [formGroup]="commentFb" (ngSubmit)="onSubmit(carouselRef)">

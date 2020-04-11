@@ -34,12 +34,12 @@ export class HttpService {
         return this.http.get<any>(`${this.baseURL}/get/last/photos`).toPromise();
     }
 
-    postGalleryComment(comment:any,commentId:number){
-        return this.http.post(`${this.baseURL}/add/comment/${commentId}`,comment,{responseType:"text"}).toPromise();
+    public postComment(type:string,comment:any,commentId:number){
+        return this.http.post(`${this.baseURL}/add/comment/${type}/${commentId}`,comment,{responseType:"text"}).toPromise();
     }
 
     getAll(query) {
-        return this.graph.watchQuery({query: gql`${query}`}).valueChanges
+        return this.graph.query({query: gql`${query}`});
     }
 
     get(query) {

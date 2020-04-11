@@ -2,19 +2,22 @@
     <div mat-dialog-content class="d-flex flex-column">
     <mat-form-field>
         <mat-label>Ваше имя</mat-label>
-        <input matInput placeholder="Иван Иванов">
+        <input [(ngModel)]="name" maxlength="100" matInput placeholder="Максимум 100 символов" required>
     </mat-form-field>
-    <mat-form-field>
+    <!-- <mat-form-field>
         <mat-label>Ваш email</mat-label>
         <input matInput placeholder="example@mail.ru">
-    </mat-form-field>
+    </mat-form-field> -->
     <mat-form-field>
         <mat-label>Ваш комментарий</mat-label>
-        <textarea matInput placeholder="Прекрасная новость..."></textarea>
+        <textarea [(ngModel)]="comment" maxlength="250" matInput placeholder="Максимум 250 символов" required></textarea>
     </mat-form-field>
+    </div>
+    <div class="error" *ngIf="error">
+        Произошла ошибка при отправке комментария
     </div>
     <div mat-dialog-actions class="m-1">
         <button mat-button (click)="onNoClick()" color="warn">Отмена</button>
-        <button mat-flat-button cdkFocusInitial color="primary">Отправить</button>
+        <button mat-flat-button cdkFocusInitial (click)="send()" color="primary">Отправить</button>
     </div>
 </div>

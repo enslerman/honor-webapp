@@ -27,7 +27,7 @@ export class FullNewsComponent implements OnInit {
     });
   }
   htmlData;
-
+  comments=[];
   id: number;
   news:any = {};
   OtherNews: any = [{}];
@@ -35,7 +35,10 @@ export class FullNewsComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(CommentsComponent, {
       width: '300px',
-      data: {}
+      data: {
+        "component":"news",
+        "id":this.id
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -43,12 +46,81 @@ export class FullNewsComponent implements OnInit {
     });
   }
 
-  getNews(){
-    this.API.getAll(`{getById(id: ${this.id}, type: 4) {id title title_image description time author}}`).subscribe(res => {
+   async getNews(){
+      let p=this.API.getAll(`{getById(id: ${this.id}, type: 4) {
+      id 
+      title 
+      title_image 
+      description 
+      time 
+      author
+      comments{
+        nickname
+        description
+        time
+      }}}`).toPromise();
+      let res =await p;
       this.news = res.data;
+      this.comments=this.news.getById.comments;
+      for (let comment of this.comments) {
+        let date=new Date(comment.time);
+        let dateNew=this.prepareDate(date);
+        comment.time=`${dateNew.day} ${dateNew.month} ${dateNew.year} года`;
+      }
       this.news = this.news.getById;
       this.htmlData = this.sanitizer.bypassSecurityTrustHtml(this.news.description);
-    })
+  }
+
+  prepareDate(date:Date):any{
+    let day:any=date.getDate();
+    let month:any=date.getMonth();
+    switch(month){
+      case 1:
+        month="Января"
+        break;
+      case 2:
+        month="Февраля"
+        break;
+      case 3:
+        month="Марта"
+        break;
+      case 4:
+        month="Апреля"
+        break;
+      case 5:
+        month="Мая"
+        break;
+      case 6:
+        month="Июня"
+        break;
+      case 7:
+        month="Июля"
+        break;
+      case 8:
+        month="Августа"
+        break;
+      case 9:
+        month="Сентября"
+        break;
+      case 10:
+        month="Октября"
+        break;
+      case 11:
+        month="Ноября"
+        break;
+      case 12:
+        month="Декабря"
+        break;
+    }
+    if(day<10){
+      day="0"+day;
+    }
+    let res={
+      "day":day,
+      "month":month,
+      "year":date.getFullYear()
+    }
+    return res;
   }
 
   getOtherNews() {

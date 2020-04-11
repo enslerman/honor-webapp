@@ -28,7 +28,20 @@ export class FullGalleryComponent implements OnInit {
   images: any;
 
   async getAlbum(){
-    this.API.getAll(`{getAlbumById(id: ${this.id}) {id name images{id url}}}`).subscribe(res => {
+    this.API.getAll(`{getAlbumById(id: ${this.id}) 
+    {
+      id 
+      name 
+      images{
+        id 
+        url
+        comments{
+          nickname
+          comment
+          time
+        }
+      }
+    }}`).subscribe(res => {
       this.album = res.data
       this.album = this.album.getAlbumById
       this.images = this.album.images;
@@ -49,7 +62,8 @@ export class FullGalleryComponent implements OnInit {
   openDialog(id): void {
     console.log("open");
     this.imageIndex=id;
-    let dialogRef = this.dialog.open(ImageModalComponent, {
+    // console.log(this.images);
+    this.dialog.open(ImageModalComponent, {
       height:"43rem",
       minWidth:"53rem",
       data: {
@@ -58,12 +72,12 @@ export class FullGalleryComponent implements OnInit {
         images:this.images
       }
     });
-    const sub = dialogRef.componentInstance.rerender.subscribe((resolve) => {
-      console.log("rerender");
-      this.getAlbum().then(()=>{
-        dialogRef.componentInstance.setComments(this.images[resolve].comments,resolve);
-      });
-    });
+    // const sub = dialogRef.componentInstance.rerender.subscribe((resolve) => {
+    //   console.log("rerender");
+    //   this.getAlbum().then(()=>{
+    //     dialogRef.componentInstance.setComments(this.images[resolve].comments,resolve);
+    //   });
+    // });
   }
 
 }

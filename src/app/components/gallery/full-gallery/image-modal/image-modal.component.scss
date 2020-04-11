@@ -100,14 +100,36 @@
     .time{
         display: block;
         text-align: right;
+        float: right;
+        margin-bottom: 0;
+    }
+    .name{
+        margin-bottom: 0;
+    }
+    .head{
+        background: lightslategrey;
+        font-style: italic;
+        font-size: 13px;
+        font-weight: bolder;
+    }
+    .body{
+        margin-bottom: 1rem;
+        margin-left: 1rem;
+        font-weight: bold;
+        color: #777777;
     }
     .item{
         border-bottom: 1px solid;
         background: transparent;
     }
     .bottom{
+        height: 40%;
         position: absolute;
         bottom: 2%;
+    }
+    .top{
+        height: 60%;
+        overflow: scroll;
     }
     .btn-next{
         color: white;

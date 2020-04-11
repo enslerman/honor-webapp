@@ -16,7 +16,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
-
+import {MatDividerModule} from '@angular/material/divider';
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutComponent } from './components/about/about.component';
@@ -32,6 +32,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ThemeService } from './services/theme.service';
 import { CommentsComponent } from './components/comments/comments.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 
 
 declare var Hammer: any;
@@ -70,6 +71,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     CommentsComponent
   ],
   imports: [
+    MatDividerModule,
+    FormsModule,
     BrowserModule,
     MatGridListModule,
     HttpClientModule,
