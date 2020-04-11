@@ -28,7 +28,7 @@ export class FullGalleryComponent implements OnInit {
   images: any;
 
   async getAlbum(){
-    this.API.getAll(`{getAlbumById(id: ${this.id}) 
+    let p=this.API.getAll(`{getAlbumById(id: ${this.id}) 
     {
       id 
       name 
@@ -41,12 +41,13 @@ export class FullGalleryComponent implements OnInit {
           time
         }
       }
-    }}`).subscribe(res => {
+    }}`).toPromise();
+      let res=await p;
       this.album = res.data
       this.album = this.album.getAlbumById
       this.images = this.album.images;
       console.log(this.album)
-    })
+    
     // this.album = await this.API.getAlbumById(this.id);
     // this.images = this.album.images;
   }

@@ -27,20 +27,22 @@ export class ImageModalComponent {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     console.log(this.data);
-    this.loadComments(data.id);
+    this.loadComments(data.id,true);
     console.log(this.currentPhotoComments);
   }
 
 
-  loadComments(id){
+  loadComments(id,isFirst){
     this.comments=[];
     this.activeSlideIndex=id;
     this.data.images.forEach(image => {
-      for (let comment of image.comments) {
-        console.log(comment);
-        let date=new Date(comment.time);
-        let dateNew=this.prepareDate(date);
-        comment.time=`${dateNew.day} ${dateNew.month} ${dateNew.year} года`;
+      if(isFirst){
+        for (let comment of image.comments) {
+          console.log(comment);
+          let date=new Date(comment.time);
+          let dateNew=this.prepareDate(date);
+          comment.time=`${dateNew.day} ${dateNew.month} ${dateNew.year} года`;
+        }
       }
       this.comments.push(image.comments);
     });
@@ -123,13 +125,13 @@ export class ImageModalComponent {
   previousSlide(carousel){
     carousel.previousSlide();
     let id=carousel._currentActiveSlide;
-    this.loadComments(id);
+    this.loadComments(id,false);
   }
   
   nextSlide(carousel){
     carousel.nextSlide();
     let id=carousel._currentActiveSlide;
-    this.loadComments(id);
+    this.loadComments(id,false);
   }
 
 }

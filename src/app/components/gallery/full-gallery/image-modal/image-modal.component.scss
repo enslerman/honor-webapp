@@ -123,12 +123,13 @@
         background: transparent;
     }
     .bottom{
-        height: 40%;
+        height: 45%;
         position: absolute;
         bottom: 2%;
+        background: rgba(24,24,24,1);
     }
     .top{
-        height: 60%;
+        height: 55%;
         overflow: scroll;
     }
     .btn-next{
@@ -136,6 +137,7 @@
         position: absolute;
         top: 50%;
         left: 6vw;
+        cursor: pointer;
     }
     
     .btn-prev{
@@ -143,6 +145,7 @@
         position: absolute;
         top: 50%;
         left: 90vw;
+        cursor: pointer;
     }
     .btn-next:hover, .btn-prev:hover{
         color:grey !important;
