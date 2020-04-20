@@ -62,6 +62,7 @@ export class FullEventsComponent implements OnInit {
         nickname
         description
         time
+        active
       }}}`).toPromise();
       let res =await p;
       this.event = res.data;

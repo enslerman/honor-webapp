@@ -58,8 +58,10 @@ export class FullNewsComponent implements OnInit {
         nickname
         description
         time
+        active
       }}}`).toPromise();
       let res =await p;
+      console.log(res);
       this.news = res.data;
       this.comments=this.news.getById.comments;
       for (let comment of this.comments) {

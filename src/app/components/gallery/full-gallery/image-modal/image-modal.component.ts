@@ -18,7 +18,7 @@ export class ImageModalComponent {
   commentFb = new FormGroup({
     comment: new FormControl(),
     nickname: new FormControl(),
-    email: new FormControl()
+    // email: new FormControl()
   })
 
   constructor(

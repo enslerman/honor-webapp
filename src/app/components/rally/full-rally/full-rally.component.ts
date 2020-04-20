@@ -63,6 +63,7 @@ export class FullRallyComponent implements OnInit {
         nickname
         description
         time
+        active
       }}}`).toPromise();
       let res =await p;
       this.rally = res.data;
