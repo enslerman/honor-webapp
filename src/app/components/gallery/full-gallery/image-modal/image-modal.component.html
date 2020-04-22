@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-8 paddingzero">
       <mdb-carousel #carouselRef [isControls]="false"  [noWrap]="false" [(activeSlideIndex)]="activeSlideIndex" [interval]="false">
@@ -7,24 +7,19 @@
         </mdb-carousel-item>
       </mdb-carousel>
     </div>
-    <!-- <i (click)="goBack()" class="material-icons btn-back">arrow_back</i> -->
-    <i (click)="previousSlide(carouselRef)" style="font-size: 60px;" class="btn-next material-icons">keyboard_arrow_left</i>
-    <i (click)="nextSlide(carouselRef)" style="font-size: 60px;" class="btn-prev material-icons">keyboard_arrow_right</i>
     <div class="col-4 comments p-0">
       <div class="top">
-        <div class="p-2">
-            <div class="item" *ngFor="let comment of currentPhotoComments">
-              <div class="head">
-                <p class="time">{{comment.time}} </p>
-                <p class="name">{{comment.nickname}}</p>
-              </div>
-              <div class="body">
-                {{comment.comment}}
-              </div>
+        <div class="news py-2" *ngFor="let comment of currentPhotoComments">
+          <div class="excerpt">
+            <div class="brief">
+              <a class="name">{{comment.nickname}}</a>
+              <div class="date">{{comment.time}}</div>
             </div>
-        </div>
+            <div class="added-text">{{comment.comment}}</div>
+          </div>
+        </div>   
       </div>
-      <div class="container bottom">
+      <div class="container-fluid bottom">
           <form class="text-center border-light" [formGroup]="commentFb" (ngSubmit)="onSubmit(carouselRef)">
               <p class="h5">Оставьте комментарий</p>
               <mat-form-field class="m-0 w-100 p-0">
@@ -34,13 +29,19 @@
                     <input matInput placeholder="Ваша почта" type="email" formControlName="email">
                 </mat-form-field> -->
               <div class="form-group">
-                  <mat-form-field class="m-0 w-100 p-0">
-                      <textarea matInput placeholder="Комментарий" type="text" formControlName="comment"></textarea>
-                    </mat-form-field>
+                <mat-form-field class="m-0 w-100 p-0" style="font-size: 14px;">
+                  <textarea matInput 
+                            placeholder="Комментарий" 
+                            type="text" 
+                            formControlName="comment"
+                  ></textarea>
+                </mat-form-field>
+                <button mat-stroked-button type="submit" class="m-0 p-0 btn-block">Отправить</button>   
               </div>  
-              <button mat-stroked-button type="submit" class="m-0 p-0 btn-block">Отправить</button>       
           </form>
       </div>
     </div>
   </div>
+  <i (click)="previousSlide(carouselRef)" style="font-size: 70px;" class="btn-next material-icons">keyboard_arrow_left</i>
+  <i (click)="nextSlide(carouselRef)" style="font-size: 70px;" class="btn-prev material-icons">keyboard_arrow_right</i>
 </div>
