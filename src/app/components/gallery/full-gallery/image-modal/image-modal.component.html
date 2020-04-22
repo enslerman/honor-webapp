@@ -21,13 +21,13 @@
       </div>
       <div class="container-fluid bottom">
           <form class="text-center border-light" [formGroup]="commentFb" (ngSubmit)="onSubmit(carouselRef)">
-              <p class="h6">Оставьте комментарий</p>
-              <mat-form-field class="m-0 w-100 p-0"  style="font-size: 14px;">
-                <input matInput placeholder="Ваше имя" type="text" formControlName="nickname">
-              </mat-form-field>
-              <mat-form-field class="m-0 w-100 p-0"  style="font-size: 14px;">
-                <input matInput placeholder="Ваша почта" type="email" formControlName="email">
-              </mat-form-field>
+              <p class="h5">Оставьте комментарий</p>
+              <mat-form-field class="m-0 w-100 p-0">
+                  <input matInput placeholder="Ваше имя" type="text" formControlName="nickname">
+                </mat-form-field>
+                <!-- <mat-form-field class="m-0 w-100 p-0">
+                    <input matInput placeholder="Ваша почта" type="email" formControlName="email">
+                </mat-form-field> -->
               <div class="form-group">
                 <mat-form-field class="m-0 w-100 p-0" style="font-size: 14px;">
                   <textarea matInput 

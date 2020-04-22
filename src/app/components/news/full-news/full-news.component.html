@@ -18,15 +18,17 @@
                         </mat-card-content>
                         <div style="padding: 1rem;">
                             <p style="text-align: center; text-decoration: underline; font-weight: bold;">Комментарии</p>
-                            <div *ngFor="let comment of comments">
-                                <div class="head">
-                                    <p class="c-name">{{comment.nickname}}</p>
-                                    <p class="c-date">{{comment.time}}</p>
+                            <ng-container *ngFor="let comment of comments">
+                                <div *ngIf="comment.active">
+                                    <div class="head">
+                                        <p class="c-name">{{comment.nickname}}</p>
+                                        <p class="c-date">{{comment.time}}</p>
+                                    </div>
+                                    <div class="body">
+                                        {{comment.description}}
+                                    </div>
                                 </div>
-                                <div class="body">
-                                    {{comment.description}}
-                                </div>
-                            </div>
+                            </ng-container>
                         </div>
                         
                         <mat-card-actions class="p-3">

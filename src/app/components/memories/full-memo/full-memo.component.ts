@@ -55,6 +55,7 @@ export class FullMemoComponent implements OnInit {
         nickname
         description
         time
+        active
       }}}`).toPromise();
       let res =await p;
       this.memo = res.data;
