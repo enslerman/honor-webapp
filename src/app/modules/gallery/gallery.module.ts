@@ -19,7 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import { BackButtonComponent } from 'src/app/components/back-button/back-button.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { LightboxModule } from 'ngx-lightbox';
 
 
 
@@ -43,7 +43,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatCardModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    LightboxModule
   ],
   exports: [BackButtonComponent],
   entryComponents: [ImageModalComponent]
