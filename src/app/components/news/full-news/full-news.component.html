@@ -14,7 +14,7 @@
                                 <img  mat-card-image [src]="news.title_image">
                             </div>
                         </div>
-                        <mat-card-content [innerHTML]="htmlData" class="p-3">
+                        <mat-card-content [innerHTML]="htmlData" class="p-3" style="text-align: justify">
                         </mat-card-content>
                         <div style="padding: 1rem;">
                             <p style="text-align: center; text-decoration: underline; font-weight: bold;">Комментарии</p>
@@ -30,7 +30,7 @@
                                 </div>
                             </ng-container>
                         </div>
-                        
+
                         <mat-card-actions class="p-3">
                             <hr color="white">
                             <button mat-button (click)="openDialog()">Оставить комментарий</button>

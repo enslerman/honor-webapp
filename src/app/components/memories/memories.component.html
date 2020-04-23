@@ -13,7 +13,7 @@
                 </div>
               </div>
               <mat-card-content class="">
-                <div class="m-3 text-break" [innerHTML]="item.description_short"></div>
+                <div class="m-3 text-break" style="text-align: justify" [innerHTML]="item.description_short"></div>
               </mat-card-content>
             </mat-card>
           </div>
@@ -24,4 +24,4 @@
                   [pageSize]="size"
                   (page)="changePage($event)">
     </mat-paginator>
-  </div> 
+  </div>

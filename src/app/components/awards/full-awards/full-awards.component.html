@@ -1,47 +1,40 @@
-<section class="pt-5">
+<div class="container-fluid pt-3">
+  <div class="d-flex justify-content-between">
     <app-back-button></app-back-button>
-    <div class="animated zoomIn">
-        <section class="p-3">
-            <mat-card class="example-card">
-                <mat-card-header>
-                    <mat-card-title>{{award.title}}</mat-card-title>
-                    <mat-card-subtitle>Награды</mat-card-subtitle>
-                </mat-card-header>
-                <div class="container-fluid">
-                    <div class="row justify-content-center py-3">
-                            <img mat-card-image [src]="title_image">
-                    </div>
-                </div>
-                <mat-card-content>
-                    <p>{{award.description}}</p>
-                </mat-card-content>
-                <mat-card-actions>
-                <button mat-button>Написать комментарий</button>
-                </mat-card-actions>
-            </mat-card>
-        </section>
-
-        <div class="table-responsive">
-                <table mdbTable style="height: 100%;">
-                <thead class="black white-text">
-                    <tr>
-                        <th>№</th>
-                        <th>Имя</th>
-                        <th>Фамилия</th>
-                        <th>Отчество</th>
-                        <th>Ранг</th>
-                    </tr>
-                </thead>
-                <tbody class="white-text">
-                    <tr mdbTableCol *ngFor="let el of veterans; let i = index">
-                    <th scope="row">{{i}}</th>
-                    <td>{{el.name}}</td>
-                    <td>{{el.surname}}</td>
-                    <td>{{el.patronomyc}}</td>
-                    <td>{{el.rank}}</td>
-                    </tr>
-                </tbody>
-            </table>
+    <h2 class="font-weight-bold text-center">{{award.name}}</h2>
+    <div></div>
+  </div>
+  <hr color="gray">
+  <div class="row m-3 animated zoomIn">
+        <div class="col-md-5 col-lg-4">
+            <div class="d-flex justify-content-center align-self-center">
+              <img mat-card-image [src]="title_image">
+            </div>
         </div>
-    </div>
-</section>
+        <div class="col-md-7 col-lg-8">
+          <p style="font-size: 18px; text-align: justify">{{award.description}}</p>
+        </div>
+  </div>
+  <div class="table-responsive">
+    <table mdbTable style="height: 100%;">
+      <thead class="black white-text">
+      <tr>
+        <th>№</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Отчество</th>
+        <th>Ранг</th>
+      </tr>
+      </thead>
+      <tbody class="white-text">
+      <tr mdbTableCol *ngFor="let el of veterans; let i = index">
+        <th scope="row">{{i}}</th>
+        <td>{{el.name}}</td>
+        <td>{{el.surname}}</td>
+        <td>{{el.patronomyc}}</td>
+        <td>{{el.rank}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

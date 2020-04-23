@@ -12,11 +12,11 @@ export class AppComponent implements OnInit {
 
   constructor(private spinner: NgxSpinnerService, private themeService: ThemeService) { }
 
-  opened: boolean = false; // true
+  opened = false; // true
   isDarkTheme: Observable<boolean>;
 
-  scrHeight:any;
-  scrWidth:any;
+  scrHeight: any;
+  scrWidth: any;
 
   @HostListener('window:resize', ['$event'])
   getScreenSize(event?) {
@@ -25,16 +25,16 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getScreenSize()
+    this.getScreenSize();
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
-    }, 1)
+    }, 1);
     this.isDarkTheme = this.themeService.isDarkTheme;
   }
 
   onActivate(event) {
-    window.scroll(0,0)
+    window.scroll(0, 0);
   }
 
 }
