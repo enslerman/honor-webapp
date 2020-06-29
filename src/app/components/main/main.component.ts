@@ -36,6 +36,7 @@ export class MainComponent implements OnInit {
   lasts:any = [];
   Memos:any = [];
   news: any = [];
+  visibility: boolean = true;
 
   tiles: Tile[] = [
     {text: '1', cols: 2, rows: 1, color: '#212529'},
@@ -153,11 +154,16 @@ export class MainComponent implements OnInit {
   
   ngOnInit() {
   //  console.log(this.canvas.nativeElement);
+    this.visibility = true;
     this.adaptiveGrid();
     window.scroll(0,0);
-    this.getPosts();
-    this.getNews();
-    this.getLasts()
+    this.getPosts().then(()=> {
+      this.getNews().then(()=> {
+        this.getLasts().then().finally(()=> {
+          this.visibility = false;
+        });
+      });
+    })
   }
-  
+
 }

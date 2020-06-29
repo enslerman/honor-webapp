@@ -10,10 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private spinner: NgxSpinnerService, private themeService: ThemeService) { }
-
-  opened = false; // true
-  isDarkTheme: Observable<boolean>;
+  constructor() { }
 
   scrHeight: any;
   scrWidth: any;
@@ -26,11 +23,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.getScreenSize();
-    this.spinner.show();
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 1);
-    this.isDarkTheme = this.themeService.isDarkTheme;
   }
 
   onActivate(event) {

@@ -33,6 +33,7 @@ import { ThemeService } from './services/theme.service';
 import { CommentsComponent } from './components/comments/comments.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 declare var Hammer: any;
@@ -89,6 +90,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
+    MatProgressSpinnerModule,
     GraphQLModule,
     MatSlideToggleModule,
     MatDialogModule
