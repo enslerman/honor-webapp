@@ -24,7 +24,9 @@ export class HttpService {
     getPostById(id){
         return this.http.get(`${this.baseURL}/post/${id}`).toPromise();
     }
-
+    newComment(data){
+        return this.http.post(`${this.baseURL}/post/comments`,data).toPromise();
+    }
 
     //old api
     getAlbumById(id) {
