@@ -44,29 +44,21 @@ export class FullMemoComponent implements OnInit {
     });
   }
   async getMemo(){
-    let p=this.API.getAll(`{getById(id: ${this.id}, type: 3) {
-      id 
-      title 
-      title_image 
-      description 
-      time 
-      author
-      comments{
-        nickname
-        description
-        time
-        active
-      }}}`).toPromise();
-      let res =await p;
-      this.memo = res.data;
-      this.comments=this.memo.getById.comments;
-      for (let comment of this.comments) {
-        let date=new Date(comment.time);
-        let dateNew=this.prepareDate(date);
-        comment.time=`${dateNew.day} ${dateNew.month} ${dateNew.year} года`;
-      }
-      this.memo = this.memo.getById;
-      this.htmlData = this.sanitizer.bypassSecurityTrustHtml(this.memo.description);
+    let data:any = await this.API.getPostById(this.id);
+    this.memo = data;
+    this.memo.time = this.prettyTime(this.memo.time)
+     
+    this.htmlData = this.sanitizer.bypassSecurityTrustHtml(this.memo.description);
+     
+    this.comments = this.memo.comments;
+    for (let comment of this.comments)
+      comment.time=this.prettyTime(comment.time);
+  }
+
+  prettyTime(time){
+    let date=new Date(time);
+    let dateNew=this.prepareDate(date);
+    return `${dateNew.day} ${dateNew.month} ${dateNew.year} года`;
   }
   prepareDate(date:Date):any{
     let day:any=date.getDate();
@@ -120,11 +112,12 @@ export class FullMemoComponent implements OnInit {
     return res;
   }
 
-  getOtherMemo() {
-    this.API.getAll('{getAll(page: 1, count: 8, type: 3) {id title title_image}}').subscribe(res => {
-      this.OtherMemo = res.data
-      this.OtherMemo = this.OtherMemo.getAll
-    })
+  async getOtherMemo() {
+    let data:any = await this.API.getPostsByType(0,4,"MEMO")
+    this.OtherMemo = data.content;
+    this.OtherMemo.forEach(news => {
+      news.time = this.prettyTime(news.time)
+    });
   }
 
   ngOnInit() {

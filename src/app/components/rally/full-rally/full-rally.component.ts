@@ -52,30 +52,24 @@ export class FullRallyComponent implements OnInit {
   }
 
   async getEvent(){
-    let p=this.API.getAll(`{getById(id: ${this.id}, type: 1) {
-      id 
-      title 
-      title_image 
-      description 
-      time 
-      author
-      comments{
-        nickname
-        description
-        time
-        active
-      }}}`).toPromise();
-      let res =await p;
-      this.rally = res.data;
-      this.comments=this.rally.getById.comments;
-      for (let comment of this.comments) {
-        let date=new Date(comment.time);
-        let dateNew=this.prepareDate(date);
-        comment.time=`${dateNew.day} ${dateNew.month} ${dateNew.year} года`;
-      }
-      this.rally = this.rally.getById;
-      this.htmlData = this.sanitizer.bypassSecurityTrustHtml(this.rally.description);
+    let data:any = await this.API.getPostById(this.id);
+    this.rally = data;
+    this.rally.time = this.prettyTime(this.rally.time)
+     
+    this.htmlData = this.sanitizer.bypassSecurityTrustHtml(this.rally.description);
+     
+    this.comments = this.rally.comments;
+    for (let comment of this.comments) {
+      comment.time=this.prettyTime(comment.time);
+    }
   }
+
+  prettyTime(time){
+    let date=new Date(time);
+    let dateNew=this.prepareDate(date);
+    return `${dateNew.day} ${dateNew.month} ${dateNew.year} года`;
+  }
+
   prepareDate(date:Date):any{
     let day:any=date.getDate();
     let month:any=date.getMonth();
@@ -128,11 +122,12 @@ export class FullRallyComponent implements OnInit {
     return res;
   }
 
-  getOtherRally() {
-    this.API.getAll('{getAll(page: 1, count: 8, type: 1) {id title title_image}}').subscribe(res => {
-    this.OtherRally = res.data
-    this.OtherRally = this.OtherRally.getAll
-  })
+  async getOtherRally() {
+    let data:any = await this.API.getPostsByType(0,4,"RALLY")
+    this.OtherRally = data.content;
+    this.OtherRally.forEach(news => {
+      news.time = this.prettyTime(news.time)
+    });
   }
 
   ngOnInit() {
@@ -151,7 +146,7 @@ export class FullRallyComponent implements OnInit {
   routerLink(id) {
     console.log(id)
     this.id = id;
-    this.router.navigateByUrl(`/events/${id}`);
+    this.router.navigateByUrl(`/rally/${id}`);
     this.getEvent()
   }
 

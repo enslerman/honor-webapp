@@ -7,11 +7,11 @@
                     <mat-card class="example-card">
                         <mat-card-header class="p-3">
                             <mat-card-title>{{event.title}}</mat-card-title>
-                            <mat-card-subtitle>Опубликовано {{event.author}} в {{event.time}}</mat-card-subtitle>
+                            <mat-card-subtitle>Опубликовано {{event.time}}</mat-card-subtitle>
                         </mat-card-header>
                         <div class="container-fluid">
                             <div class="row justify-content-center p-3">
-                                <img  mat-card-image [src]="event.title_image">
+                                <img  mat-card-image [src]="event.titleImage">
                             </div>
                         </div>
                         <mat-card-content style="text-align: justify" [innerHTML]="htmlData" class="p-3">
@@ -25,7 +25,7 @@
                                         <p class="c-date">{{comment.time}}</p>
                                     </div>
                                     <div class="body">
-                                        {{comment.description}}
+                                        {{comment.text}}
                                     </div>
                                 </div>
                             </ng-container>
@@ -41,15 +41,15 @@
             <h4 class="my-3">Другие мероприятия</h4>
             <section class="mb-3">
                 <section class="animated fadeInRight">
-                    <mat-card class="example-card my-3" *ngFor="let item of OtherEvents.slice(0, 3); let i = index">
+                    <mat-card class="example-card my-3" *ngFor="let item of OtherEvents; let i = index">
                         <div (click)="routerLink(item.id)">
                         <mat-card-header class="p-2">
                             <mat-card-title>{{item.title}}</mat-card-title>
-                            <mat-card-subtitle>Опубликовано {{item.author}} в {{item.time}}</mat-card-subtitle>
+                            <mat-card-subtitle>Опубликовано {{item.time}}</mat-card-subtitle>
                         </mat-card-header>
                         <div class="container-fluid">
                             <div class="row justify-content-center">
-                                <img  mat-card-image [src]="item.title_image" style="width: 100%; margin: 0;">
+                                <img  mat-card-image [src]="item.titleImageMini" style="width: 100%; margin: 0;">
                             </div>
                         </div>
                         </div>

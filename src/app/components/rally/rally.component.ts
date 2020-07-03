@@ -23,40 +23,27 @@ export class RallyComponent implements OnInit {
 
   id: number;
   rally: any;
-  size: any;
+
+  pageSizeOptions = ["12","24","36"]
   lenght: any;
-  pagination: any;
+  currentPageNumber: any;
+
   pageEvent: PageEvent;
 
-  async getPosts(page: any){
-    this.API.getAll(`{getAll(page: ${page}, count: null, type: 1) {id title title_image description_short}}`).subscribe(res => {
-      this.rally = res.data;
-      this.rally = this.rally.getAll;
-    });
+  async getPosts(page: any,size:any){
+    let data:any = await this.API.getPostsByType(page,size,"RALLY")
+    console.log(page);
+  
+    this.rally = data.content;
+    this.lenght = data?.totalPages*data.content.length;
+    this.currentPageNumber=data?.pageNumber
   }
-
-  getPage() {
-    this.API.getAll(`
-    {
-      getCount(type: 1) {
-        size 
-        count
-      }
-    }`).subscribe(res => {
-      this.pagination = res.data
-      this.pagination = this.pagination.getCount
-      this.size = this.pagination.size
-      this.lenght = this.pagination.count * this.size
-    })
-  }
-
   changePage(event) {
-    this.getPosts(event.pageIndex + 1)
+    this.getPosts(event.pageIndex,event.pageSize)
   }
 
   ngOnInit() {
-    this.getPage()
-    this.getPosts(1)
+    this.getPosts(0,12)
   }
 
 }

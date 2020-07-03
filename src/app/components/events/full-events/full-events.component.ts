@@ -44,36 +44,29 @@ export class FullEventsComponent implements OnInit {
     });
   }
   async getOtherEvents() {
-    this.API.getAll('{getAll(page: 1, count: 8, type: 2) {id title title_image}}').subscribe(res => {
-      this.OtherEvents = res.data
-      this.OtherEvents = this.OtherEvents.getAll
-    })
+    let data:any = await this.API.getPostsByType(0,4,"EVENTS")
+    this.OtherEvents = data.content;
+    this.OtherEvents.forEach(news => {
+      news.time = this.prettyTime(news.time)
+    });
   }
 
   async getEvent(){
-    let p=this.API.getAll(`{getById(id: ${this.id}, type: 2) {
-      id 
-      title 
-      title_image 
-      description 
-      time 
-      author
-      comments{
-        nickname
-        description
-        time
-        active
-      }}}`).toPromise();
-      let res =await p;
-      this.event = res.data;
-      this.comments=this.event.getById.comments;
-      for (let comment of this.comments) {
-        let date=new Date(comment.time);
-        let dateNew=this.prepareDate(date);
-        comment.time=`${dateNew.day} ${dateNew.month} ${dateNew.year} года`;
-      }
-      this.event = this.event.getById;
-      this.htmlData = this.sanitizer.bypassSecurityTrustHtml(this.event.description);
+    let data:any = await this.API.getPostById(this.id);
+    this.event = data;
+    this.event.time = this.prettyTime(this.event.time)
+     
+    this.htmlData = this.sanitizer.bypassSecurityTrustHtml(this.event.description);
+     
+    this.comments = this.event.comments;
+    for (let comment of this.comments) {
+      comment.time=this.prettyTime(comment.time);
+    }
+  }
+  prettyTime(time){
+    let date=new Date(time);
+    let dateNew=this.prepareDate(date);
+    return `${dateNew.day} ${dateNew.month} ${dateNew.year} года`;
   }
   prepareDate(date:Date):any{
     let day:any=date.getDate();
