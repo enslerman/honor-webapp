@@ -33,6 +33,12 @@ export class HttpService {
     getFullAlbum(id){
         return this.http.get(`${this.baseURL}/gallery/${id}`).toPromise();
     }
+    getOrdens(page,itemsPerPage){
+        return this.http.get(`${this.baseURL}/ordens?page=${page}&itemsPerPage=${itemsPerPage}`).toPromise();
+    }
+    getOrdenById(id){
+        return this.http.get(`${this.baseURL}/ordens/${id}`).toPromise();
+    }
 
     //old api
     getAlbumById(id) {

@@ -22,36 +22,17 @@ export class FullAwardsComponent implements OnInit {
 
   title_image: any;
   id: number;
-  award: any = [{
-    album: {
-      id: 0, 
-      name: "", 
-      images: [{
-        id: 0,
-        name: "",
-        server_path: "",
-        url: ""
-      }]
-    },
-    description: "",
-    id: 0,
-    name: "",
-    small_description: "",
-    veterans: []
-  }];
+  award: any;
   veterans: any;
 
   async getAward(){
-    this.award = await this.API.getAwardById(this.id);
+    this.award = await this.API.getOrdenById(this.id);
     this.veterans = this.award.veterans;
-    this.title_image = this.award.album.images[0].url;
+    this.title_image = this.award.titleImage;
   }
 
   ngOnInit() {
-    this.getAward().then(()=>{
-      console.log(this.award);
-      console.log(this.veterans)
-    })
+    this.getAward()
   }
 
   goBack(){
