@@ -19,11 +19,8 @@ export class GalleryComponent implements OnInit {
   preview: any;
 
   async getAlbums(){
-    this.API.getAll('{getAllAlbums(page: 1) {id name images(limit: 1){id url}}}').subscribe(res => {
-      this.albums = res.data
-      this.albums = this.albums.getAllAlbums
-      console.log(this.albums)
-    })
+    let data:any = await this.API.getGallery(0,10)
+    this.albums = data.content;
   }
 
   ngOnInit() {

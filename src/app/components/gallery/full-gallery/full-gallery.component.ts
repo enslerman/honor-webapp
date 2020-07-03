@@ -34,30 +34,13 @@ export class FullGalleryComponent implements OnInit {
   images: any;
 
   async getAlbum() {
-    let p=this.API.getAll(`{getAlbumById(id: ${this.id}) 
-    {
-      id 
-      name 
-      images{
-        id 
-        url
-        comments{
-          nickname
-          comment
-          time
-        }
-      }
-    }}`).toPromise();
-      let res=await p;
-      this.album = res.data
-      this.album = this.album.getAlbumById
-      this.images = this.album.images;
-      console.log(this.images)
-      // console.log(this.album)
+    let data:any = await this.API.getFullAlbum(this.id)
+    this.images = data.images
+    console.log(data);
 
-      for await (let el of this.images) {
-        el["src"] = el.url
-      }
+    for (let el of this.images) {
+      el["src"] = el.url
+    }
       
   }
 
@@ -68,29 +51,6 @@ export class FullGalleryComponent implements OnInit {
   goBack(){
     this.location.back();
   }
-
-  // openDialog(id): void {
-  //   console.log("open");
-  //   this.imageIndex=id;
-  //   // console.log(this.images);
-  //   this.dialog.open(ImageModalComponent, {
-  //     height:"43rem",
-  //     minWidth:"53rem",
-  //     data: {
-  //       id:id, 
-  //       albumId:this.id,
-  //       images:this.images
-  //     }
-  //   });
-
-
-  //   // const sub = dialogRef.componentInstance.rerender.subscribe((resolve) => {
-  //   //   console.log("rerender");
-  //   //   this.getAlbum().then(()=>{
-  //   //     dialogRef.componentInstance.setComments(this.images[resolve].comments,resolve);
-  //   //   });
-  //   // });
-  // }
 
   open(index: number): void {
     // open lightbox

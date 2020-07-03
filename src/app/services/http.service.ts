@@ -27,6 +27,12 @@ export class HttpService {
     newComment(data){
         return this.http.post(`${this.baseURL}/post/comments`,data).toPromise();
     }
+    getGallery(page,itemsPerPage){
+        return this.http.get(`${this.baseURL}/gallery?page=${page}&itemsPerPage=${itemsPerPage}`).toPromise();
+    }
+    getFullAlbum(id){
+        return this.http.get(`${this.baseURL}/gallery/${id}`).toPromise();
+    }
 
     //old api
     getAlbumById(id) {
