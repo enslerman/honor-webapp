@@ -8,8 +8,8 @@ import gql from 'graphql-tag';
 	providedIn: 'root'
 })
 export class HttpService {
-    // private url:string="http://server.veteran-chest.ru";
-    private url:string="http://localhost:8080";//dev
+    private url:string="http://server.veteran-chest.ru";
+    // private url:string="http://localhost:8080";//dev
     private baseURL:string=`${this.url}`;//prod
     
     constructor(private http: HttpClient, private graph: Apollo){ }
