@@ -16,51 +16,29 @@ export class EventsComponent implements OnInit {
   ) { }
 
   id: number;
-  events:any=[{
-    id:"0",
-    album: {
-      images: [{
-        id: 0,
-        name: "",
-        server_path: "",
-        url: ""
-      }]
-    }
-  }];
-  size: any;
+  events:any;
+  
+  pageSizeOptions = ["12","24","36"]
   lenght: any;
-  pagination: any;
+  currentPageNumber: any;
+
   pageEvent: PageEvent;
 
-  async getEvents(page: any){
-    this.API.getAll(`{getAll(page: ${page}, count: null, type: 2) {id title title_image_mini description_short}}`).subscribe(res => {
-      this.events = res.data
-      this.events = this.events.getAll
-    })
-  }
-
-  getPage() {
-    this.API.getAll(`
-    {
-      getCount(type: 2) {
-        size 
-        count
-      }
-    }`).subscribe(res => {
-      this.pagination = res.data
-      this.pagination = this.pagination.getCount
-      this.size = this.pagination.size
-      this.lenght = this.pagination.count * this.size
-    })
+  async getPosts(page: any,size:any){
+    let data:any = await this.API.getPostsByType(page,size,"EVENTS")
+    console.log(page);
+  
+    this.events = data.content;
+    this.lenght = data?.totalPages*data.content.length;
+    this.currentPageNumber=data?.pageNumber
   }
 
   changePage(event) {
-    this.getEvents(event.pageIndex + 1)
+    this.getPosts(event.pageIndex ,event.pageSize)
   }
 
   ngOnInit() {
-    this.getPage()
-    this.getEvents(1)
+    this.getPosts(0,12)
   }
 
 }

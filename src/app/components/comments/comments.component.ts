@@ -24,20 +24,16 @@ export class CommentsComponent {
 
   async send(){
     console.log(this.data);
-    if(this.comment!==""&&this.name!==""){
-      let comment={
-        "nickname":this.name,
-        "description":this.comment
-      }
-      let res=await this.API.postComment(this.data.component,comment,this.data.id);
-      if(res!="success"){
-        this.error=true;
-      }
-      else{
-        this.dialogRef.close();
-      }
+    let form = new FormData();
+    form.append("id",this.data.id)
+    form.append("text",this.comment)
+    form.append("nickname",this.name)
+    let res:any = await this.API.newComment(form)
+    if(res.text){
+      this.dialogRef.close();
+    }else{
+      this.error = true;
     }
-    // this.
   }
 
 }

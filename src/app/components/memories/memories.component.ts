@@ -24,40 +24,27 @@ export class MemoriesComponent implements OnInit {
 
   id: number;
   memo: any;
-  size: any;
+  pageSizeOptions = ["12","24","36"]
   lenght: any;
-  pagination: any;
+  currentPageNumber: any;
+
   pageEvent: PageEvent;
 
-  getPosts(page: any){
-    this.API.getAll(`{getAll(page: ${page}, count: null, type: 3) {id title title_image_mini description_short}}`).subscribe(res => {
-      this.memo = res.data
-      this.memo = this.memo.getAll
-    })
-  }
-
-  getPage() {
-    this.API.getAll(`
-    {
-      getCount(type: 3) {
-        size 
-        count
-      }
-    }`).subscribe(res => {
-      this.pagination = res.data
-      this.pagination = this.pagination.getCount
-      this.size = this.pagination.size
-      this.lenght = this.pagination.count * this.size
-    })
+  async getPosts(page: any,size){
+    let data:any = await this.API.getPostsByType(page,size,"MEMO")
+    console.log(page);
+  
+    this.memo = data.content;
+    this.lenght = data?.totalPages*data.content.length;
+    this.currentPageNumber=data?.pageNumber
   }
 
   changePage(event) {
-    this.getPosts(event.pageIndex + 1)
+    this.getPosts(event.pageIndex,event.pageSize)
   }
 
   ngOnInit() {
-    this.getPage()
-    this.getPosts(1)
+    this.getPosts(0,12)
   }
 
 }

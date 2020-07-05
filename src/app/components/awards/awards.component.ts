@@ -13,32 +13,16 @@ export class AwardsComponent implements OnInit {
   ) { }
 
   id: number;
-  awards: any = [{
-    album: {
-      id: 0, 
-      name: "", 
-      images: [{
-        id: 0,
-        name: "",
-        server_path: "",
-        url: ""
-      }]
-    },
-    description: "",
-    id: 0,
-    name: "",
-    small_description: "",
-    veterans: []
-  }];
+  awards: any;
 
   async getAwards(){
-    this.awards = await this.API.getAwards()
+    let data:any = await this.API.getOrdens(0,10) 
+    this.awards = data.content
+    console.log(this.awards); 
   }
 
   ngOnInit() {
-    this.getAwards().then(()=>{
-      console.log(this.awards);
-    })
+    this.getAwards();
   }
 
 }

@@ -47,30 +47,22 @@ export class FullNewsComponent implements OnInit {
   }
 
    async getNews(){
-      let p=this.API.getAll(`{getById(id: ${this.id}, type: 4) {
-      id 
-      title 
-      title_image 
-      description 
-      time 
-      author
-      comments{
-        nickname
-        description
-        time
-        active
-      }}}`).toPromise();
-      let res =await p;
-      console.log(res);
-      this.news = res.data;
-      this.comments=this.news.getById.comments;
-      for (let comment of this.comments) {
-        let date=new Date(comment.time);
-        let dateNew=this.prepareDate(date);
-        comment.time=`${dateNew.day} ${dateNew.month} ${dateNew.year} года`;
-      }
-      this.news = this.news.getById;
+     let data:any = await this.API.getPostById(this.id);
+     this.news = data;
+     this.news.time = this.prettyTime(this.news.time)
+     
       this.htmlData = this.sanitizer.bypassSecurityTrustHtml(this.news.description);
+     
+      this.comments = this.news.comments;
+      for (let comment of this.comments) {
+        comment.time=this.prettyTime(comment.time);
+      }
+  }
+
+  prettyTime(time){
+    let date=new Date(time);
+    let dateNew=this.prepareDate(date);
+    return `${dateNew.day} ${dateNew.month} ${dateNew.year} года`;
   }
 
   prepareDate(date:Date):any{
@@ -125,11 +117,12 @@ export class FullNewsComponent implements OnInit {
     return res;
   }
 
-  getOtherNews() {
-    this.API.getAll('{getAll(page: 1, count: 8, type: 4) {id title title_image}}').subscribe(res => {
-      this.OtherNews = res.data
-      this.OtherNews = this.OtherNews.getAll
-    })
+  async getOtherNews() {
+    let data:any = await this.API.getPostsByType(0,4,"NEWS")
+    this.OtherNews = data.content;
+    this.OtherNews.forEach(news => {
+      news.time = this.prettyTime(news.time)
+    });
   }
 
   ngOnInit() {
